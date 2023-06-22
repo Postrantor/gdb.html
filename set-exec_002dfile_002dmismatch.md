@@ -1,0 +1,10 @@
+---
+description: set exec-file-mismatch (Debugging with GDB)
+distribution: global
+Generator: makeinfo
+keywords: set exec-file-mismatch (Debugging with GDB)
+lang: en
+resource-type: document
+title: set exec-file-mismatch (Debugging with GDB)
+---
+The node you are looking for is at [set exec-file-mismatch](Attach.html#set-exec_002dfile_002dmismatch).
