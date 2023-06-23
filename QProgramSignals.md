@@ -1,4 +1,10 @@
 ---
-tip: translate by openai@2023-06-23 12:27:52
-...
+description: QProgramSignals (Debugging with GDB)
+distribution: global
+Generator: makeinfo
+keywords: QProgramSignals (Debugging with GDB)
+lang: en
+resource-type: document
+title: QProgramSignals (Debugging with GDB)
 ---
+The node you are looking for is at [QProgramSignals](General-Query-Packets.html#QProgramSignals).

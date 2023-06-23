@@ -1,4 +1,10 @@
 ---
-tip: translate by openai@2023-06-23 12:28:11
-...
+description: qXfer siginfo write (Debugging with GDB)
+distribution: global
+Generator: makeinfo
+keywords: qXfer siginfo write (Debugging with GDB)
+lang: en
+resource-type: document
+title: qXfer siginfo write (Debugging with GDB)
 ---
+The node you are looking for is at [qXfer siginfo write](General-Query-Packets.html#qXfer-siginfo-write).

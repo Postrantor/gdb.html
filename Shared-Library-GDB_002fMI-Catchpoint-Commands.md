@@ -1,7 +1,4 @@
 ---
-tip: translate by openai@2023-06-23 13:13:55
-...
----
 description: Shared Library GDB/MI Catchpoint Commands (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -9,8 +6,7 @@ keywords: Shared Library GDB/MI Catchpoint Commands (Debugging with GDB)
 lang: en
 resource-type: document
 title: Shared Library GDB/MI Catchpoint Commands (Debugging with GDB)
----------------------------------------------------------------------
-
+---
 ::: header
 Next: [Ada Exception GDB/MI Catchpoint Commands](Ada-Exception-GDB_002fMI-Catchpoint-Commands.html#Ada-Exception-GDB_002fMI-Catchpoint-Commands)]
 :::
@@ -33,13 +29,9 @@ Next: [Ada Exception GDB/MI Catchpoint Commands](Ada-Exception-GDB_002fMI-Catchp
 
 Add a catchpoint for library load events. If the '`-t`' argument is a regular expression used to match the name of the loaded library.
 
-> 为库加载事件添加一个捕获点。如果'-t'参数是一个用于匹配加载库名称的正则表达式。
-
 #### [GDB]
 
 The corresponding [GDB]'.
-
-> 相应的 GDB
 
 #### Example
 
@@ -68,13 +60,9 @@ what="load of library matching foo.so",catch-type="load",times="0"}
 
 Add a catchpoint for library unload events. If the '`-t`' argument is a regular expression used to match the name of the unloaded library.
 
-> 为库卸载事件添加一个捕获点。如果'-t'参数是一个用于匹配卸载库名称的正则表达式。
-
 #### [GDB]
 
 The corresponding [GDB]'.
-
-> 相应的 GDB
 
 #### Example
 

@@ -1,7 +1,4 @@
 ---
-tip: translate by openai@2023-06-23 12:32:31
-...
----
 description: Running (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -9,8 +6,7 @@ keywords: Running (Debugging with GDB)
 lang: en
 resource-type: document
 title: Running (Debugging with GDB)
------------------------------------
-
+---
 ::: header
 Next: [Stopping](Stopping.html#Stopping)]
 :::
@@ -21,11 +17,7 @@ Next: [Stopping](Stopping.html#Stopping)]
 
 When you run a program under [GDB], you must first generate debugging information when you compile it.
 
-> 当你在[GDB]下运行一个程序时，你必须首先在编译时生成调试信息。
-
 You may start [GDB] with its arguments, if any, in an environment of your choice. If you are doing native debugging, you may redirect your program's input and output, debug an already running process, or kill a child process.
-
-> 你可以在你选择的环境中带有参数启动 GDB。如果你在做本地调试，你可以重定向你程序的输入和输出，调试一个正在运行的进程，或杀死一个子进程。
 
 +:-----------------------------------------------------------------------------------------------------------------------------------+-----------------------+:------------------------------------------------------+
 | • [Compilation](Compilation.html#Compilation):                                                                      |                       | Compiling for debugging                               |

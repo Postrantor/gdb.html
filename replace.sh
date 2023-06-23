@@ -14,7 +14,8 @@ else
 fi
 
 operations=(
-    's///g'
+    's/\[\]//g'
+    's/```bash/```bash/g'
 )
 
 function traverse_dir() {

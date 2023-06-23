@@ -1,4 +1,10 @@
 ---
-tip: translate by openai@2023-06-23 12:27:53
-...
+description: QSetWorkingDir packet (Debugging with GDB)
+distribution: global
+Generator: makeinfo
+keywords: QSetWorkingDir packet (Debugging with GDB)
+lang: en
+resource-type: document
+title: QSetWorkingDir packet (Debugging with GDB)
 ---
+The node you are looking for is at [QSetWorkingDir packet](General-Query-Packets.html#QSetWorkingDir-packet).

@@ -1,7 +1,4 @@
 ---
-tip: translate by openai@2023-06-23 11:59:19
-...
----
 description: AVR (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -9,8 +6,7 @@ keywords: AVR (Debugging with GDB)
 lang: en
 resource-type: document
 title: AVR (Debugging with GDB)
--------------------------------
-
+---
 ::: header
 Next: [CRIS](CRIS.html#CRIS)]
 :::
@@ -20,8 +16,6 @@ Next: [CRIS](CRIS.html#CRIS)]
 #### 21.3.9 Atmel AVR
 
 When configured for debugging the Atmel AVR, [GDB] supports the following AVR-specific commands:
-
-> 当配置用于调试 Atmel AVR 时，[GDB]支持以下特定于 AVR 的命令：
 
 `info io_registers`
 

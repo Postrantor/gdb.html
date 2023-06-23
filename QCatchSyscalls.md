@@ -1,4 +1,10 @@
 ---
-tip: translate by openai@2023-06-23 12:27:46
-...
+description: QCatchSyscalls (Debugging with GDB)
+distribution: global
+Generator: makeinfo
+keywords: QCatchSyscalls (Debugging with GDB)
+lang: en
+resource-type: document
+title: QCatchSyscalls (Debugging with GDB)
 ---
+The node you are looking for is at [QCatchSyscalls](General-Query-Packets.html#QCatchSyscalls).

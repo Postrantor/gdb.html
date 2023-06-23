@@ -1,7 +1,4 @@
 ---
-tip: translate by openai@2023-06-23 13:03:45
-...
----
 description: set debuginfod enabled (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -9,8 +6,5 @@ keywords: set debuginfod enabled (Debugging with GDB)
 lang: en
 resource-type: document
 title: set debuginfod enabled (Debugging with GDB)
---------------------------------------------------
-
+---
 The node you are looking for is at [set debuginfod enabled](Debuginfod-Settings.html#set-debuginfod-enabled).
-
-> 您正在寻找的节点位于[设置 debuginfod 启用](Debuginfod-Settings.html#set-debuginfod-enabled)。

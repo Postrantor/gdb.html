@@ -1,7 +1,4 @@
 ---
-tip: translate by openai@2023-06-23 13:37:30
-...
----
 description: stat/fstat (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -9,8 +6,7 @@ keywords: stat/fstat (Debugging with GDB)
 lang: en
 resource-type: document
 title: stat/fstat (Debugging with GDB)
---------------------------------------
-
+---
 ::: header
 Next: [gettimeofday](gettimeofday.html#gettimeofday)]
 :::
@@ -28,15 +24,11 @@ Synopsis:
 Request:
 
 :   '`Fstat,pathnameptr/len,bufptr`'
-
-> Fstat，pathnameptr / len，bufptr
-> '`Ffstat,fd,bufptr`'
+'`Ffstat,fd,bufptr`'
 
 Return value:
 
 :   On success, zero is returned. On error, -1 is returned.
-
-> 如果成功，返回 0。如果出错，返回-1。
 
 Errors:
 

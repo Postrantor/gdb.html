@@ -1,7 +1,4 @@
 ---
-tip: translate by openai@2023-06-23 15:15:47
-...
----
 description: unlink (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -9,8 +6,7 @@ keywords: unlink (Debugging with GDB)
 lang: en
 resource-type: document
 title: unlink (Debugging with GDB)
-----------------------------------
-
+---
 ::: header
 Next: [stat/fstat](stat_002ffstat.html#stat_002ffstat)]
 :::
@@ -29,13 +25,9 @@ Request:
 
 :   '`Funlink,pathnameptr/len`'
 
-> Funlink，pathnameptr/len
-
 Return value:
 
 :   On success, zero is returned. On error, -1 is returned.
-
-> 在成功的情况下，返回零。在出错的情况下，返回-1。
 
 Errors:
 

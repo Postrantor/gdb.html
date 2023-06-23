@@ -1,4 +1,10 @@
 ---
-tip: translate by openai@2023-06-23 12:24:15
-...
+description: Managing Registered Unwinders (Debugging with GDB)
+distribution: global
+Generator: makeinfo
+keywords: Managing Registered Unwinders (Debugging with GDB)
+lang: en
+resource-type: document
+title: Managing Registered Unwinders (Debugging with GDB)
 ---
+The node you are looking for is at [Managing Registered Unwinders](Unwinding-Frames-in-Python.html#Managing-Registered-Unwinders).

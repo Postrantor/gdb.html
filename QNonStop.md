@@ -1,4 +1,10 @@
 ---
-tip: translate by openai@2023-06-23 12:27:50
-...
+description: QNonStop (Debugging with GDB)
+distribution: global
+Generator: makeinfo
+keywords: QNonStop (Debugging with GDB)
+lang: en
+resource-type: document
+title: QNonStop (Debugging with GDB)
 ---
+The node you are looking for is at [QNonStop](General-Query-Packets.html#QNonStop).

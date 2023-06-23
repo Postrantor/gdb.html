@@ -1,7 +1,4 @@
 ---
-tip: translate by openai@2023-06-23 12:33:47
-...
----
 description: Sample Session (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -9,8 +6,7 @@ keywords: Sample Session (Debugging with GDB)
 lang: en
 resource-type: document
 title: Sample Session (Debugging with GDB)
-------------------------------------------
-
+---
 ::: header
 Next: [Invocation](Invocation.html#Invocation)]
 :::
@@ -21,11 +17,7 @@ Next: [Invocation](Invocation.html#Invocation)]
 
 You can use this manual at your leisure to read all about [GDB]. However, a handful of commands are enough to get started using the debugger. This chapter illustrates those commands.
 
-> 你可以在你有空的时候使用这份手册来了解[GDB]的一切。但是，只需要几个命令就可以开始使用调试器。本章将介绍这些命令。
-
 One of the preliminary versions of [GNU] `m4` (a generic macro processor) exhibits the following bug: sometimes, when we change its quote strings from the default, the commands used to capture one macro definition within another stop working. In the following short `m4` session, we define a macro `foo` which expands to `0000`; we then use the `m4` built-in `defn` to define `bar` as the same thing. However, when we change the open quote string to `<QUOTE>` and the close quote string to `<UNQUOTE>`, the same procedure fails to define a new synonym `baz`:
-
-> 一个 GNU m4（一个通用宏处理器）的初步版本表现出以下错误：有时，当我们将其引号字符串从默认值更改时，用于在另一个中捕获一个宏定义的命令停止工作。在以下简短的 m4 会话中，我们定义了一个宏 foo，其展开为 0000；然后，我们使用 m4 内置的 defn 来定义 bar 为相同的东西。但是，当我们将开放引号字符串更改为<QUOTE>和关闭引号字符串更改为<UNQUOTE>时，同样的过程无法定义新的同义词 baz：
 
 ::: smallexample
 
@@ -52,8 +44,6 @@ m4: End of input: 0: fatal error: EOF in string
 
 Let us use [GDB] to try to see what is going on.
 
-> 让我们使用 GDB 来尝试看看到底发生了什么。
-
 ::: smallexample
 
 ```bash
@@ -72,8 +62,6 @@ GDB 14.0.50.20230622-git, Copyright 1999 Free Software Foundation, Inc...
 
 [GDB] to use a narrower display width than usual, so that examples fit in this manual.
 
-> 使用比通常更窄的显示宽度，以便示例适合本手册。
-
 ::: smallexample
 
 ```bash
@@ -83,8 +71,6 @@ GDB 14.0.50.20230622-git, Copyright 1999 Free Software Foundation, Inc...
 :::
 
 We need to see how the `m4` built-in `changequote` works. Having looked at the source, we know the relevant subroutine is `m4_changequote`, so we set a breakpoint there with the [GDB] `break` command.
-
-> 我们需要查看 `m4` 内置的 `changequote` 功能如何运行。经过查看源代码，我们知道相关的子程序是 `m4_changequote`，因此我们可以使用[GDB] `break` 命令在那里设置断点。
 
 ::: smallexample
 
@@ -96,8 +82,6 @@ Breakpoint 1 at 0x62f4: file builtin.c, line 879.
 :::
 
 Using the `run` command, we start `m4` running under [GDB] control; as long as control does not reach the `m4_changequote` subroutine, the program runs as usual:
-
-> 使用 `run` 命令，我们开始在 GDB 控制下运行 m4；只要控制未到达 m4_changequote 子程序，程序就会正常运行：
 
 ::: smallexample
 
@@ -114,8 +98,6 @@ foo
 
 To trigger the breakpoint, we call `changequote`. [GDB] suspends execution of `m4`, displaying information about the context where it stops.
 
-> 要触发断点，我们调用 `changequote`。[GDB]暂停 `m4` 的执行，显示其停止时的上下文信息。
-
 ::: smallexample
 
 ```bash
@@ -129,8 +111,6 @@ Breakpoint 1, m4_changequote (argc=3, argv=0x33c70)
 :::
 
 Now we use the command `n` (`next`) to advance execution to the next line of the current function.
-
-> 现在我们使用命令 `n`（`next`）来将执行转到当前函数的下一行。
 
 ::: smallexample
 
@@ -157,8 +137,6 @@ set_quotes (lq=0x34c78 "<QUOTE>", rq=0x34c88 "<UNQUOTE>")
 
 The display that shows the subroutine where `m4` is now suspended (and its arguments) is called a stack frame display. It shows a summary of the stack. We can use the `backtrace` command (which can also be spelled `bt`), to see where we are in the stack as a whole: the `backtrace` command displays a stack frame for each active subroutine.
 
-> 显示当前暂停的 `m4` 子程序及其参数的显示器称为堆栈帧显示。它显示了堆栈的摘要。我们可以使用 `backtrace` 命令（也可以拼写为 `bt`）来查看堆栈整体的位置：`backtrace` 命令会为每个活动子程序显示一个堆栈帧。
-
 ::: smallexample
 
 ```bash
@@ -178,8 +156,6 @@ The display that shows the subroutine where `m4` is now suspended (and its argum
 
 We step through a few more lines to see what happens. The first two times, we can use '`s`'; the next two times we use `n` to avoid falling into the `xstrdup` subroutine.
 
-> 我们再走几行看看会发生什么。前两次，我们可以用‘s’；接下来两次我们用‘n’来避免跌入 `xstrdup` 子程序。
-
 ::: smallexample
 
 ```bash
@@ -198,8 +174,6 @@ def_lquote : xstrdup(lq);
 :::
 
 The last line displayed looks a little odd; we can examine the variables `lquote` and `rquote` to see if they are in fact the new left and right quotes we specified. We use the command `p` (`print`) to see their values.
-
-> 最后一行显示有点奇怪; 我们可以检查变量 `lquote` 和 `rquote`，看看它们是否实际上是我们指定的新的左右引号。我们使用命令 `p`（`print`）来查看它们的值。
 
 ::: smallexample
 
@@ -236,8 +210,6 @@ $2 = 0x35d50 "<UNQUOTE>"
 
 Let us step past the two lines that set `len_lquote` and `len_rquote`, and then examine the values of those variables.
 
-> 让我们跨过设置 `len_lquote` 和 `len_rquote` 的两条线，然后检查这些变量的值。
-
 ::: smallexample
 
 ```bash
@@ -255,8 +227,6 @@ $4 = 7
 
 That certainly looks wrong, assuming `len_lquote` and `len_rquote` are meant to be the lengths of `lquote` and `rquote` respectively. We can set them to better values using the `p` command, since it can print the value of any expression---and that expression can include subroutine calls and assignments.
 
-> 那看起来肯定不对，假设 `len_lquote` 和 `len_rquote` 分别代表 `lquote` 和 `rquote` 的长度。我们可以使用 `p` 命令将它们设置为更好的值，因为它可以打印任何表达式的值---而这个表达式可以包括子程序调用和赋值。
-
 ::: smallexample
 
 ```bash
@@ -269,8 +239,6 @@ $6 = 9
 :::
 
 Is that enough to fix the problem of using the new quotes with the `m4` built-in `defn`? We can allow `m4` to continue executing with the `c` (`continue`) command, and then try the example that caused trouble initially:
-
-> 这足以解决使用新引号与 `m4` 内置 `defn` 的问题吗？我们可以允许 `m4` 使用 `c`（`continue`）命令继续执行，然后尝试最初引起麻烦的示例：
 
 ::: smallexample
 
@@ -288,8 +256,6 @@ baz
 
 Success! The new quotes now work just as well as the default ones. The problem seems to have been just the two typos defining the wrong lengths. We allow `m4` exit by giving it an EOF as input:
 
-> 成功！新的引用现在和默认的一样有效。问题似乎只是定义错误长度的两个拼写错误。我们通过给它输入 EOF 来允许 `m4` 退出：
-
 ::: smallexample
 
 ```bash
@@ -300,8 +266,6 @@ Program exited normally.
 :::
 
 The message '`Program exited normally.` `quit` command.
-
-> 程序正常退出。`quit` 命令。
 
 ::: smallexample
 
