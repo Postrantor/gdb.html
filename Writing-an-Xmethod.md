@@ -9,7 +9,8 @@ keywords: Writing an Xmethod (Debugging with GDB)
 lang: en
 resource-type: document
 title: Writing an Xmethod (Debugging with GDB)
----
+----------------------------------------------
+
 ::: header
 Next: [Inferiors In Python](Inferiors-In-Python.html#Inferiors-In-Python)]
 :::
@@ -18,10 +19,9 @@ Next: [Inferiors In Python](Inferiors-In-Python.html#Inferiors-In-Python)]
 
 #### 23.3.2.15 Writing an Xmethod
 
-
 Implementing xmethods in Python will require implementing xmethod matchers and xmethod workers (see [Xmethods In Python](Xmethods-In-Python.html#Xmethods-In-Python)). Consider the following C++ class:
 
-> 在Python中实现xmethods需要实现xmethod matchers和xmethod workers（见[Xmethods In Python](Xmethods-In-Python.html#Xmethods-In-Python））。考虑以下C++类：
+> 在 Python 中实现 xmethods 需要实现 xmethod matchers 和 xmethod workers（见[Xmethods In Python](Xmethods-In-Python.html#Xmethods-In-Python））。考虑以下 C++ 类：
 
 ::: smallexample
 
@@ -47,10 +47,9 @@ MyClass::operator+ (int b)
 
 :::
 
-
 Let us define two xmethods for the class `MyClass`, one replacing the method `geta`, and another adding an overloaded flavor of `operator+` which takes a `MyClass` argument (the C++ code above already has an overloaded `operator+` which takes an `int` argument). The xmethod matcher can be defined as follows:
 
-> 让我们为类`MyClass`定义两个xmethods，一个替换方法`geta`，另一个添加一个重载的`operator+`，它接受一个`MyClass`参数（上面的C++代码已经有一个重载的`operator+`，它接受一个`int`参数）。xmethod matcher可以定义如下：
+> 让我们为类 `MyClass` 定义两个 xmethods，一个替换方法 `geta`，另一个添加一个重载的 `operator+`，它接受一个 `MyClass` 参数（上面的 C++ 代码已经有一个重载的 `operator+`，它接受一个 `int` 参数）。xmethod matcher 可以定义如下：
 
 ::: smallexample
 
@@ -94,11 +93,9 @@ class MyClassMatcher(gdb.xmethod.XMethodMatcher):
 
 :::
 
-
 Notice that the `match` method of `MyClassMatcher` returns a worker object of type `MyClassWorker_geta` for the `geta` method, and a worker object of type `MyClassWorker_plus` for the `operator+` method. This is done indirectly via helper classes derived from `gdb.xmethod.XMethod`. One does not need to use the `methods` attribute in a matcher as it is optional. However, if a matcher manages more than one xmethod, it is a good practice to list the xmethods in the `methods` attribute of the matcher. This will then facilitate enabling and disabling individual xmethods via the `enable/disable` commands. Notice also that a worker object is returned only if the corresponding entry in the `methods` attribute of the matcher is enabled.
 
-> 注意，MyClassMatcher的`match`方法会为`geta`方法返回一个类型为MyClassWorker_geta的工作对象，为`operator+`方法返回一个类型为MyClassWorker_plus的工作对象。这是通过从gdb.xmethod.XMethod派生的辅助类间接完成的。不需要在匹配器中使用`methods`属性，因为它是可选的。但是，如果一个匹配器管理多个xmethod，最好将xmethods列在匹配器的`methods`属性中。这将有助于通过`enable/disable`命令启用和禁用各个xmethods。另外，只有在匹配器的`methods`属性中的相应条目被启用时，才会返回工作对象。
-
+> 注意，MyClassMatcher 的 `match` 方法会为 `geta` 方法返回一个类型为 MyClassWorker_geta 的工作对象，为 `operator+` 方法返回一个类型为 MyClassWorker_plus 的工作对象。这是通过从 gdb.xmethod.XMethod 派生的辅助类间接完成的。不需要在匹配器中使用 `methods` 属性，因为它是可选的。但是，如果一个匹配器管理多个 xmethod，最好将 xmethods 列在匹配器的 `methods` 属性中。这将有助于通过 `enable/disable` 命令启用和禁用各个 xmethods。另外，只有在匹配器的 `methods` 属性中的相应条目被启用时，才会返回工作对象。
 
 The implementation of the worker classes returned by the matcher setup above is as follows:
 
@@ -131,10 +128,9 @@ class MyClassWorker_plus(gdb.xmethod.XMethodWorker):
 
 :::
 
-
 For [GDB] globally as follows:
 
-> 对于GDB，全局如下：
+> 对于 GDB，全局如下：
 
 ::: smallexample
 
@@ -144,10 +140,9 @@ gdb.xmethod.register_xmethod_matcher(None, MyClassMatcher())
 
 :::
 
-
 If an object `obj` of type `MyClass` is initialized in C++ code as follows:
 
-> 如果在C++代码中以如下方式初始化类型为MyClass的对象`obj`：
+> 如果在 C++ 代码中以如下方式初始化类型为 MyClass 的对象 `obj`：
 
 ::: smallexample
 
@@ -157,10 +152,9 @@ MyClass obj(5);
 
 :::
 
-
 then, after loading the Python script defining the xmethod matchers and workers into [GDB], invoking the method `geta` or using the operator `+` on `obj` will invoke the xmethods defined above:
 
-> 在将定义了xmethod匹配器和工作者的Python脚本加载到GDB中之后，调用geta方法或在obj上使用+操作符将调用上述定义的xmethods：
+> 在将定义了 xmethod 匹配器和工作者的 Python 脚本加载到 GDB 中之后，调用 geta 方法或在 obj 上使用 + 操作符将调用上述定义的 xmethods：
 
 ::: smallexample
 
@@ -174,10 +168,9 @@ $2 = 10
 
 :::
 
-
 Consider another example with a C++ template class:
 
-> 考虑另一个使用C++模板类的例子：
+> 考虑另一个使用 C++ 模板类的例子：
 
 ::: smallexample
 
@@ -202,10 +195,9 @@ private:
 
 :::
 
-
 Let us implement an xmethod for the above class which serves as a replacement for the `footprint` method. The full code listing of the xmethod workers and xmethod matchers is as follows:
 
-> 让我们为上面的类实现一个xmethod，用作`footprint`方法的替代。xmethod工人和xmethod匹配器的完整代码列表如下：
+> 让我们为上面的类实现一个 xmethod，用作 `footprint` 方法的替代。xmethod 工人和 xmethod 匹配器的完整代码列表如下：
 
 ::: smallexample
 
@@ -239,10 +231,9 @@ class MyTemplateMatcher_footprint(gdb.xmethod.XMethodMatcher):
 
 :::
 
-
 Notice that, in this example, we have not used the `methods` attribute of the matcher as the matcher manages only one xmethod. The user can enable/disable this xmethod by enabling/disabling the matcher itself.
 
-> 在这个例子中，我们没有使用匹配器的`methods`属性，因为匹配器只管理一个xmethod。用户可以通过启用/禁用匹配器来启用/禁用这个xmethod。
+> 在这个例子中，我们没有使用匹配器的 `methods` 属性，因为匹配器只管理一个 xmethod。用户可以通过启用/禁用匹配器来启用/禁用这个 xmethod。
 
 ---
 

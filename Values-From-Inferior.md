@@ -9,7 +9,8 @@ keywords: Values From Inferior (Debugging with GDB)
 lang: en
 resource-type: document
 title: Values From Inferior (Debugging with GDB)
----
+------------------------------------------------
+
 ::: header
 Next: [Types In Python](Types-In-Python.html#Types-In-Python)]
 :::
@@ -18,15 +19,13 @@ Next: [Types In Python](Types-In-Python.html#Types-In-Python)]
 
 #### 23.3.2.3 Values From Inferior
 
-
 [GDB] uses this object for its internal bookkeeping of the inferior's values, and for fetching values when necessary.
 
 > [GDB]使用这个对象来跟踪下属的值的内部记账，并在必要时获取值。
 
-
 Inferior values that are simple scalars can be used directly in Python expressions that are valid for the value's data type. Here's an example for an integer or floating-point value `some_val`:
 
-> 简单的标量值可以直接用于与该值数据类型相符的Python表达式中。这里是一个整数或浮点值`some_val`的例子：
+> 简单的标量值可以直接用于与该值数据类型相符的 Python 表达式中。这里是一个整数或浮点值 `some_val` 的例子：
 
 ::: smallexample
 
@@ -36,10 +35,9 @@ bar = some_val + 2
 
 :::
 
-
 As result of this, `bar` will also be a `gdb.Value` object whose values are of the same type as those of `some_val`. Valid Python operations can also be performed on `gdb.Value` objects representing a `struct` or `class` object. For such cases, the overloaded operator (if present), is used to perform the operation. For example, if `val1` and `val2` are `gdb.Value` objects representing instances of a `class` which overloads the `+` operator, then one can use the `+` operator in their Python script as follows:
 
-> 结果，'bar'也将是一个gdb.Value对象，其值与'some_val'的值类型相同。 对表示'struct'或'class'对象的gdb.Value对象也可以执行有效的Python操作。 对于这种情况，使用重载的运算符（如果存在）来执行操作。 例如，如果'val1'和'val2'是表示重载'+'运算符的类的实例的gdb.Value对象，那么可以在Python脚本中使用'+'运算符，如下所示：
+> 结果，'bar'也将是一个 gdb.Value 对象，其值与'some_val'的值类型相同。 对表示'struct'或'class'对象的 gdb.Value 对象也可以执行有效的 Python 操作。 对于这种情况，使用重载的运算符（如果存在）来执行操作。 例如，如果'val1'和'val2'是表示重载'+'运算符的类的实例的 gdb.Value 对象，那么可以在 Python 脚本中使用'+'运算符，如下所示：
 
 ::: smallexample
 
@@ -49,15 +47,13 @@ val3 = val1 + val2
 
 :::
 
-
 The result of the operation `val3` is also a `gdb.Value` object corresponding to the value returned by the overloaded `+` operator. In general, overloaded operators are invoked for the following operations: `+` (binary addition), `-` (binary subtraction), `*` (multiplication), `/`, `%`, `<<`, `>>`, `|`, `&`, `^`.
 
-> 结果`val3`也是一个`gdb.Value`对象，对应于重载的`+`操作符返回的值。通常，重载的操作符被用于以下操作：`+`（二元加法）、`-`（二元减法）、`*`（乘法）、`/`、`%`、`<<`、`>>`、`|`、`&`、`^`。
-
+> 结果 `val3` 也是一个 `gdb.Value` 对象，对应于重载的 `+` 操作符返回的值。通常，重载的操作符被用于以下操作：`+`（二元加法）、`-`（二元减法）、`*`（乘法）、`/`、`%`、`<<`、`>>`、`|`、`&`、`^`。
 
 Inferior values that are structures or instances of some class can be accessed using the Python *dictionary syntax*. For example, if `some_val` is a `gdb.Value` instance holding a structure, you can access its `foo` element with:
 
-> Python的字典语法可以访问较低级的值，它们是某个类的结构或实例。例如，如果`some_val`是一个`gdb.Value`实例，它保存着一个结构，你可以用：访问它的`foo`元素。
+> Python 的字典语法可以访问较低级的值，它们是某个类的结构或实例。例如，如果 `some_val` 是一个 `gdb.Value` 实例，它保存着一个结构，你可以用：访问它的 `foo` 元素。
 
 ::: smallexample
 
@@ -67,10 +63,9 @@ bar = some_val['foo']
 
 :::
 
-
 Again, `bar` will also be a `gdb.Value` object. Structure elements can also be accessed by using `gdb.Field` objects as subscripts (see [Types In Python](Types-In-Python.html#Types-In-Python), for more information on `gdb.Field` objects). For example, if `foo_field` is a `gdb.Field` object corresponding to element `foo` of the above structure, then `bar` can also be accessed as follows:
 
-> 再次，`bar`也将是一个`gdb.Value`对象。结构元素也可以通过使用`gdb.Field`对象作为下标来访问（有关`gdb.Field`对象的更多信息，请参见[Python中的类型](Types-In-Python.html#Types-In-Python)）。例如，如果`foo_field`是一个对应于上述结构中的元素`foo`的`gdb.Field`对象，那么`bar`也可以如下访问：
+> 再次，`bar` 也将是一个 `gdb.Value` 对象。结构元素也可以通过使用 `gdb.Field` 对象作为下标来访问（有关 `gdb.Field` 对象的更多信息，请参见 [Python 中的类型](Types-In-Python.html#Types-In-Python)）。例如，如果 `foo_field` 是一个对应于上述结构中的元素 `foo` 的 `gdb.Field` 对象，那么 `bar` 也可以如下访问：
 
 ::: smallexample
 
@@ -80,15 +75,13 @@ bar = some_val[foo_field]
 
 :::
 
-
 A `gdb.Value` that represents a function can be executed via inferior function call. Any arguments provided to the call must match the function's prototype, and must be provided in the order specified by that prototype.
 
-> 一个表示函数的`gdb.Value`可以通过下级函数调用来执行。提供给调用的任何参数都必须与函数的原型匹配，并且必须按照原型指定的顺序提供。
-
+> 一个表示函数的 `gdb.Value` 可以通过下级函数调用来执行。提供给调用的任何参数都必须与函数的原型匹配，并且必须按照原型指定的顺序提供。
 
 For example, `some_val` is a `gdb.Value` instance representing a function that takes two integers as arguments. To execute this function, call it like so:
 
-> 例如，`some_val`是一个`gdb.Value`实例，表示一个接受两个整数作为参数的函数。要执行这个函数，可以这样调用它：
+> 例如，`some_val` 是一个 `gdb.Value` 实例，表示一个接受两个整数作为参数的函数。要执行这个函数，可以这样调用它：
 
 ::: smallexample
 
@@ -98,63 +91,53 @@ result = some_val (10,20)
 
 :::
 
-
 Any values returned from a function call will be stored as a `gdb.Value`.
 
-> 任何从函数调用返回的值都将存储为`gdb.Value`。
-
+> 任何从函数调用返回的值都将存储为 `gdb.Value`。
 
 The following attributes are provided:
 
 > 以下属性提供：
 
-
 Variable: **Value.address**
 
 > 变量：**Value.address**
 
-
 :   If this object is addressable, this read-only attribute holds a `gdb.Value` object representing the address. Otherwise, this attribute holds `None`.
 
-> 如果这个对象是可寻址的，这个只读属性持有一个表示地址的`gdb.Value`对象。否则，这个属性持有`None`。
-
+> 如果这个对象是可寻址的，这个只读属性持有一个表示地址的 `gdb.Value` 对象。否则，这个属性持有 `None`。
 
 Variable: **Value.is_optimized_out**
 
 > 变量：**值.已优化外**
 
-
 :   This read-only boolean attribute is true if the compiler optimized out this value, thus it is not available for fetching from the inferior.
 
-> 这个只读的布尔属性如果编译器优化掉了这个值，那么它就不能从次级程序中获取，此时它的值为true。
+> 这个只读的布尔属性如果编译器优化掉了这个值，那么它就不能从次级程序中获取，此时它的值为 true。
 
 ```
 
 ```
-
 
 Variable: **Value.type**
 
 > 变量：**值。类型**
 
-
 :   The type of this `gdb.Value`. The value of this attribute is a `gdb.Type` object (see [Types In Python](Types-In-Python.html#Types-In-Python)).
 
-> 这个`gdb.Value`的类型。该属性的值是一个`gdb.Type`对象（参见[Python中的类型](Types-In-Python.html#Types-In-Python)）。
+> 这个 `gdb.Value` 的类型。该属性的值是一个 `gdb.Type` 对象（参见 [Python 中的类型](Types-In-Python.html#Types-In-Python)）。
 
 ```
 
 ```
-
 
 Variable: **Value.dynamic_type**
 
 > 变量：**Value.dynamic_type**
 
-
 :   The dynamic type of this `gdb.Value`. This uses the object's virtual table and the C++ run-time type information (RTTI) to determine the dynamic type of the value. If this value is of class type, it will return the class in which the value is embedded, if any. If this value is of pointer or reference to a class type, it will compute the dynamic type of the referenced object, and return a pointer or reference to that type, respectively. In all other cases, it will return the value's static type.
 
-> 这个`gdb.Value`的动态类型。它使用对象的虚表和C++运行时类型信息（RTTI）来确定值的动态类型。如果这个值是类类型，它将返回嵌入值的类（如果有的话）。如果这个值是指向类类型的指针或引用，它将计算引用对象的动态类型，并分别返回指向该类型的指针或引用。在所有其他情况下，它将返回值的静态类型。
+> 这个 `gdb.Value` 的动态类型。它使用对象的虚表和 C++ 运行时类型信息（RTTI）来确定值的动态类型。如果这个值是类类型，它将返回嵌入值的类（如果有的话）。如果这个值是指向类类型的指针或引用，它将计算引用对象的动态类型，并分别返回指向该类型的指针或引用。在所有其他情况下，它将返回值的静态类型。
 
 ```
 Note that this feature will only work when debugging a C++ program that includes RTTI for the object in question. Otherwise, it will just return the static type of the value as in [ptype foo] (see [ptype](Symbols.html#Symbols)).
@@ -164,15 +147,13 @@ Note that this feature will only work when debugging a C++ program that includes
 
 ```
 
-
 Variable: **Value.is_lazy**
 
 > 变量：**Value.is_lazy**
 
-
 :   The value of this read-only boolean attribute is `True` if this `gdb.Value` has not yet been fetched from the inferior. [GDB] does not fetch values until necessary, for efficiency. For example:
 
-> 这个只读布尔属性的值如果这个GDB.Value尚未从下级获取，则为`True`。为了提高效率，[GDB]不会在必要时才获取值。例如：
+> 这个只读布尔属性的值如果这个 GDB.Value 尚未从下级获取，则为 `True`。为了提高效率，[GDB]不会在必要时才获取值。例如：
 
 ```
 ::: smallexample

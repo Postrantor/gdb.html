@@ -9,7 +9,8 @@ keywords: Separate Debug Files (Debugging with GDB)
 lang: en
 resource-type: document
 title: Separate Debug Files (Debugging with GDB)
----
+------------------------------------------------
+
 ::: header
 Next: [MiniDebugInfo](MiniDebugInfo.html#MiniDebugInfo)]
 :::
@@ -18,36 +19,30 @@ Next: [MiniDebugInfo](MiniDebugInfo.html#MiniDebugInfo)]
 
 ### 18.3 Debugging Information in Separate Files
 
-
 [GDB] to find and load the debugging information automatically. Since debugging information can be very large---sometimes larger than the executable code itself---some systems distribute debugging information for their executables in separate files, which users can install only when they need to debug a problem.
 
-> GDB可以自动查找和加载调试信息。由于调试信息可能非常大——有时比可执行代码本身还要大——一些系统将可执行文件的调试信息分发到单独的文件中，用户只有在需要调试问题时才能安装这些文件。
-
+> GDB 可以自动查找和加载调试信息。由于调试信息可能非常大——有时比可执行代码本身还要大——一些系统将可执行文件的调试信息分发到单独的文件中，用户只有在需要调试问题时才能安装这些文件。
 
 [GDB] supports two ways of specifying the separate debug info file:
 
 > [GDB]支持两种指定单独调试信息文件的方式：
 
-
 - The executable contains a *debug link* that specifies the name of the separate debug info file. The separate debug file's name is usually `executable.debug` uses to validate that the executable and the debug file came from the same build.
 
-> 可执行文件包含一个*调试链接*，用于指定单独的调试信息文件的名称。单独的调试文件的名称通常是`executable.debug`，用于验证可执行文件和调试文件来自同一次构建。
+> 可执行文件包含一个*调试链接*，用于指定单独的调试信息文件的名称。单独的调试文件的名称通常是 `executable.debug`，用于验证可执行文件和调试文件来自同一次构建。
 
 - command-line option in [Command Line Options](http://sourceware.org/binutils/docs/ld/Options.html#Options) in The GNU Linker. The debug info file's name is not specified explicitly by the build ID, but can be computed from the build ID, see below.
 
-> 在 GNU 链接器的[命令行选项](http://sourceware.org/binutils/docs/ld/Options.html#Options)中，调试信息文件的名称没有被构建ID明确指定，但可以从构建ID计算出来，参见下文。
-
+> 在 GNU 链接器的[命令行选项](http://sourceware.org/binutils/docs/ld/Options.html#Options)中，调试信息文件的名称没有被构建 ID 明确指定，但可以从构建 ID 计算出来，参见下文。
 
 Depending on the way the debug info file is specified, [GDB] uses two different methods of looking for the debug file:
 
 > 根据调试信息文件的指定方式，[GDB]使用两种不同的查找调试文件的方法：
 
 - For the "debug link" method, [GDB], because Windows filesystems disallow colons in file names.)
-
 - For the "build ID" method, [GDB] can automatically query `debuginfod` servers using build IDs in order to download separate debug files that cannot be found locally. For more information see [Debuginfod](Debuginfod.html#Debuginfod).
 
-> 对于“构建ID”方法，[GDB]可以自动使用构建ID查询debuginfod服务器，以下载无法在本地找到的单独的调试文件。有关更多信息，请参阅[Debuginfod](Debuginfod.html#Debuginfod)。
-
+> 对于“构建 ID”方法，[GDB]可以自动使用构建 ID 查询 debuginfod 服务器，以下载无法在本地找到的单独的调试文件。有关更多信息，请参阅 [Debuginfod](Debuginfod.html#Debuginfod)。
 
 So, for example, suppose you ask [GDB] will look for the following debug information files, in the indicated order:
 
@@ -58,11 +53,9 @@ So, for example, suppose you ask [GDB] will look for the following debug informa
 - \- `/usr/bin/.debug/ls.debug`
 - \- `/usr/lib/debug/usr/bin/ls.debug`.
 
-
 If the debug file still has not been found and `debuginfod` (see [Debuginfod](Debuginfod.html#Debuginfod)) is enabled, [GDB] will attempt to download the file from `debuginfod` servers.
 
-> 如果调试文件仍未找到，并且启用了`debuginfod`（参见[Debuginfod](Debuginfod.html#Debuginfod)），[GDB]将尝试从`debuginfod`服务器下载该文件。
-
+> 如果调试文件仍未找到，并且启用了 `debuginfod`（参见 [Debuginfod](Debuginfod.html#Debuginfod)），[GDB]将尝试从 `debuginfod` 服务器下载该文件。
 
 Global debugging info directories default to what is set by [GDB] is currently using.
 
@@ -70,48 +63,40 @@ Global debugging info directories default to what is set by [GDB] is currently u
 
 `set debug-file-directory directories`
 
-
 Set the directories which [GDB]. Multiple path components can be set concatenating them by a path separator.
 
 > 设置[GDB]的目录。可以通过路径分隔符连接多个路径组件来设置它们。
 
 `show debug-file-directory`
 
-
 Show the directories [GDB] searches for separate debugging information files.
 
 > 显示[GDB]搜索单独调试信息文件的目录。
 
-
 A debug link is a special section of the executable file named `.gnu_debuglink`. The section must contain:
 
-> 一个调试链接是可执行文件中名为`.gnu_debuglink`的特殊部分。该部分必须包含：
+> 一个调试链接是可执行文件中名为 `.gnu_debuglink` 的特殊部分。该部分必须包含：
 
 - A filename, with any leading directory components removed, followed by a zero byte,
-
 - zero to three bytes of padding, as needed to reach the next four-byte boundary within the section, and
 
 > 零到三个字节的填充，以达到该节内的下一个四字节边界，根据需要
 
 - a four-byte CRC checksum, stored in the same endianness used for the executable file itself. The checksum is computed on the debugging information file's full contents by the function given below, passing zero as the `crc` argument.
 
-> CRC校验和是4字节，以与可执行文件本身使用的字节序相同的方式存储。该校验和是通过下面给出的函数，将crc参数设置为零，计算调试信息文件的完整内容而获得的。
-
+> CRC 校验和是 4 字节，以与可执行文件本身使用的字节序相同的方式存储。该校验和是通过下面给出的函数，将 crc 参数设置为零，计算调试信息文件的完整内容而获得的。
 
 Any executable file format can carry a debug link, as long as it can contain a section named `.gnu_debuglink` with the contents described above.
 
-> 任何可执行文件格式都可以携带调试链接，只要它可以包含一个名为`.gnu_debuglink`的部分，其内容按照上述描述。
-
+> 任何可执行文件格式都可以携带调试链接，只要它可以包含一个名为 `.gnu_debuglink` 的部分，其内容按照上述描述。
 
 The build ID is a special section in the executable file (and in other ELF binary files that [GDB] may consider). This section is often named `.note.gnu.build-id`, but that name is not mandatory. It contains unique identification for the built files---the ID remains the same across multiple builds of the same build tree. The default algorithm SHA1 produces 160 bits (40 hexadecimal characters) of the content for the build ID string. The same section with an identical value is present in the original built binary with symbols, in its stripped variant, and in the separate debugging information file.
 
-> 构建ID是可执行文件（以及[GDB]可能考虑的其他ELF二进制文件）中的特殊部分。该部分通常被命名为".note.gnu.build-id"，但这个名字不是强制性的。它包含唯一标识构建文件的ID，该ID在相同构建树的多次构建中保持不变。默认算法SHA1为构建ID字符串生成160位（40个十六进制字符）的内容。带有相同值的相同部分出现在原始构建二进制文件（带符号）、其剥离变体以及单独的调试信息文件中。
-
+> 构建 ID 是可执行文件（以及[GDB]可能考虑的其他 ELF 二进制文件）中的特殊部分。该部分通常被命名为".note.gnu.build-id"，但这个名字不是强制性的。它包含唯一标识构建文件的 ID，该 ID 在相同构建树的多次构建中保持不变。默认算法 SHA1 为构建 ID 字符串生成 160 位（40 个十六进制字符）的内容。带有相同值的相同部分出现在原始构建二进制文件（带符号）、其剥离变体以及单独的调试信息文件中。
 
 The debugging information file itself should be an ordinary executable, containing a full set of linker symbols, sections, and debugging information. The sections of the debugging information file should have the same names, addresses, and sizes as the original file, but they need not contain any data---much like a `.bss` section in an ordinary executable.
 
-> 调试信息文件本身应该是一个普通的可执行文件，包含完整的链接符号、段和调试信息。调试信息文件的段应该具有与原始文件相同的名称、地址和大小，但不需要包含任何数据 - 就像普通可执行文件中的`.bss`段一样。
-
+> 调试信息文件本身应该是一个普通的可执行文件，包含完整的链接符号、段和调试信息。调试信息文件的段应该具有与原始文件相同的名称、地址和大小，但不需要包含任何数据 - 就像普通可执行文件中的 `.bss` 段一样。
 
 The [GNU]' utility that can produce the separated executable / debugging information file pairs using the following commands:
 
@@ -126,37 +111,33 @@ strip -g foo
 
 :::
 
-
 These commands remove the debugging information from the executable file `foo`. You can use the first, second or both methods to link the two files:
 
-> 这些命令可以从可执行文件`foo`中移除调试信息。您可以使用第一种、第二种或两种方法来链接这两个文件：
-
+> 这些命令可以从可执行文件 `foo` 中移除调试信息。您可以使用第一种、第二种或两种方法来链接这两个文件：
 
 - The debug link method needs the following additional command to also leave behind a debug link in `foo`:
 
-> 调试链接方法需要以下附加命令才能在`foo`中留下调试链接：
+> 调试链接方法需要以下附加命令才能在 `foo` 中留下调试链接：
 
-  ::: smallexample
+::: smallexample
 
-  ```bash
-  objcopy --add-gnu-debuglink=foo.debug foo
-  ```
+```bash
+objcopy --add-gnu-debuglink=foo.debug foo
+```
 
-  :::
+:::
 
+Ulrich Drepper's `elfutils` has the same functionality as the two `objcopy` commands and the `ln -s` command above, together.
 
-  Ulrich Drepper's `elfutils` has the same functionality as the two `objcopy` commands and the `ln -s` command above, together.
-
-> Ulrich Drepper的`elfutils`具有与上面的两个`objcopy`命令和`ln -s`命令相同的功能。
+> Ulrich Drepper 的 `elfutils` 具有与上面的两个 `objcopy` 命令和 `ln -s` 命令相同的功能。
 
 - Build ID gets embedded into the main executable using `ld --build-id` or the [GCC] binary utilities (Binutils) package since version 2.18.
 
-> 使用`ld --build-id`或者[GCC]二进制工具（Binutils）自2.18版本开始，构建ID会被嵌入到主可执行文件中。
-
+> 使用 `ld --build-id` 或者[GCC]二进制工具（Binutils）自 2.18 版本开始，构建 ID 会被嵌入到主可执行文件中。
 
 The CRC used in `.gnu_debuglink` is the CRC-32 defined in IEEE 802.3 using the polynomial:
 
-> CRC在`gnu_debuglink`中使用的是IEEE 802.3定义的CRC-32，使用的多项式是：
+> CRC 在 `gnu_debuglink` 中使用的是 IEEE 802.3 定义的 CRC-32，使用的多项式是：
 
 ::: display
 
@@ -167,20 +148,17 @@ The CRC used in `.gnu_debuglink` is the CRC-32 defined in IEEE 802.3 using the p
 
 :::
 
-
 The function is computed byte at a time, taking the least significant bit of each byte first. The initial pattern `0xffffffff` is used, to ensure leading zeros affect the CRC and the final result is inverted to ensure trailing zeros also affect the CRC.
 
-> 函数每次以字节为单位进行计算，先处理每个字节的最低有效位。使用初始模式`0xffffffff`，以确保前导零会影响CRC，最终结果取反，以确保尾随零也会影响CRC。
-
+> 函数每次以字节为单位进行计算，先处理每个字节的最低有效位。使用初始模式 `0xffffffff`，以确保前导零会影响 CRC，最终结果取反，以确保尾随零也会影响 CRC。
 
 *Note:* This is the same CRC polynomial as used in handling the *Remote Serial Protocol* `qCRC` packet (see [qCRC packet](General-Query-Packets.html#qCRC-packet)). However in the case of the Remote Serial Protocol, the CRC is computed *most* significant bit first, and the result is not inverted, so trailing zeros have no effect on the CRC value.
 
-> 注意：这是与处理*远程串行协议* `qCRC` 报文（请参阅[qCRC 报文](General-Query-Packets.html#qCRC-packet)）相同的 CRC 多项式。但是，在远程串行协议的情况下，CRC 是从最高有效位开始计算的，结果不会被反转，因此尾随的零对 CRC 值没有影响。
-
+> 注意：这是与处理*远程串行协议* `qCRC` 报文（请参阅 [qCRC 报文](General-Query-Packets.html#qCRC-packet)）相同的 CRC 多项式。但是，在远程串行协议的情况下，CRC 是从最高有效位开始计算的，结果不会被反转，因此尾随的零对 CRC 值没有影响。
 
 To complete the description, we show below the code of the function which produces the CRC used in `.gnu_debuglink`. Inverting the initially supplied `crc` argument means that an initial call to this function passing in zero will start computing the CRC using `0xffffffff`.
 
-> 为了完成描述，我们在下面展示了生成`.gnu_debuglink`中使用的CRC的函数的代码。 将最初提供的`crc`参数取反意味着对此函数的初始调用传入零将开始使用`0xffffffff`计算CRC。
+> 为了完成描述，我们在下面展示了生成 `.gnu_debuglink` 中使用的 CRC 的函数的代码。 将最初提供的 `crc` 参数取反意味着对此函数的初始调用传入零将开始使用 `0xffffffff` 计算 CRC。
 
 ::: smallexample
 
@@ -255,10 +233,9 @@ gnu_debuglink_crc32 (unsigned long crc,
 
 :::
 
-
 This computation does not apply to the "build ID" method.
 
-> 此计算不适用于“构建ID”方法。
+> 此计算不适用于“构建 ID”方法。
 
 ---
 

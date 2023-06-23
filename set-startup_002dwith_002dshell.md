@@ -9,8 +9,8 @@ keywords: set startup-with-shell (Debugging with GDB)
 lang: en
 resource-type: document
 title: set startup-with-shell (Debugging with GDB)
----
+--------------------------------------------------
 
 The node you are looking for is at [set startup-with-shell](Starting.html#set-startup_002dwith_002dshell).
 
-> 你正在寻找的节点位于[设置启动shell](Starting.html#set-startup_002dwith_002dshell)。
+> 你正在寻找的节点位于[设置启动 shell](Starting.html#set-startup_002dwith_002dshell)。

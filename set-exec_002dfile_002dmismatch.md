@@ -9,8 +9,8 @@ keywords: set exec-file-mismatch (Debugging with GDB)
 lang: en
 resource-type: document
 title: set exec-file-mismatch (Debugging with GDB)
----
+--------------------------------------------------
 
 The node you are looking for is at [set exec-file-mismatch](Attach.html#set-exec_002dfile_002dmismatch).
 
-> 您正在寻找的节点位于[设置exec-file-mismatch](Attach.html#set-exec_002dfile_002dmismatch)。
+> 您正在寻找的节点位于[设置 exec-file-mismatch](Attach.html#set-exec_002dfile_002dmismatch)。

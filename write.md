@@ -9,7 +9,8 @@ keywords: write (Debugging with GDB)
 lang: en
 resource-type: document
 title: write (Debugging with GDB)
----
+---------------------------------
+
 ::: header
 Next: [lseek](lseek.html#lseek)]
 :::
@@ -26,13 +27,11 @@ Synopsis:
 
 Request:
 
-
 :   '`Fwrite,fd,bufptr,count`'
 
 > 写入，fd，bufptr，计数
 
 Return value:
-
 
 :   On success, the number of bytes written are returned. Zero indicates nothing was written. On error, -1 is returned.
 

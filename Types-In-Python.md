@@ -9,7 +9,8 @@ keywords: Types In Python (Debugging with GDB)
 lang: en
 resource-type: document
 title: Types In Python (Debugging with GDB)
----
+-------------------------------------------
+
 ::: header
 Next: [Pretty Printing API](Pretty-Printing-API.html#Pretty-Printing-API)]
 :::
@@ -18,18 +19,15 @@ Next: [Pretty Printing API](Pretty-Printing-API.html#Pretty-Printing-API)]
 
 #### 23.3.2.4 Types In Python
 
-
 [GDB] represents types from the inferior using the class `gdb.Type`.
 
 > [GDB] 使用类 `gdb.Type` 从下层表示类型。
-
 
 The following type-related functions are available in the `gdb` module:
 
 > `gdb` 模块中提供了以下与类型相关的函数：
 
 )*
-
 
 :   This function looks up a type by its `name`, which must be a string.
 
@@ -41,15 +39,13 @@ If `block` is looked up in that scope. Otherwise, it is searched for globally.
 Ordinarily, this function will return an instance of `gdb.Type`. If the named type cannot be found, it will throw an exception.
 ```
 
-
 Integer types can be found without looking them up by name. See [Architectures In Python](Architectures-In-Python.html#Architectures-In-Python), for the `integer_type` method.
 
-> 整数类型可以不通过查找名称就能找到。请参阅[Python中的架构](Architectures-In-Python.html#Architectures-In-Python)，了解“integer_type”方法。
-
+> 整数类型可以不通过查找名称就能找到。请参阅 [Python 中的架构](Architectures-In-Python.html#Architectures-In-Python)，了解“integer_type”方法。
 
 If the type is a structure or class type, or an enum type, the fields of that type can be accessed using the Python *dictionary syntax*. For example, if `some_type` is a `gdb.Type` instance holding a structure type, you can access its `foo` field with:
 
-> 如果类型是结构体或类型，或枚举类型，可以使用Python *字典语法*访问该类型的字段。例如，如果`some_type`是一个`gdb.Type`实例，它保存了一个结构类型，你可以使用以下方式访问它的`foo`字段：
+> 如果类型是结构体或类型，或枚举类型，可以使用 Python *字典语法*访问该类型的字段。例如，如果 `some_type` 是一个 `gdb.Type` 实例，它保存了一个结构类型，你可以使用以下方式访问它的 `foo` 字段：
 
 ::: smallexample
 
@@ -61,20 +57,17 @@ bar = some_type['foo']
 
 `bar` will be a `gdb.Field` object; see below under the description of the `Type.fields` method for a description of the `gdb.Field` class.
 
-
 An instance of `Type` has the following attributes:
 
-> 一个`类型`的实例具有以下属性：
-
+> 一个 `类型` 的实例具有以下属性：
 
 Variable: **Type.alignof**
 
 > 变量：**Type.alignof**
 
-
 :   The alignment of this type, in bytes. Type alignment comes from the debugging information; if it was not specified, then [GDB] will use the relevant ABI to try to determine the alignment. In some cases, even this is not possible, and zero will be returned.
 
-> 此类型的对齐方式，以字节为单位。类型对齐来自调试信息；如果没有指定，[GDB]将使用相关的ABI尝试确定对齐方式。在某些情况下，甚至无法这样做，将返回零。
+> 此类型的对齐方式，以字节为单位。类型对齐来自调试信息；如果没有指定，[GDB]将使用相关的 ABI 尝试确定对齐方式。在某些情况下，甚至无法这样做，将返回零。
 
 ```
 
@@ -82,24 +75,21 @@ Variable: **Type.alignof**
 
 Variable: **Type.code**
 
-
 :   The type code for this type. The type code will be one of the `TYPE_CODE_` constants defined below.
 
-> 此类型的类型代码。类型代码将是下面定义的`TYPE_CODE_`常量之一。
+> 此类型的类型代码。类型代码将是下面定义的 `TYPE_CODE_` 常量之一。
 
 ```
 
 ```
-
 
 Variable: **Type.dynamic**
 
 > 变量：**类型。动态**
 
-
 :   A boolean indicating whether this type is dynamic. In some situations, such as Rust `enum` types or Ada variant records, the concrete type of a value may vary depending on its contents. That is, the declared type of a variable, or the type returned by `gdb.lookup_type` may be dynamic; while the type of the variable's value will be a concrete instance of that dynamic type.
 
-> 一个布尔值，指示这种类型是否是动态的。在某些情况下，例如Rust `enum`类型或Ada变体记录，值的具体类型可能会根据其内容而变化。也就是说，变量的声明类型或由`gdb.lookup_type`返回的类型可能是动态的；而变量值的类型将是该动态类型的具体实例。
+> 一个布尔值，指示这种类型是否是动态的。在某些情况下，例如 Rust `enum` 类型或 Ada 变体记录，值的具体类型可能会根据其内容而变化。也就是说，变量的声明类型或由 `gdb.lookup_type` 返回的类型可能是动态的；而变量值的类型将是该动态类型的具体实例。
 
 ```
 For example, consider this code:

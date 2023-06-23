@@ -9,7 +9,8 @@ keywords: TUI (Debugging with GDB)
 lang: en
 resource-type: document
 title: TUI (Debugging with GDB)
----
+-------------------------------
+
 ::: header
 Next: [Emacs](Emacs.html#Emacs)]
 :::
@@ -18,22 +19,19 @@ Next: [Emacs](Emacs.html#Emacs)]
 
 ## 25 [GDB]
 
-
 The [GDB] commands in separate text windows. The TUI mode is supported only on platforms where a suitable version of the `curses` library is available.
 
-> 命令在单独的文本窗口中显示。TUI模式仅在有合适版本的“curses”库可用的平台上支持。
-
+> 命令在单独的文本窗口中显示。TUI 模式仅在有合适版本的“curses”库可用的平台上支持。
 
 The TUI mode is enabled by default when you invoke [GDB]. See [TUI Commands](TUI-Commands.html#TUI-Commands), and [TUI Key Bindings](TUI-Keys.html#TUI-Keys).
 
-> 当您调用[GDB]时，TUI模式默认启用。请参阅[TUI命令](TUI-Commands.html#TUI-Commands)和[TUI键绑定](TUI-Keys.html#TUI-Keys)。
+> 当您调用[GDB]时，TUI 模式默认启用。请参阅 [TUI 命令](TUI-Commands.html#TUI-Commands)和 [TUI 键绑定](TUI-Keys.html#TUI-Keys)。
 
 ---
 
-
 • [TUI Overview](TUI-Overview.html#TUI-Overview):                             TUI overview
 
-> • [TUI概览](TUI-Overview.html#TUI-Overview):                             TUI概述
+> • [TUI 概览](TUI-Overview.html#TUI-Overview):                             TUI 概述
 
 • [TUI Keys](TUI-Keys.html#TUI-Keys):                                         TUI key bindings
 
@@ -49,7 +47,7 @@ The TUI mode is enabled by default when you invoke [GDB]. See [TUI Commands](TUI
 
 • [TUI Commands](TUI-Commands.html#TUI-Commands):                             TUI-specific commands
 
-> • [TUI命令](TUI-Commands.html#TUI-Commands):                             TUI特定的命令
+> • [TUI 命令](TUI-Commands.html#TUI-Commands):                             TUI 特定的命令
 
 • [TUI Configuration](TUI-Configuration.html#TUI-Configuration):              TUI configuration variables
 

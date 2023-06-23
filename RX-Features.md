@@ -9,7 +9,8 @@ keywords: RX Features (Debugging with GDB)
 lang: en
 resource-type: document
 title: RX Features (Debugging with GDB)
----
+---------------------------------------
+
 ::: header
 Next: [S/390 and System z Features](S_002f390-and-System-z-Features.html#S_002f390-and-System-z-Features)]
 :::
@@ -18,7 +19,6 @@ Next: [S/390 and System z Features](S_002f390-and-System-z-Features.html#S_002f3
 
 #### G.5.14 RX Features
 
-
 The '`org.gnu.gdb.rx.core`'.
 
-> org.gnu.gdb.rx.core：GNU GDB RX核心
+> org.gnu.gdb.rx.core：GNU GDB RX 核心

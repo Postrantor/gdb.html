@@ -9,7 +9,8 @@ keywords: unlink (Debugging with GDB)
 lang: en
 resource-type: document
 title: unlink (Debugging with GDB)
----
+----------------------------------
+
 ::: header
 Next: [stat/fstat](stat_002ffstat.html#stat_002ffstat)]
 :::
@@ -26,13 +27,11 @@ Synopsis:
 
 Request:
 
-
 :   '`Funlink,pathnameptr/len`'
 
 > Funlink，pathnameptr/len
 
 Return value:
-
 
 :   On success, zero is returned. On error, -1 is returned.
 

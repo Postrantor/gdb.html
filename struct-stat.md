@@ -9,7 +9,8 @@ keywords: struct stat (Debugging with GDB)
 lang: en
 resource-type: document
 title: struct stat (Debugging with GDB)
----
+---------------------------------------
+
 ::: header
 Next: [struct timeval](struct-timeval.html#struct-timeval)]
 :::
@@ -18,10 +19,9 @@ Next: [struct timeval](struct-timeval.html#struct-timeval)]
 
 #### struct stat
 
-
 The buffer of type `struct stat` used by the target and [GDB] is defined as follows:
 
-> 目标和[GDB]使用的`struct stat`类型的缓冲区定义如下：
+> 目标和[GDB]使用的 `struct stat` 类型的缓冲区定义如下：
 
 ::: smallexample
 
@@ -45,11 +45,9 @@ struct stat {
 
 :::
 
-
 The integral datatypes conform to the definitions given in the appropriate section (see [Integral Datatypes](Integral-Datatypes.html#Integral-Datatypes), for details) so this structure is of size 64 bytes.
 
-> 整数数据类型符合相应部分（参见[整数数据类型](Integral-Datatypes.html#Integral-Datatypes)以获取详细信息）中给出的定义，因此这个结构的大小为64字节。
-
+> 整数数据类型符合相应部分（参见[整数数据类型](Integral-Datatypes.html#Integral-Datatypes)以获取详细信息）中给出的定义，因此这个结构的大小为 64 字节。
 
 The values of several fields have a restricted meaning and/or range of values.
 
@@ -57,20 +55,17 @@ The values of several fields have a restricted meaning and/or range of values.
 
 `st_dev`
 
-
 :   A value of 0 represents a file, 1 the console.
 
-> 一个值为0代表文件，1代表控制台。
+> 一个值为 0 代表文件，1 代表控制台。
 
 `st_ino`
-
 
 :   No valid meaning for the target. Transmitted unchanged.
 
 > 没有有效的目标意义。传输未改变。
 
 `st_mode`
-
 
 :   Valid mode bits are described in [Constants](Constants.html#Constants). Any other bits have currently no meaning for the target.
 
@@ -80,7 +75,6 @@ The values of several fields have a restricted meaning and/or range of values.
 `st_gid`
 `st_rdev`
 
-
 :   No valid meaning for the target. Transmitted unchanged.
 
 > 无有效意义的目标。未经改变地传输。
@@ -89,15 +83,13 @@ The values of several fields have a restricted meaning and/or range of values.
 `st_mtime`
 `st_ctime`
 
-
 :   These values have a host and file system dependent accuracy. Especially on Windows hosts, the file system may not support exact timing values.
 
-> 这些值的精确度取决于主机和文件系统。特别是在Windows主机上，文件系统可能不支持精确的时间值。
-
+> 这些值的精确度取决于主机和文件系统。特别是在 Windows 主机上，文件系统可能不支持精确的时间值。
 
 The target gets a `struct stat` of the above representation and is responsible for coercing it to the target representation before continuing.
 
-> 目标获得上述表示的`struct stat`，负责在继续之前将其强制转换为目标表示。
+> 目标获得上述表示的 `struct stat`，负责在继续之前将其强制转换为目标表示。
 
 Note that due to size differences between the host, target, and protocol representations of `struct stat` members, these members could eventually get truncated on the target.
 

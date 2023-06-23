@@ -9,7 +9,8 @@ keywords: Bindable Readline Commands (Debugging with GDB)
 lang: en
 resource-type: document
 title: Bindable Readline Commands (Debugging with GDB)
----
+------------------------------------------------------
+
 ::: header
 Next: [Readline vi Mode](Readline-vi-Mode.html#Readline-vi-Mode)]
 :::
@@ -19,7 +20,6 @@ Next: [Readline vi Mode](Readline-vi-Mode.html#Readline-vi-Mode)]
 ### 33.4 Bindable Readline Commands
 
 ---
-
 
 • [Commands For Moving](Commands-For-Moving.html#Commands-For-Moving):                    Moving about the line.
 
@@ -43,7 +43,7 @@ Next: [Readline vi Mode](Readline-vi-Mode.html#Readline-vi-Mode)]
 
 • [Commands For Completion](Commands-For-Completion.html#Commands-For-Completion):        Getting Readline to do the typing for you.
 
-> • [完成命令](Commands-For-Completion.html#Commands-For-Completion):        让Readline为您输入。
+> • [完成命令](Commands-For-Completion.html#Commands-For-Completion):        让 Readline 为您输入。
 
 • [Keyboard Macros](Keyboard-Macros.html#Keyboard-Macros):                                Saving and re-executing typed characters
 
@@ -55,12 +55,10 @@ Next: [Readline vi Mode](Readline-vi-Mode.html#Readline-vi-Mode)]
 
 ---
 
-
 This section describes Readline commands that may be bound to key sequences. Command names without an accompanying key sequence are unbound by default.
 
-> 这一节描述了可以绑定到按键序列的Readline命令。没有伴随按键序列的命令名默认情况下未绑定。
-
+> 这一节描述了可以绑定到按键序列的 Readline 命令。没有伴随按键序列的命令名默认情况下未绑定。
 
 In the following descriptions, *point* refers to the current cursor position, and *mark* refers to a cursor position saved by the `set-mark` command. The text between the point and mark is referred to as the *region*.
 
-> 在以下描述中，*点*指的是当前光标位置，*标记*指的是通过`set-mark`命令保存的光标位置。点和标记之间的文本被称为*区域*。
+> 在以下描述中，*点*指的是当前光标位置，*标记*指的是通过 `set-mark` 命令保存的光标位置。点和标记之间的文本被称为*区域*。

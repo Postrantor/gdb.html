@@ -9,7 +9,8 @@ keywords: Set Catchpoints (Debugging with GDB)
 lang: en
 resource-type: document
 title: Set Catchpoints (Debugging with GDB)
----
+-------------------------------------------
+
 ::: header
 Next: [Delete Breaks](Delete-Breaks.html#Delete-Breaks)]
 :::
@@ -18,17 +19,15 @@ Next: [Delete Breaks](Delete-Breaks.html#Delete-Breaks)]
 
 #### 5.1.3 Setting Catchpoints
 
-
 You can use *catchpoints* to cause the debugger to stop for certain kinds of program events, such as C++ exceptions or the loading of a shared library. Use the `catch` command to set a catchpoint.
 
-> 你可以使用*捕获点*来导致调试器停止某些类型的程序事件，例如C++异常或加载共享库。使用`catch`命令设置捕获点。
+> 你可以使用*捕获点*来导致调试器停止某些类型的程序事件，例如 C++ 异常或加载共享库。使用 `catch` 命令设置捕获点。
 
 `catch event`
 
-
 Stop when `event` can be any of the following:
 
-> 停止，当`event`可以是以下任一个：
+> 停止，当 `event` 可以是以下任一个：
 
 `throw [regexp]`
 `rethrow [regexp]`

@@ -9,7 +9,8 @@ keywords: Types In Guile (Debugging with GDB)
 lang: en
 resource-type: document
 title: Types In Guile (Debugging with GDB)
----
+------------------------------------------
+
 ::: header
 Next: [Guile Pretty Printing API](Guile-Pretty-Printing-API.html#Guile-Pretty-Printing-API)]
 :::
@@ -18,32 +19,27 @@ Next: [Guile Pretty Printing API](Guile-Pretty-Printing-API.html#Guile-Pretty-Pr
 
 #### 23.4.3.7 Types In Guile
 
-
 [GDB] represents types from the inferior in objects of type `<gdb:type>`.
 
-> [GDB] 用<gdb:type>类型的对象表示来自下层的类型。
-
+> [GDB] 用 [gdb:type](gdb:type) 类型的对象表示来自下层的类型。
 
 The following type-related procedures are provided by the `(gdb)` module.
 
 > `(gdb)` 模块提供了以下与类型相关的程序。
 
-
 Scheme Procedure: **type?** *object*
 
 > 方案程序：**type？** *object*
 
-
 :   Return `#t` if `object` is an object of type `<gdb:type>`. Otherwise return `#f`.
 
-> 如果对象是<gdb:type>类型的对象，则返回#t，否则返回#f。
+> 如果对象是 [gdb:type](gdb:type) 类型的对象，则返回#t，否则返回#f。
 
 ```
 
 ```
 
 *
-
 
 :   This function looks up a type by its `name`, which must be a string.
 
@@ -59,39 +55,33 @@ Ordinarily, this function will return an instance of `<gdb:type>`. If the named 
 
 ```
 
-
 Scheme Procedure: **type-code** *type*
 
 > 方案程序：**type-code** *type*
 
-
 :   Return the type code of `type`. The type code will be one of the `TYPE_CODE_` constants defined below.
 
-> 返回`type`的类型代码。类型代码将是下面定义的`TYPE_CODE_`常量之一。
+> 返回 `type` 的类型代码。类型代码将是下面定义的 `TYPE_CODE_` 常量之一。
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-tag** *type*
 
 > 方案程序：**类型标记** *类型*
 
-
 :   Return the tag name of `type`. The tag name is the name after `struct`, `union`, or `enum` in C and C++; not all languages have this concept. If this type has no tag name, then `#f` is returned.
 
-> 返回类型`type`的标签名称。标签名称是C和C++中`struct`、`union`或`enum`之后的名称；不是所有的语言都有这个概念。如果这个类型没有标签名称，则返回`#f`。
+> 返回类型 `type` 的标签名称。标签名称是 C 和 C++ 中 `struct`、`union` 或 `enum` 之后的名称；不是所有的语言都有这个概念。如果这个类型没有标签名称，则返回 `#f`。
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-name** *type*
 
 > 方案程序：**类型名称** *类型*
-
 
 :   Return the name of `type`. If this type has no name, then `#f` is returned.
 
@@ -101,54 +91,47 @@ Scheme Procedure: **type-name** *type*
 
 ```
 
-
 Scheme Procedure: **type-print-name** *type*
 
 > 方案程序：** type-print-name ** * type *
 
-
 :   Return the print name of `type`"` is returned.
 
-> 返回`type`的打印名称
+> 返回 `type` 的打印名称
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-sizeof** *type*
 
 > 方案流程：**type-sizeof** *type*
 
-
 :   Return the size of this type, in target `char` units. Usually, a target's `char` type will be an 8-bit byte. However, on some unusual platforms, this type may have a different size.
 
-> 返回这种类型的大小，以目标`char`单位表示。通常，目标的`char`类型将是一个8位字节。但是，在一些不寻常的平台上，这种类型可能具有不同的大小。
+> 返回这种类型的大小，以目标 `char` 单位表示。通常，目标的 `char` 类型将是一个 8 位字节。但是，在一些不寻常的平台上，这种类型可能具有不同的大小。
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-strip-typedefs** *type*
 
 > 方案程序：**type-strip-typedefs** *type*
 
-
 :   Return a new `<gdb:type>` that represents the real type of `type`, after removing all layers of typedefs.
 
-> 返回一个新的<gdb:type>，它代表着在删除所有的typedef层之后的type的真实类型。
+> 返回一个新的 [gdb:type](gdb:type)，它代表着在删除所有的 typedef 层之后的 type 的真实类型。
 
 ```
 
 ```
 
 *
-
 
 :   Return a new `<gdb:type>` object which represents an array of this type. If one argument is given, it is the inclusive upper bound of the array; in this case the lower bound is zero. If two arguments are given, the first argument is the lower bound of the array, and the second argument is the upper bound of the array. An array's length must not be negative, but the bounds can be.
 
-> 返回一个新的`<gdb:type>`对象，它表示这种类型的数组。如果给出一个参数，它是数组的包容上界；在这种情况下，下界为零。如果给出两个参数，第一个参数是数组的下界，第二个参数是数组的上界。数组的长度不能为负，但边界可以。
+> 返回一个新的 `<gdb:type>` 对象，它表示这种类型的数组。如果给出一个参数，它是数组的包容上界；在这种情况下，下界为零。如果给出两个参数，第一个参数是数组的下界，第二个参数是数组的上界。数组的长度不能为负，但边界可以。
 
 ```
 
@@ -156,10 +139,9 @@ Scheme Procedure: **type-strip-typedefs** *type*
 
 *
 
-
 :   Return a new `<gdb:type>` object which represents a vector of this type. If one argument is given, it is the inclusive upper bound of the vector; in this case the lower bound is zero. If two arguments are given, the first argument is the lower bound of the vector, and the second argument is the upper bound of the vector. A vector's length must not be negative, but the bounds can be.
 
-> 返回一个新的<gdb:type>对象，它表示该类型的向量。如果给出一个参数，则该参数是向量的包含上界；在这种情况下，下界为零。如果给出两个参数，则第一个参数是向量的下界，第二个参数是向量的上界。向量的长度不能为负，但边界可以。
+> 返回一个新的 [gdb:type](gdb:type) 对象，它表示该类型的向量。如果给出一个参数，则该参数是向量的包含上界；在这种情况下，下界为零。如果给出两个参数，则第一个参数是向量的下界，第二个参数是向量的上界。向量的长度不能为负，但边界可以。
 
 ```
 The difference between an `array` and a `vector` is that arrays behave like in C: when used in expressions they decay to a pointer to the first element whereas vectors are treated as first class values.
@@ -169,57 +151,49 @@ The difference between an `array` and a `vector` is that arrays behave like in C
 
 ```
 
-
 Scheme Procedure: **type-pointer** *type*
 
 > 方案程序：**type-pointer** *type*
 
-
 :   Return a new `<gdb:type>` object which represents a pointer to `type`.
 
-> 返回一个新的<gdb:type>对象，它表示一个指向类型的指针。
+> 返回一个新的 [gdb:type](gdb:type) 对象，它表示一个指向类型的指针。
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-range** *type*
 
 > 方案程序：**type-range** *type*
 
-
 :   Return a list of two elements: the low bound and high bound of `type` does not have a range, an exception is thrown.
 
-> 返回一个两个元素的列表：`type`的下限和上限，如果没有范围，则抛出异常。
+> 返回一个两个元素的列表：`type` 的下限和上限，如果没有范围，则抛出异常。
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-reference** *type*
 
 > 方案程序：**类型引用** *类型*
 
-
 :   Return a new `<gdb:type>` object which represents a reference to `type`.
 
-> 返回一个新的`<gdb:type>`对象，它表示对`type`的引用。
+> 返回一个新的 `<gdb:type>` 对象，它表示对 `type` 的引用。
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-target** *type*
 
 > 方案程序：**type-target** *type*
 
-
 :   Return a new `<gdb:type>` object which represents the target type of `type`.
 
-> 返回一个新的`<gdb:type>`对象，它代表了`type`的目标类型。
+> 返回一个新的 `<gdb:type>` 对象，它代表了 `type` 的目标类型。
 
 ```
 For a pointer type, the target type is the type of the pointed-to object. For an array type (meaning C-like arrays), the target type is the type of the elements of the array. For a function or method type, the target type is the type of the return value. For a complex type, the target type is the type of the elements. For a typedef, the target type is the aliased type.
@@ -231,95 +205,81 @@ If the type does not have a target, this method will throw an exception.
 
 ```
 
-
 Scheme Procedure: **type-const** *type*
 
 > 方案程序：**type-const** *type*
 
-
 :   Return a new `<gdb:type>` object which represents a `const`-qualified variant of `type`.
 
-> 返回一个新的<gdb:type>对象，它表示类型的const限定变体。
+> 返回一个新的 [gdb:type](gdb:type) 对象，它表示类型的 const 限定变体。
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-volatile** *type*
 
 > 方案程序：**type-volatile** *type*
 
-
 :   Return a new `<gdb:type>` object which represents a `volatile`-qualified variant of `type`.
 
-> 返回一个新的<gdb:type>对象，它表示类型的volatile限定变体。
+> 返回一个新的 [gdb:type](gdb:type) 对象，它表示类型的 volatile 限定变体。
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-unqualified** *type*
 
 > 方案程序：**type-unqualified** *type*
 
-
 :   Return a new `<gdb:type>` object which represents an unqualified variant of `type`. That is, the result is neither `const` nor `volatile`.
 
-> 返回一个新的`<gdb:type>`对象，它表示一个未经限定的类型变体。也就是说，结果既不是`const`也不是`volatile`。
+> 返回一个新的 `<gdb:type>` 对象，它表示一个未经限定的类型变体。也就是说，结果既不是 `const` 也不是 `volatile`。
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-num-fields**
 
 > 方案程序：**type-num-fields**
 
-
 :   Return the number of fields of `<gdb:type>` `type`.
 
-> 返回<gdb:type>类型的字段数量。
+> 返回 [gdb:type](gdb:type) 类型的字段数量。
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-fields** *type*
 
 > 方案程序：**type-fields** *type*
 
-
 :   Return the fields of `type` as a list. For structure and union types, `fields` has the usual meaning. Range types have two fields, the minimum and maximum values. Enum types have one field per enum constant. Function and method types have one field per parameter. The base types of C++ classes are also represented as fields. If the type has no fields, or does not fit into one of these categories, an empty list will be returned. See [Fields of a type in Guile](#Fields-of-a-type-in-Guile).
 
-> 返回类型的字段作为一个列表。对于结构体和联合类型，`fields`具有通常的含义。范围类型有两个字段，最小值和最大值。枚举类型有一个字段每个枚举常量。函数和方法类型有一个字段每个参数。C++类的基本类型也被表示为字段。如果类型没有字段，或者不属于这些类别之一，将返回一个空列表。请参阅[Guile中的类型字段](#Fields-of-a-type-in-Guile)。
+> 返回类型的字段作为一个列表。对于结构体和联合类型，`fields` 具有通常的含义。范围类型有两个字段，最小值和最大值。枚举类型有一个字段每个枚举常量。函数和方法类型有一个字段每个参数。C++ 类的基本类型也被表示为字段。如果类型没有字段，或者不属于这些类别之一，将返回一个空列表。请参阅 [Guile 中的类型字段](#Fields-of-a-type-in-Guile)。
 
 ```
 
 ```
-
 
 Scheme Procedure: **make-field-iterator** *type*
 
 > 方案程序：**make-field-iterator** *type*
 
-
 :   Return the fields of `type` as a \<gdb:iterator\> object. See [Iterators In Guile](Iterators-In-Guile.html#Iterators-In-Guile).
 
-> 返回`type`字段作为一个<gdb:iterator>对象。参见[Guile中的迭代器](Iterators-In-Guile.html#Iterators-In-Guile)。
+> 返回 `type` 字段作为一个 [gdb:iterator](gdb:iterator) 对象。参见 [Guile 中的迭代器](Iterators-In-Guile.html#Iterators-In-Guile)。
 
 ```
 
 ```
-
 
 Scheme Procedure: **type-field** *type field-name*
 
 > 方案程序：**类型字段** *类型字段名*
-
 
 :   Return field named `field-name`, an exception is thrown.
 

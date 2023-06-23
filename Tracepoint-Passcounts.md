@@ -9,7 +9,8 @@ keywords: Tracepoint Passcounts (Debugging with GDB)
 lang: en
 resource-type: document
 title: Tracepoint Passcounts (Debugging with GDB)
----
+-------------------------------------------------
+
 ::: header
 Next: [Tracepoint Conditions](Tracepoint-Conditions.html#Tracepoint-Conditions)]
 :::
@@ -19,7 +20,6 @@ Next: [Tracepoint Conditions](Tracepoint-Conditions.html#Tracepoint-Conditions)]
 #### 13.1.3 Tracepoint Passcounts
 
 `passcount [n [num]]`
-
 
 Set the *passcount* of a tracepoint. The passcount is a way to automatically stop a trace experiment. If a tracepoint's passcount is `n` is not specified, the `passcount` command sets the passcount of the most recently defined tracepoint. If no passcount is given, the trace experiment will run until stopped explicitly by the user.
 

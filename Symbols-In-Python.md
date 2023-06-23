@@ -9,7 +9,8 @@ keywords: Symbols In Python (Debugging with GDB)
 lang: en
 resource-type: document
 title: Symbols In Python (Debugging with GDB)
----
+---------------------------------------------
+
 ::: header
 Next: [Symbol Tables In Python](Symbol-Tables-In-Python.html#Symbol-Tables-In-Python)]
 :::
@@ -18,18 +19,15 @@ Next: [Symbol Tables In Python](Symbol-Tables-In-Python.html#Symbol-Tables-In-Py
 
 #### 23.3.2.28 Python representation of Symbols
 
-
 [GDB] with the `gdb.Symbol` object.
 
-> 使用`gdb.Symbol`对象。
-
+> 使用 `gdb.Symbol` 对象。
 
 The following symbol-related functions are available in the `gdb` module:
 
 > `gdb` 模块中可用的以下符号相关函数：
 
 )*
-
 
 :   This function searches for a symbol by name. The search scope can be restricted to the parameters defined in the optional domain and block arguments.
 
@@ -43,7 +41,6 @@ The result is a tuple of two elements. The first element is a `gdb.Symbol` objec
 
 )*
 
-
 :   This function searches for a global symbol by name. The search scope can be restricted to by the domain argument.
 
 > 这个函数通过名称搜索全局符号。搜索范围可以通过域参数限制。
@@ -56,10 +53,9 @@ The result is a `gdb.Symbol` object or `None` if the symbol is not found.
 
 )*
 
-
 :   This function searches for a global symbol with static linkage by name. The search scope can be restricted to by the domain argument.
 
-> 这个函数通过名称搜索具有静态链接的全局符号。搜索范围可以通过domain参数来限制。
+> 这个函数通过名称搜索具有静态链接的全局符号。搜索范围可以通过 domain 参数来限制。
 
 ```
 `name` argument must be a domain constant defined in the `gdb` module and described later in this chapter.
@@ -73,10 +69,9 @@ There can be multiple global symbols with static linkage with the same name. Thi
 
 )*
 
-
 :   Similar to `gdb.lookup_static_symbol`, this function searches for global symbols with static linkage by name, and optionally restricted by the domain argument. However, this function returns a list of all matching symbols found, not just the first one.
 
-> 类似于`gdb.lookup_static_symbol`，此函数通过名称搜索具有静态链接的全局符号，并可选择性地受域参数的限制。但是，此函数会返回所有匹配的符号列表，而不仅仅是第一个。
+> 类似于 `gdb.lookup_static_symbol`，此函数通过名称搜索具有静态链接的全局符号，并可选择性地受域参数的限制。但是，此函数会返回所有匹配的符号列表，而不仅仅是第一个。
 
 ```
 `name` argument must be a domain constant defined in the `gdb` module and described later in this chapter.
@@ -86,44 +81,37 @@ The result is a list of `gdb.Symbol` objects which could be empty if no matching
 Note that this function will not find function-scoped static variables. To look up such variables, iterate over the variables of the function's `gdb.Block` and check that `block.addr_class` is `gdb.SYMBOL_LOC_STATIC`.
 ```
 
-
 A `gdb.Symbol` object has the following attributes:
 
-> 一个`gdb.Symbol`对象具有以下属性：
-
+> 一个 `gdb.Symbol` 对象具有以下属性：
 
 Variable: **Symbol.type**
 
 > 变量：**Symbol.type**
 
-
 :   The type of the symbol or `None` if no type is recorded. This attribute is represented as a `gdb.Type` object. See [Types In Python](Types-In-Python.html#Types-In-Python). This attribute is not writable.
 
-> 这个符号的类型，如果没有记录则为`None`。这个属性用`gdb.Type`对象表示。参见[Python中的类型](Types-In-Python.html#Types-In-Python)。这个属性不可写。
+> 这个符号的类型，如果没有记录则为 `None`。这个属性用 `gdb.Type` 对象表示。参见 [Python 中的类型](Types-In-Python.html#Types-In-Python)。这个属性不可写。
 
 ```
 
 ```
-
 
 Variable: **Symbol.symtab**
 
 > 变量：**Symbol.symtab**
 
-
 :   The symbol table in which the symbol appears. This attribute is represented as a `gdb.Symtab` object. See [Symbol Tables In Python](Symbol-Tables-In-Python.html#Symbol-Tables-In-Python). This attribute is not writable.
 
-> 此符号出现的符号表。此属性表示为`gdb.Symtab`对象。参见[Python中的符号表](Symbol-Tables-In-Python.html#Symbol-Tables-In-Python)。此属性不可写。
+> 此符号出现的符号表。此属性表示为 `gdb.Symtab` 对象。参见 [Python 中的符号表](Symbol-Tables-In-Python.html#Symbol-Tables-In-Python)。此属性不可写。
 
 ```
 
 ```
-
 
 Variable: **Symbol.line**
 
 > 变量：**Symbol.line**
-
 
 :   The line number in the source code at which the symbol was defined. This is an integer.
 
@@ -133,11 +121,9 @@ Variable: **Symbol.line**
 
 ```
 
-
 Variable: **Symbol.name**
 
 > 变量：**Symbol.name**
-
 
 :   The name of the symbol as a string. This attribute is not writable.
 
@@ -147,11 +133,9 @@ Variable: **Symbol.name**
 
 ```
 
-
 Variable: **Symbol.linkage_name**
 
 > 变量：**Symbol.linkage_name**
-
 
 :   The name of the symbol, as used by the linker (i.e., may be mangled). This attribute is not writable.
 
@@ -161,53 +145,45 @@ Variable: **Symbol.linkage_name**
 
 ```
 
-
 Variable: **Symbol.print_name**
 
 > 变量：**Symbol.print_name**
 
-
 :   The name of the symbol in a form suitable for output. This is either `name` or `linkage_name`, depending on whether the user asked [GDB] to display demangled or mangled names.
 
-> 这个符号的名称以便于输出的形式。这取决于用户是否要求[GDB]显示解码或编码名称，可以是`name`或`linkage_name`。
+> 这个符号的名称以便于输出的形式。这取决于用户是否要求[GDB]显示解码或编码名称，可以是 `name` 或 `linkage_name`。
 
 ```
 
 ```
-
 
 Variable: **Symbol.addr_class**
 
 > 变量：**Symbol.addr_class**
 
-
 :   The address class of the symbol. This classifies how to find the value of a symbol. Each address class is a constant defined in the `gdb` module and described later in this chapter.
 
-> 这个符号的地址类。这分类了如何找到符号的值。每个地址类是`gdb`模块中定义的常量，稍后本章将进一步介绍。
+> 这个符号的地址类。这分类了如何找到符号的值。每个地址类是 `gdb` 模块中定义的常量，稍后本章将进一步介绍。
 
 ```
 
 ```
-
 
 Variable: **Symbol.needs_frame**
 
 > 变量：**Symbol.needs_frame**
 
-
 :   This is `True` if evaluating this symbol's value requires a frame (see [Frames In Python](Frames-In-Python.html#Frames-In-Python)) and `False` otherwise. Typically, local variables will require a frame, but other symbols will not.
 
-> 这是一个真值，如果评估这个符号的值需要一个框架（参见[Python中的框架](Frames-In-Python.html#Frames-In-Python))，否则为假。通常，局部变量需要一个框架，但其他符号不需要。
+> 这是一个真值，如果评估这个符号的值需要一个框架（参见 [Python 中的框架](Frames-In-Python.html#Frames-In-Python))，否则为假。通常，局部变量需要一个框架，但其他符号不需要。
 
 ```
 
 ```
-
 
 Variable: **Symbol.is_argument**
 
 > 变量：**Symbol.is_argument**
-
 
 :   `True` if the symbol is an argument of a function.
 
@@ -217,11 +193,9 @@ Variable: **Symbol.is_argument**
 
 ```
 
-
 Variable: **Symbol.is_constant**
 
 > 变量：**Symbol.is_constant**
-
 
 :   `True` if the symbol is a constant.
 
@@ -231,11 +205,9 @@ Variable: **Symbol.is_constant**
 
 ```
 
-
 Variable: **Symbol.is_function**
 
 > 变量：**Symbol.is_function**
-
 
 :   `True` if the symbol is a function or a method.
 
@@ -245,30 +217,25 @@ Variable: **Symbol.is_function**
 
 ```
 
-
 Variable: **Symbol.is_variable**
 
 > 变量：**Symbol.is_variable**
-
 
 :   `True` if the symbol is a variable.
 
 > 真如果符号是一个变量。
 
-
 A `gdb.Symbol` object has the following methods:
 
-> `gdb.Symbol`对象具有以下方法：
-
+> `gdb.Symbol` 对象具有以下方法：
 
 Function: **Symbol.is_valid** *()*
 
 > 功能：**Symbol.is_valid** *（）*
 
-
 :   Returns `True` if the `gdb.Symbol` object is valid, `False` if not. A `gdb.Symbol` object can become invalid if the symbol it refers to does not exist in [GDB] any longer. All other `gdb.Symbol` methods will throw an exception if it is invalid at the time the method is called.
 
-> 返回`True`如果`gdb.Symbol`对象有效，如果没有则返回`False`。如果它所指的符号不再在[GDB]中存在，`gdb.Symbol`对象可能会失效。如果在调用方法时无效，所有其他`gdb.Symbol`方法都会引发异常。
+> 返回 `True` 如果 `gdb.Symbol` 对象有效，如果没有则返回 `False`。如果它所指的符号不再在[GDB]中存在，`gdb.Symbol` 对象可能会失效。如果在调用方法时无效，所有其他 `gdb.Symbol` 方法都会引发异常。
 
 ```
 
@@ -276,18 +243,15 @@ Function: **Symbol.is_valid** *()*
 
 )*
 
-
 :   Compute the value of the symbol, as a `gdb.Value`. For functions, this computes the address of the function, cast to the appropriate type. If the symbol requires a frame in order to compute its value, then `frame` is invalid, then this method will throw an exception.
 
-> 计算符号的值，作为一个`gdb.Value`。对于函数，这将计算函数的地址，并转换为适当的类型。如果符号需要一个框架来计算其值，然后`frame`无效，那么此方法将抛出异常。
-
+> 计算符号的值，作为一个 `gdb.Value`。对于函数，这将计算函数的地址，并转换为适当的类型。如果符号需要一个框架来计算其值，然后 `frame` 无效，那么此方法将抛出异常。
 
 The available domain categories in `gdb.Symbol` are represented as constants in the `gdb` module:
 
-> 在`gdb.Symbol`中可用的域类别由`gdb`模块中的常量表示。
+> 在 `gdb.Symbol` 中可用的域类别由 `gdb` 模块中的常量表示。
 
 `gdb.SYMBOL_UNDEF_DOMAIN`
-
 
 This is used when a domain has not been discovered or none of the following domains apply. This usually indicates an error either in the symbol information or in [GDB]'s handling of symbols.
 
@@ -295,13 +259,11 @@ This is used when a domain has not been discovered or none of the following doma
 
 `gdb.SYMBOL_VAR_DOMAIN`
 
-
 This domain contains variables, function names, typedef names and enum type values.
 
 > 这个域包含变量、函数名称、类型定义名称和枚举类型值。
 
 `gdb.SYMBOL_STRUCT_DOMAIN`
-
 
 This domain holds struct, union and enum type names.
 
@@ -309,43 +271,37 @@ This domain holds struct, union and enum type names.
 
 `gdb.SYMBOL_LABEL_DOMAIN`
 
-
 This domain contains names of labels (for gotos).
 
 > 这个域包含了跳转的标签名称。
 
 `gdb.SYMBOL_MODULE_DOMAIN`
 
-
 This domain contains names of Fortran module types.
 
-> 这个域包含了Fortran模块类型的名称。
+> 这个域包含了 Fortran 模块类型的名称。
 
 `gdb.SYMBOL_COMMON_BLOCK_DOMAIN`
 
-
 This domain contains names of Fortran common blocks.
 
-> 这个域包含了Fortran公共块的名称。
-
+> 这个域包含了 Fortran 公共块的名称。
 
 The available address class categories in `gdb.Symbol` are represented as constants in the `gdb` module:
 
-> `gdb.Symbol`中可用的地址类别由`gdb`模块中的常量表示。
+> `gdb.Symbol` 中可用的地址类别由 `gdb` 模块中的常量表示。
 
 `gdb.SYMBOL_LOC_UNDEF`
 
-
 If this is returned by address class, it indicates an error either in the symbol information or in [GDB]'s handling of symbols.
 
-> 如果地址类返回此值，则表明符号信息或GDB的符号处理中出现了错误。
+> 如果地址类返回此值，则表明符号信息或 GDB 的符号处理中出现了错误。
 
 `gdb.SYMBOL_LOC_CONST`
 
 Value is constant int.
 
 `gdb.SYMBOL_LOC_STATIC`
-
 
 Value is at a fixed address.
 
@@ -357,27 +313,23 @@ Value is in a register.
 
 `gdb.SYMBOL_LOC_ARG`
 
-
 Value is an argument. This value is at the offset stored within the symbol inside the frame's argument list.
 
 > 价值是一个参数。这个价值存储在符号内的框架参数列表中的偏移量中。
 
 `gdb.SYMBOL_LOC_REF_ARG`
 
-
 Value address is stored in the frame's argument list. Just like `LOC_ARG` except that the value's address is stored at the offset, not the value itself.
 
-> 地址值存储在帧的参数列表中。就像`LOC_ARG`一样，只是偏移量存储的是地址值而不是实际值。
+> 地址值存储在帧的参数列表中。就像 `LOC_ARG` 一样，只是偏移量存储的是地址值而不是实际值。
 
 `gdb.SYMBOL_LOC_REGPARM_ADDR`
 
-
 Value is a specified register. Just like `LOC_REGISTER` except the register holds the address of the argument instead of the argument itself.
 
-> 价值是一个指定的寄存器，就像LOC_REGISTER一样，只是该寄存器保存的是参数的地址而不是参数本身。
+> 价值是一个指定的寄存器，就像 LOC_REGISTER 一样，只是该寄存器保存的是参数的地址而不是参数本身。
 
 `gdb.SYMBOL_LOC_LOCAL`
-
 
 Value is a local variable.
 
@@ -385,10 +337,9 @@ Value is a local variable.
 
 `gdb.SYMBOL_LOC_TYPEDEF`
 
-
 Value not used. Symbols in the domain `SYMBOL_STRUCT_DOMAIN` all have this class.
 
-> 值未使用。域`SYMBOL_STRUCT_DOMAIN`中的符号都具有此类。
+> 值未使用。域 `SYMBOL_STRUCT_DOMAIN` 中的符号都具有此类。
 
 `gdb.SYMBOL_LOC_LABEL`
 
@@ -400,13 +351,11 @@ Value is a block.
 
 `gdb.SYMBOL_LOC_CONST_BYTES`
 
-
 Value is a byte-sequence.
 
 > 价值是一个字节序列。
 
 `gdb.SYMBOL_LOC_UNRESOLVED`
-
 
 Value is at a fixed address, but the address of the variable has to be determined from the minimal symbol table whenever the variable is referenced.
 
@@ -414,13 +363,11 @@ Value is at a fixed address, but the address of the variable has to be determine
 
 `gdb.SYMBOL_LOC_OPTIMIZED_OUT`
 
-
 The value does not actually exist in the program.
 
 > 程序中实际上不存在该值。
 
 `gdb.SYMBOL_LOC_COMPUTED`
-
 
 The value's address is a computed location.
 
@@ -428,10 +375,9 @@ The value's address is a computed location.
 
 `gdb.SYMBOL_LOC_COMMON_BLOCK`
 
-
 The value's address is a symbol. This is only used for Fortran common blocks.
 
-> 地址的值是一个符号，只用于Fortran公共块。
+> 地址的值是一个符号，只用于 Fortran 公共块。
 
 ---
 

@@ -9,7 +9,8 @@ keywords: Source Path (Debugging with GDB)
 lang: en
 resource-type: document
 title: Source Path (Debugging with GDB)
----
+---------------------------------------
+
 ::: header
 Next: [Machine Code](Machine-Code.html#Machine-Code)]
 :::
@@ -18,16 +19,13 @@ Next: [Machine Code](Machine-Code.html#Machine-Code)]
 
 ### 9.5 Specifying Source Directories
 
-
 Executable programs sometimes do not record the directories of the source files from which they were compiled, just the names. Even when they do, the directories could be moved between the compilation and your debugging session. [GDB] wants a source file, it tries all the directories in the list, in the order they are present in the list, until it finds a file with the desired name.
 
 > 可执行程序有时不会记录它们编译时所使用的源文件的目录，只记录文件名。即使它们记录了，目录也可能在编译和调试会话之间移动。[GDB]需要源文件时，它会按照列表中的顺序，尝试搜索所有目录，直到找到名称匹配的文件为止。
 
-
 For example, suppose an executable references the file `/usr/src/foo-1.0/lib/foo.c` would look for the source file in the following locations:
 
-> 例如，假设一个可执行文件引用文件`/usr/src/foo-1.0/lib/foo.c`，它将在以下位置查找源文件：
-
+> 例如，假设一个可执行文件引用文件 `/usr/src/foo-1.0/lib/foo.c`，它将在以下位置查找源文件：
 
 1. `/usr/src/foo-1.0/lib/foo.c`
 
@@ -36,24 +34,22 @@ For example, suppose an executable references the file `/usr/src/foo-1.0/lib/foo
 2. `/mnt/cross/usr/src/foo-1.0/lib/foo.c`
 
 > `2. /mnt/cross/usr/src/foo-1.0/lib/foo.c`
-3. `/mnt/cross/foo.c`
 
+3. `/mnt/cross/foo.c`
 
 If the source file is not present at any of the above locations then an error is printed. [GDB].
 
 > 如果源文件不在以上任何位置，则会打印一个错误[GDB]。
 
-
 Plain file names, relative file names with leading directories, file names containing dots, etc. are all treated as described above, except that non-absolute file names are not looked up literally. If the *source path* is `/mnt/cross` will search in the following locations:
 
-> 简单的文件名、带有前导目录的相对文件名、包含点的文件名等，都按照上述方式处理，但非绝对文件名不会按字面意思查找。如果*源路径*是`/mnt/cross`，将会搜索以下位置：
-
+> 简单的文件名、带有前导目录的相对文件名、包含点的文件名等，都按照上述方式处理，但非绝对文件名不会按字面意思查找。如果*源路径*是 `/mnt/cross`，将会搜索以下位置：
 
 1. `/mnt/cross/../lib/foo.c`
 
 > /mnt/cross/../lib/foo.c
-2. `/mnt/cross/foo.c`
 
+2. `/mnt/cross/foo.c`
 
 The *source path* will always include two special entries '`$cdir`', these refer to the compilation directory (if one is recorded) and the current working directory respectively.
 
@@ -61,21 +57,17 @@ The *source path* will always include two special entries '`$cdir`', these refer
 
 '`$cdir`' is ignored.
 
-
 '`$cwd` session, while the latter is immediately expanded to the current directory at the time you add an entry to the source path.
 
 > `'$cwd'会话，当您向源路径添加条目时，后者会立即展开为当前目录。
-
 
 If a compilation directory is recorded in the debug information, and [GDB] will combine the compilation directory and the filename, and then search for the source file again using the *source path*.
 
 > 如果调试信息中记录了编译目录，[GDB]会将编译目录和文件名结合起来，然后使用*源路径*再次搜索源文件。
 
-
 For example, if the executable records the source file as `/usr/src/foo-1.0/lib/foo.c` will search for the source file in the following locations:
 
-> 例如，如果可执行文件记录源文件为`/usr/src/foo-1.0/lib/foo.c`，将会在以下位置搜索源文件：
-
+> 例如，如果可执行文件记录源文件为 `/usr/src/foo-1.0/lib/foo.c`，将会在以下位置搜索源文件：
 
 1. `/usr/src/foo-1.0/lib/foo.c`
 
@@ -83,9 +75,9 @@ For example, if the executable records the source file as `/usr/src/foo-1.0/lib/
 
 2. `/mnt/cross/usr/src/foo-1.0/lib/foo.c`
 
-> 2. `/mnt/cross/usr/src/foo-1.0/lib/foo.c` 
-2. `/mnt/cross/usr/src/foo-1.0/lib/foo.c`
+> 2. `/mnt/cross/usr/src/foo-1.0/lib/foo.c`
 
+2. `/mnt/cross/usr/src/foo-1.0/lib/foo.c`
 3. `/project/build/usr/src/foo-1.0/lib/foo.c`
 
 > `3. /项目/构建/usr/src/foo-1.0/lib/foo.c`
@@ -105,69 +97,60 @@ For example, if the executable records the source file as `/usr/src/foo-1.0/lib/
 7. `/home/user/project/build/usr/src/foo-1.0/lib/foo.c`
 
 > /home/用户/项目/构建/usr/src/foo-1.0/lib/foo.c
-8. `/mnt/cross/foo.c`
 
+8. `/mnt/cross/foo.c`
 9. `/project/build/foo.c`
 
 > `9. `/项目/构建/foo.c`
-10. `/home/user/foo.c`
 
+10. `/home/user/foo.c`
 
 If the file name in the previous example had been recorded in the executable as a relative path rather than an absolute path, then the first look up would not have occurred, but all of the remaining steps would be similar.
 
 > 如果在前面的例子中，文件名被记录在可执行文件中的是相对路径而不是绝对路径，那么第一次查找就不会发生，但其余的步骤都是相似的。
 
-
 When searching for source files on MS-DOS and MS-Windows, where absolute paths start with a drive letter (e.g. `C:/project/foo.c` will search in the following locations for the source file:
 
-> 当在MS-DOS和MS-Windows上搜索源文件时，绝对路径以驱动器字母开头（例如`C:/project/foo.c`），将在以下位置搜索源文件：
+> 当在 MS-DOS 和 MS-Windows 上搜索源文件时，绝对路径以驱动器字母开头（例如 `C:/project/foo.c`），将在以下位置搜索源文件：
 
 1. `C:/project/foo.c`
-
 2. `D:/mnt/cross/project/foo.c`
 
 > `2. D:/mnt/cross/项目/foo.c`
+
 3. `D:/mnt/cross/foo.c`
 
 Note that the executable search path is *not* used to locate the source files.
-
 
 Whenever you reset or rearrange the source path, [GDB] clears out any information it has cached about where source files are found and where each line is in the file.
 
 > 每当你重置或重新排列源路径时，[GDB]就会清除它缓存的关于源文件位置以及每行在文件中的位置的任何信息。
 
-
 When you start [GDB]', in that order. To add other directories, use the `directory` command.
 
-> 当你开始使用GDB时，要添加其它目录，请使用`directory`命令。
-
+> 当你开始使用 GDB 时，要添加其它目录，请使用 `directory` 命令。
 
 The search path is used to find both program source files and [GDB]' command).
 
 > 搜索路径用于查找程序源文件和[GDB]’命令。
 
-
 In addition to the source path, [GDB] at the start of the directory part of the source file name, and uses that result instead of the original file name to look up the sources.
 
 > 除了源路径，[GDB]在源文件名的目录部分开始，并使用该结果而不是原始文件名来查找源文件。
 
-
 Using the previous example, suppose the `foo-1.0`. To define a source path substitution rule, use the `set substitute-path` command (see [set substitute-path](#set-substitute_002dpath)).
 
-> 使用前面的例子，假设有`foo-1.0`。要定义源路径替换规则，请使用`set substitute-path`命令（参见[set substitute-path](#set-substitute_002dpath)）。
-
+> 使用前面的例子，假设有 `foo-1.0`。要定义源路径替换规则，请使用 `set substitute-path` 命令（参见 [set substitute-path](#set-substitute_002dpath)）。
 
 To avoid unexpected substitution results, a rule is applied only if the `from` either.
 
-> 为了避免意外的替换结果，只有当`来自`时，才会应用规则。
-
+> 为了避免意外的替换结果，只有当 `来自` 时，才会应用规则。
 
 In many cases, you can achieve the same result using the `directory` command. However, `set substitute-path` can be more efficient in the case where the sources are organized in a complex tree with multiple subdirectories. With the `directory` command, you need to add each subdirectory of your project. If you moved the entire tree while preserving its internal organization, then `set substitute-path` allows you to direct the debugger to all the sources with one single command.
 
-> 在许多情况下，您可以使用`directory`命令获得相同的结果。但是，如果源文件组织在一个复杂的树状结构中，具有多个子目录，则`set substitute-path`可能更有效。使用`directory`命令，您需要添加项目的每个子目录。如果您在保留其内部组织的同时移动了整个树，那么`set substitute-path`允许您使用一个单一的命令将调试器指向所有源文件。
+> 在许多情况下，您可以使用 `directory` 命令获得相同的结果。但是，如果源文件组织在一个复杂的树状结构中，具有多个子目录，则 `set substitute-path` 可能更有效。使用 `directory` 命令，您需要添加项目的每个子目录。如果您在保留其内部组织的同时移动了整个树，那么 `set substitute-path` 允许您使用一个单一的命令将调试器指向所有源文件。
 
 `set substitute-path` is also more than just a shortcut command. The source path is only used if the file at the original location no longer exists. On the other hand, `set substitute-path` modifies the debugger behavior to look at the rewritten location instead. So, if for any reason a source file that is not relevant to your executable is located at the original location, a substitution rule is the only method available to point [GDB] at the new location.
-
 
 You can configure a default source path substitution rule by configuring [GDB], libraries or executables with debug information and corresponding source code are being moved together.
 
@@ -175,7 +158,6 @@ You can configure a default source path substitution rule by configuring [GDB], 
 
 `directory dirname …`
 `dir dirname …`
-
 
 :   Add directory `dirname` searches it sooner.
 
@@ -187,10 +169,9 @@ The special strings '`$cdir` searches them sooner.
 
 `directory`
 
-
 :   Reset the source path to its default value ('`$cdir:$cwd`' on Unix systems). This requires confirmation.
 
-> 重置源路径到其默认值（在Unix系统上为'$cdir:$cwd'）。此操作需要确认。
+> 重置源路径到其默认值（在 Unix 系统上为'$cdir:$cwd'）。此操作需要确认。
 
 `set directories path-list`
 

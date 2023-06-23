@@ -9,8 +9,8 @@ keywords: vKill packet (Debugging with GDB)
 lang: en
 resource-type: document
 title: vKill packet (Debugging with GDB)
----
+----------------------------------------
 
 The node you are looking for is at [vKill packet](Packets.html#vKill-packet).
 
-> 你正在寻找的节点位于[vKill数据包](Packets.html#vKill-packet)。
+> 你正在寻找的节点位于 [vKill 数据包](Packets.html#vKill-packet)。

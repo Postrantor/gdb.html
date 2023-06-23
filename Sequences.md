@@ -9,7 +9,8 @@ keywords: Sequences (Debugging with GDB)
 lang: en
 resource-type: document
 title: Sequences (Debugging with GDB)
----
+-------------------------------------
+
 ::: header
 Next: [Aliases](Aliases.html#Aliases)]
 :::
@@ -18,13 +19,11 @@ Next: [Aliases](Aliases.html#Aliases)]
 
 ### 23.1 Canned Sequences of Commands
 
-
 Aside from breakpoint commands (see [Breakpoint Command Lists](Break-Commands.html#Break-Commands)), [GDB] provides two ways to store sequences of commands for execution as a unit: user-defined commands and command files.
 
 > 除了断点命令（参见[断点命令列表](Break-Commands.html#Break-Commands)）外，[GDB]还提供了两种方式来存储要作为一个单元执行的命令序列：用户定义的命令和命令文件。
 
 ---
-
 
 • [Define](Define.html#Define):                                                                How to define your own commands
 

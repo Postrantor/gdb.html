@@ -9,7 +9,8 @@ keywords: Values From Inferior In Guile (Debugging with GDB)
 lang: en
 resource-type: document
 title: Values From Inferior In Guile (Debugging with GDB)
----
+---------------------------------------------------------
+
 ::: header
 Next: [Arithmetic In Guile](Arithmetic-In-Guile.html#Arithmetic-In-Guile)]
 :::
@@ -18,15 +19,13 @@ Next: [Arithmetic In Guile](Arithmetic-In-Guile.html#Arithmetic-In-Guile)]
 
 #### 23.4.3.5 Values From Inferior In Guile
 
-
 [GDB] uses this object for its internal bookkeeping of the inferior's values, and for fetching values when necessary.
 
 > GDB 使用这个对象来进行其对被控制程序值的内部记账，并在必要时获取值。
 
-
 [GDB] does not memoize `<gdb:value>` objects. `make-value` always returns a fresh object.
 
-> GDB不会记忆<gdb:value>对象。make-value总是会返回一个新的对象。
+> GDB 不会记忆 [gdb:value](gdb:value) 对象。make-value 总是会返回一个新的对象。
 
 ::: smallexample
 
@@ -39,11 +38,9 @@ $1 = #t
 
 :::
 
-
 A `<gdb:value>` that represents a function can be executed via inferior function call with `value-call`. Any arguments provided to the call must match the function's prototype, and must be provided in the order specified by that prototype.
 
-> 一个<gdb:value>代表的函数可以通过inferior function call使用value-call来执行。提供给call的任何参数都必须与函数原型匹配，并且必须按照该原型指定的顺序提供。
-
+> 一个 [gdb:value](gdb:value) 代表的函数可以通过 inferior function call 使用 value-call 来执行。提供给 call 的任何参数都必须与函数原型匹配，并且必须按照该原型指定的顺序提供。
 
 For example, `some-val` is a `<gdb:value>` instance representing a function that takes two integers as arguments. To execute this function, call it like so:
 
@@ -57,27 +54,23 @@ For example, `some-val` is a `<gdb:value>` instance representing a function that
 
 :::
 
-
 Any values returned from a function call are `<gdb:value>` objects.
 
-> 任何从函数调用返回的值都是<gdb:value>对象。
+> 任何从函数调用返回的值都是 [gdb:value](gdb:value) 对象。
 
 Note: Unlike Python scripting in [GDB], inferior values that are simple scalars cannot be used directly in Scheme expressions that are valid for the value's data type. For example, `(+ (parse-and-eval "int_variable") 2)` does not work. And inferior values that are structures or instances of some class cannot be accessed using any special syntax, instead `value-field` must be used.
 
-
 The following value-related procedures are provided by the `(gdb)` module.
 
-> 以下值相关程序由`(gdb)`模块提供。
-
+> 以下值相关程序由 `(gdb)` 模块提供。
 
 Scheme Procedure: **value?** *object*
 
 > 方案程序：**value？** *物件*
 
-
 :   Return `#t` if `object` is a `<gdb:value>` object. Otherwise return `#f`.
 
-> 如果对象是一个<gdb:value>对象，则返回#t。否则返回#f。
+> 如果对象是一个 [gdb:value](gdb:value) 对象，则返回#t。否则返回#f。
 
 ```
 
@@ -85,10 +78,9 @@ Scheme Procedure: **value?** *object*
 
 *
 
-
 :   Many Scheme values can be converted directly to a `<gdb:value>` with this procedure. If `type` as described below.
 
-> 許多Scheme值可以直接轉換為<gdb:value>，使用以下程序。如果按照下面描述的類型。
+> 許多 Scheme 值可以直接轉換為 [gdb:value](gdb:value)，使用以下程序。如果按照下面描述的類型。
 
 ```
 See [Architectures In Guile](Architectures-In-Guile.html#Architectures-In-Guile), for a list of the builtin types for an architecture.
@@ -128,57 +120,49 @@ Scheme bytevector
     If `value` is not provided, the result is an array of type `uint8` of the same length.
 ```
 
-
 Scheme Procedure: **value-optimized-out?** *value*
 
 > 方案程序：**value-optimized-out？** *值*
 
-
 :   Return `#t` if the compiler optimized out `value`, thus it is not available for fetching from the inferior. Otherwise return `#f`.
 
-> 返回#t如果编译器优化了value，因此它不可用于从下级获取。否则返回#f。
+> 返回#t 如果编译器优化了 value，因此它不可用于从下级获取。否则返回#f。
 
 ```
 
 ```
-
 
 Scheme Procedure: **value-address** *value*
 
 > 方案程序：**value-address** *value*
 
-
 :   If `value` is addressable, returns a `<gdb:value>` object representing the address. Otherwise, `#f` is returned.
 
-> 如果`value`是可寻址的，则返回一个代表地址的`<gdb:value>`对象。否则，返回`#f`。
+> 如果 `value` 是可寻址的，则返回一个代表地址的 `<gdb:value>` 对象。否则，返回 `#f`。
 
 ```
 
 ```
-
 
 Scheme Procedure: **value-type** *value*
 
 > 方案程序：**value-type** *value*
 
-
 :   Return the type of `value` as a `<gdb:type>` object (see [Types In Guile](Types-In-Guile.html#Types-In-Guile)).
 
-> 返回`value`的类型作为一个`<gdb:type>`对象（参见[Guile中的类型](Types-In-Guile.html#Types-In-Guile)）。
+> 返回 `value` 的类型作为一个 `<gdb:type>` 对象（参见 [Guile 中的类型](Types-In-Guile.html#Types-In-Guile)）。
 
 ```
 
 ```
-
 
 Scheme Procedure: **value-dynamic-type** *value*
 
 > 方案程序：**value-dynamic-type** *value*
 
-
 :   Return the dynamic type of `value`. This uses C++ run-time type information (RTTI) to determine the dynamic type of the value. If the value is of class type, it will return the class in which the value is embedded, if any. If the value is of pointer or reference to a class type, it will compute the dynamic type of the referenced object, and return a pointer or reference to that type, respectively. In all other cases, it will return the value's static type.
 
-> 返回值的动态类型。这使用C++运行时类型信息（RTTI）来确定值的动态类型。如果值是类类型，它将返回嵌入值的类（如果有）。如果值是指向类类型的指针或引用，它将计算引用对象的动态类型，并分别返回指向该类型的指针或引用。在所有其他情况下，它将返回值的静态类型。
+> 返回值的动态类型。这使用 C++ 运行时类型信息（RTTI）来确定值的动态类型。如果值是类类型，它将返回嵌入值的类（如果有）。如果值是指向类类型的指针或引用，它将计算引用对象的动态类型，并分别返回指向该类型的指针或引用。在所有其他情况下，它将返回值的静态类型。
 
 ```
 Note that this feature will only work when debugging a C++ program that includes RTTI for the object in question. Otherwise, it will just return the static type of the value as in [ptype foo]. See [ptype](Symbols.html#Symbols).
@@ -188,57 +172,49 @@ Note that this feature will only work when debugging a C++ program that includes
 
 ```
 
-
 Scheme Procedure: **value-cast** *value type*
 
 > 方案程序：**value-cast** *value type*
 
-
 :   Return a new instance of `<gdb:value>` that is the result of casting `value`, which must be a `<gdb:type>` object. If the cast cannot be performed for some reason, this method throws an exception.
 
-> 返回一个新的<gdb:value>实例，它是对value（必须是<gdb:type>对象）进行类型转换的结果。如果由于某种原因无法执行转换，此方法会抛出异常。
+> 返回一个新的 [gdb:value](gdb:value) 实例，它是对 value（必须是 [gdb:type](gdb:type) 对象）进行类型转换的结果。如果由于某种原因无法执行转换，此方法会抛出异常。
 
 ```
 
 ```
-
 
 Scheme Procedure: **value-dynamic-cast** *value type*
 
 > 方案程序：**value-dynamic-cast** *值类型*
 
-
 :   Like `value-cast`, but works as if the C++ `dynamic_cast` operator were used. Consult a C++ reference for details.
 
-> 就像“value-cast”一样，但是行为就像使用C++的“dynamic_cast”操作符一样。有关详细信息，请参考C++参考资料。
+> 就像“value-cast”一样，但是行为就像使用 C++ 的“dynamic_cast”操作符一样。有关详细信息，请参考 C++ 参考资料。
 
 ```
 
 ```
-
 
 Scheme Procedure: **value-reinterpret-cast** *value type*
 
 > 方案程序：**重新解释型转换** *值类型*
 
-
 :   Like `value-cast`, but works as if the C++ `reinterpret_cast` operator were used. Consult a C++ reference for details.
 
-> 像`value-cast`一样，但是表现得好像使用了C++的`reinterpret_cast`操作符一样。有关详细信息，请参阅C++参考。
+> 像 `value-cast` 一样，但是表现得好像使用了 C++ 的 `reinterpret_cast` 操作符一样。有关详细信息，请参阅 C++ 参考。
 
 ```
 
 ```
-
 
 Scheme Procedure: **value-dereference** *value*
 
 > 值取消引用：*值*
 
-
 :   For pointer data types, this method returns a new `<gdb:value>` object whose contents is the object pointed to by `value`. For example, if `foo` is a C pointer to an `int`, declared in your C program as
 
-> 对于指针数据类型，此方法返回一个新的`<gdb：value>`对象，其内容是`value`指向的对象。例如，如果`foo`是在您的C程序中声明的C指针指向一个`int`，
+> 对于指针数据类型，此方法返回一个新的 `<gdb：value>` 对象，其内容是 `value` 指向的对象。例如，如果 `foo` 是在您的 C 程序中声明的 C 指针指向一个 `int`，
 
 ```
 ::: smallexample

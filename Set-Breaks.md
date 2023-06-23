@@ -9,7 +9,8 @@ keywords: Set Breaks (Debugging with GDB)
 lang: en
 resource-type: document
 title: Set Breaks (Debugging with GDB)
----
+--------------------------------------
+
 ::: header
 Next: [Set Watchpoints](Set-Watchpoints.html#Set-Watchpoints)]
 :::
@@ -17,7 +18,6 @@ Next: [Set Watchpoints](Set-Watchpoints.html#Set-Watchpoints)]
 ---
 
 #### 5.1.1 Setting Breakpoints
-
 
 Breakpoints are set with the `break` command (abbreviated `b`). The debugger convenience variable '`$bpnum`' records the number of the breakpoint you've set most recently:
 
@@ -34,10 +34,9 @@ $1 = 1
 
 :::
 
-
 A breakpoint may be mapped to multiple code locations for example with inlined functions, Ada generics, C++ templates or overloaded function names. [GDB] then indicates the number of code locations in the breakpoint command output:
 
-> 断点可以映射到多个代码位置，例如内联函数、Ada泛型、C++模板或重载函数名称。[GDB]然后在断点命令输出中指示代码位置的数量：
+> 断点可以映射到多个代码位置，例如内联函数、Ada 泛型、C++ 模板或重载函数名称。[GDB]然后在断点命令输出中指示代码位置的数量：
 
 ::: smallexample
 
@@ -50,7 +49,6 @@ $2 = 2
 ```
 
 :::
-
 
 When your program stops on a breakpoint, the convenience variables '`$_hit_bpnum`' are respectively set to the number of the encountered breakpoint and the number of the breakpoint's code location:
 
@@ -72,10 +70,9 @@ $6 = 1
 
 Note that '`$_hit_bpnum`' is set to the breakpoint number **last set**.
 
-
 If the encountered breakpoint has only one code location, '`$_hit_locno`' is set to 1:
 
-> 如果遇到的断点只有一个代码位置，则将'`$_hit_locno`'设置为1：
+> 如果遇到的断点只有一个代码位置，则将'`$_hit_locno`'设置为 1：
 
 ::: smallexample
 
@@ -91,11 +88,9 @@ $4 = 1
 
 :::
 
-
 The '`$_hit_bpnum` both disable the breakpoint.
 
-> '`$_hit_bpnum`都可以禁用断点。
-
+> '`$_hit_bpnum` 都可以禁用断点。
 
 You can also define aliases to easily disable the last hit location or last hit breakpoint:
 
@@ -112,10 +107,9 @@ You can also define aliases to easily disable the last hit location or last hit 
 
 `break locspec`
 
-
 :   Set a breakpoint at all the code locations in your program that result from resolving the given `locspec`. The breakpoint will stop your program just before it executes the instruction at the address of any of the breakpoint's code locations.
 
-> 在程序中根据给定的locspec解析出的所有代码位置设置断点，断点将在程序执行断点代码位置地址处的指令之前停止程序。
+> 在程序中根据给定的 locspec 解析出的所有代码位置设置断点，断点将在程序执行断点代码位置地址处的指令之前停止程序。
 
 ```
 When using source languages that permit overloading of symbols, such as C++, a function name may refer to more than one symbol, and thus more than one place to break. See [Ambiguous Expressions](Ambiguous-Expressions.html#Ambiguous-Expressions), for a discussion of that situation.
@@ -124,7 +118,6 @@ It is also possible to insert a breakpoint that will stop the program only if a 
 ```
 
 `break`
-
 
 :   When called without any arguments, `break` sets a breakpoint at the next instruction to be executed in the selected stack frame (see [Examining the Stack](Stack.html#Stack)). In any selected frame but the innermost, this makes your program stop as soon as control returns to that frame. This is similar to the effect of a `finish` command in the frame inside the selected frame---except that `finish` does not leave an active breakpoint. If you use `break` without an argument in the innermost frame, [GDB] stops the next time it reaches the current location; this may be useful inside loops.
 
@@ -136,10 +129,9 @@ It is also possible to insert a breakpoint that will stop the program only if a 
 
 `break … if cond`
 
-
 :   Set a breakpoint with condition `cond`' stands for one of the possible arguments described above (or no argument) specifying where to break. See [Break Conditions](Conditions.html#Conditions), for more information on breakpoint conditions.
 
-> 设置一个具有条件`cond`的断点（或不指定参数），查看[断点条件](Conditions.html#Conditions)了解更多信息。
+> 设置一个具有条件 `cond` 的断点（或不指定参数），查看[断点条件](Conditions.html#Conditions)了解更多信息。
 
 ```
 The breakpoint may be mapped to multiple locations. If the breakpoint condition `cond` reports below that two of the three locations are disabled.
@@ -433,11 +425,9 @@ Num     Type           Disp Enb  Address    What
 
 :::
 
-
 You cannot delete the individual locations from a breakpoint. However, each location can be individually enabled or disabled by passing `breakpoint-number` acts on all the locations in the range (inclusive). Disabling or enabling the parent breakpoint (see [Disabling](Disabling.html#Disabling)) affects all of the locations that belong to that breakpoint.
 
-> 你不能从断点中删除单个位置。但是，可以通过传递`breakpoint-number`对范围内的所有位置进行单独启用或禁用。禁用或启用父断点（参见[禁用]（Disabling.html#Disabling））会影响属于该断点的所有位置。
-
+> 你不能从断点中删除单个位置。但是，可以通过传递 `breakpoint-number` 对范围内的所有位置进行单独启用或禁用。禁用或启用父断点（参见[禁用]（Disabling.html#Disabling））会影响属于该断点的所有位置。
 
 Locations that are enabled while their parent breakpoint is disabled won't trigger a break, and are denoted by `y-` in the `Enb` column. For example:
 
@@ -456,26 +446,21 @@ Num     Type           Disp Enb Address            What
 
 :::
 
-
 It's quite common to have a breakpoint inside a shared library. Shared libraries can be loaded and unloaded explicitly, and possibly repeatedly, as the program is executed. To support this use case, [GDB] will ask you if you want to set a so called *pending breakpoint*---breakpoint whose address is not yet resolved.
 
 > 在共享库中设置断点是很常见的。共享库可以被显式加载和卸载，并且可能会重复地在程序执行过程中被加载和卸载。为了支持这种用例，[GDB]会询问您是否要设置所谓的*挂起断点*——尚未解析地址的断点。
-
 
 After the program is run, whenever a new shared library is loaded, [GDB] reevaluates all the breakpoints. When a newly loaded shared library contains the symbol or line referred to by some pending breakpoint, that breakpoint is resolved and becomes an ordinary breakpoint. When a library is unloaded, all breakpoints that refer to its symbols or source lines become pending again.
 
 > 程序运行后，每当加载新的共享库时，[GDB]将重新评估所有断点。当新加载的共享库包含某个挂起断点所引用的符号或行时，该断点将被解析，并变成普通断点。当库被卸载时，所有引用其符号或源行的断点将再次变为挂起状态。
 
-
 This logic works for breakpoints with multiple locations, too. For example, if you have a breakpoint in a C++ template function, and a newly loaded shared library has an instantiation of that template, a new location is added to the list of locations for the breakpoint.
 
-> 这种逻辑也适用于有多个位置的断点。例如，如果您在C ++模板函数中设置了断点，并且新加载的共享库有该模板的实例化，则会为断点添加一个新的位置到位置列表中。
-
+> 这种逻辑也适用于有多个位置的断点。例如，如果您在 C ++ 模板函数中设置了断点，并且新加载的共享库有该模板的实例化，则会为断点添加一个新的位置到位置列表中。
 
 Except for having unresolved address, pending breakpoints do not differ from regular breakpoints. You can set conditions or commands, enable and disable them and perform other breakpoint operations.
 
 > 除了有未解決的地址外，暫時斷點與一般斷點沒有什麼不同。您可以設定條件或指令、啟用和禁用它們，並執行其他斷點操作。
-
 
 [GDB]' command cannot resolve the location spec to any code location in your program (see [Location Specifications](Location-Specifications.html#Location-Specifications)):
 
@@ -483,13 +468,11 @@ Except for having unresolved address, pending breakpoints do not differ from reg
 
 `set breakpoint pending auto`
 
-
 :   This is the default behavior. When [GDB] cannot resolve the location spec, it queries you whether a pending breakpoint should be created.
 
 > 这是默认行为。当[GDB]无法解析位置规范时，它会问你是否应该创建挂起的断点。
 
 `set breakpoint pending on`
-
 
 :   This indicates that when [GDB] cannot resolve the location spec, it should create a pending breakpoint without confirmation.
 
@@ -497,28 +480,23 @@ Except for having unresolved address, pending breakpoints do not differ from reg
 
 `set breakpoint pending off`
 
-
 :   This indicates that pending breakpoints are not to be created. If [GDB] cannot resolve the location spec, it aborts the breakpoint creation with an error. This setting does not affect any pending breakpoints previously created.
 
 > 这表明不应创建挂起的断点。如果[GDB]无法解析位置规范，它将使用错误中止断点创建。此设置不会影响以前创建的任何挂起断点。
 
 `show breakpoint pending`
 
-
 :   Show the current behavior setting for creating pending breakpoints.
 
 > 显示用于创建挂起断点的当前行为设置。
 
-
 The settings above only affect the `break` command and its variants. Once a breakpoint is set, it will be automatically updated as shared libraries are loaded and unloaded.
 
-> 以上设置只影响`break`命令及其变体。一旦设置断点，它将在加载和卸载共享库时自动更新。
-
+> 以上设置只影响 `break` 命令及其变体。一旦设置断点，它将在加载和卸载共享库时自动更新。
 
 For some targets, [GDB] will always use hardware breakpoints.
 
-> 对于某些目标，GDB总是使用硬件断点。
-
+> 对于某些目标，GDB 总是使用硬件断点。
 
 You can control this automatic behaviour with the following commands:
 
@@ -526,25 +504,21 @@ You can control this automatic behaviour with the following commands:
 
 `set breakpoint auto-hw on`
 
-
 :   This is the default behavior. When [GDB] sets a breakpoint, it will try to use the target memory map to decide if software or hardware breakpoint must be used.
 
 > 当[GDB]设置断点时，它会尝试使用目标内存映射来决定是使用软件断点还是硬件断点。这是默认行为。
 
 `set breakpoint auto-hw off`
 
-
 :   This indicates [GDB] will warn when trying to set software breakpoint at a read-only address.
 
 > 这表明[GDB]在尝试在只读地址设置软件断点时会发出警告。
 
-
 [GDB] restores the original instructions. This behaviour guards against leaving breakpoints inserted in the target should gdb abrubptly disconnect. However, with slow remote targets, inserting and removing breakpoint can reduce the performance. This behavior can be controlled with the following commands::
 
-> [GDB] 恢复原来的指令。如果GDB突然断开连接，这种行为可以防止在目标中插入断点。但是，对于缓慢的远程目标，插入和移除断点会降低性能。可以使用以下命令来控制这种行为：
+> [GDB] 恢复原来的指令。如果 GDB 突然断开连接，这种行为可以防止在目标中插入断点。但是，对于缓慢的远程目标，插入和移除断点会降低性能。可以使用以下命令来控制这种行为：
 
 `set breakpoint always-inserted off`
-
 
 :   All breakpoints, including newly added by the user, are inserted in the target only when the target is resumed. All breakpoints are removed from the target when it stops. This is the default mode.
 
@@ -552,21 +526,17 @@ You can control this automatic behaviour with the following commands:
 
 `set breakpoint always-inserted on`
 
-
 :   Causes all breakpoints to be inserted in the target at all times. If the user adds a new breakpoint, or changes an existing breakpoint, the breakpoints in the target are updated immediately. A breakpoint is removed from the target only when breakpoint itself is deleted.
 
 > 所有断点都会一直插入到目标中。如果用户添加新断点或更改现有断点，则目标中的断点将立即更新。只有在删除断点本身时，断点才会从目标中删除。
-
 
 [GDB] handles conditional breakpoints by evaluating these conditions when a breakpoint breaks. If the condition is true, then the process being debugged stops, otherwise the process is resumed.
 
 > [GDB] 在断点中断时，通过评估这些条件来处理条件断点。如果条件为真，则正在调试的进程停止，否则进程将继续运行。
 
-
 If the target supports evaluating conditions on its end, [GDB] may download the breakpoint, together with its conditions, to it.
 
 > 如果目标支持在本地评估条件，[GDB]可以将断点及其条件一起下载到它上面。
-
 
 This feature can be controlled via the following commands:
 
@@ -574,13 +544,11 @@ This feature can be controlled via the following commands:
 
 `set breakpoint condition-evaluation host`
 
-
 :   This option commands [GDB] to evaluate the breakpoint conditions on the host's side. Unconditional breakpoints are sent to the target which in turn receives the triggers and reports them back to GDB for condition evaluation. This is the standard evaluation mode.
 
-> 这个选项指令GDB在主机端评估断点条件。无条件断点被发送到目标，目标接收触发器并将其报告回GDB以进行条件评估。这是标准评估模式。
+> 这个选项指令 GDB 在主机端评估断点条件。无条件断点被发送到目标，目标接收触发器并将其报告回 GDB 以进行条件评估。这是标准评估模式。
 
 `set breakpoint condition-evaluation target`
-
 
 :   This option commands [GDB].
 
@@ -588,11 +556,9 @@ This feature can be controlled via the following commands:
 
 `set breakpoint condition-evaluation auto`
 
-
 :   This is the default mode. If the target supports evaluating breakpoint conditions on its end, [GDB] will fallback to evaluating all these conditions on the host's side.
 
 > 这是默认模式。如果目标支持在其端上评估断点条件，[GDB]将回退到在主机端评估所有这些条件。
-
 
 [GDB]' (see [maint info breakpoints](Maintenance-Commands.html#maint-info-breakpoints)).
 

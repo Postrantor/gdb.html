@@ -9,7 +9,8 @@ keywords: gdb man (Debugging with GDB)
 lang: en
 resource-type: document
 title: gdb man (Debugging with GDB)
----
+-----------------------------------
+
 ::: header
 Next: [gdbserver man](gdbserver-man.html#gdbserver-man)]
 :::
@@ -20,16 +21,13 @@ Next: [gdbserver man](gdbserver-man.html#gdbserver-man)]
 
 ### gdb man
 
-
 gdb \[OPTIONS] \[`prog`]
 
 > gdb [选项] [prog]
 
-
 The purpose of a debugger such as [GDB] is to allow you to see what is going on "inside" another program while it executes -- or what another program was doing at the moment it crashed.
 
-> 调试器（比如GDB）的目的是让你在另一个程序执行时能看到它的“内部”情况 —— 或者是另一个程序崩溃时正在做什么。
-
+> 调试器（比如 GDB）的目的是让你在另一个程序执行时能看到它的“内部”情况 —— 或者是另一个程序崩溃时正在做什么。
 
 [GDB] can do four main kinds of things (plus other things in support of these) to help you catch bugs in the act:
 
@@ -38,25 +36,21 @@ The purpose of a debugger such as [GDB] is to allow you to see what is going on 
 - Start your program, specifying anything that might affect its behavior.
 - Make your program stop on specified conditions.
 - Examine what has happened, when your program has stopped.
-
 - Change things in your program, so you can experiment with correcting the effects of one bug and go on to learn about another.
 
 > 更改你的程序中的内容，这样你就可以尝试纠正一个 bug 的影响，并继续学习另一个 bug。
 
-
 You can use [GDB] to debug programs written in C, C++, Fortran and Modula-2.
 
-> 你可以使用GDB来调试用C、C++、Fortran和Modula-2编写的程序。
-
+> 你可以使用 GDB 来调试用 C、C++、Fortran 和 Modula-2 编写的程序。
 
 [GDB] itself by using the command `help`.
 
-> 使用命令“help”来查看GDB本身的帮助信息。
-
+> 使用命令“help”来查看 GDB 本身的帮助信息。
 
 You can run `gdb` with no arguments or options; but the most usual way to start [GDB] is with one argument or two, specifying an executable program as the argument:
 
-> 你可以不带参数或选项运行`gdb`; 但最常见的启动[GDB]的方式是带一个或两个参数，将可执行程序作为参数。
+> 你可以不带参数或选项运行 `gdb`; 但最常见的启动[GDB]的方式是带一个或两个参数，将可执行程序作为参数。
 
 ::: smallexample
 
@@ -65,7 +59,6 @@ gdb program
 ```
 
 :::
-
 
 You can also start with both an executable program and a core file specified:
 
@@ -79,10 +72,9 @@ gdb program core
 
 :::
 
-
 You can, instead, specify a process ID as a second argument or use option `-p`, if you want to debug a running process:
 
-> 你可以用第二个参数指定一个进程ID，或者使用 `-p` 选项，如果你想调试一个正在运行的进程：
+> 你可以用第二个参数指定一个进程 ID，或者使用 `-p` 选项，如果你想调试一个正在运行的进程：
 
 ::: smallexample
 
@@ -93,18 +85,15 @@ gdb -p 1234
 
 :::
 
-
 would attach [GDB] filename.
 
 > 將[GDB]檔案名稱附加。
 
-
 Here are some of the most frequently needed [GDB] commands:
 
-> 以下是最常用的GDB命令：
+> 以下是最常用的 GDB 命令：
 
 `break [file:][function|line]`
-
 
 :   Set a breakpoint at `function`).
 
@@ -112,13 +101,11 @@ Here are some of the most frequently needed [GDB] commands:
 
 `run [arglist]`
 
-
 :   Start your program (with `arglist`, if specified).
 
-> 开始你的程序（如果指定，带有`arglist`）。
+> 开始你的程序（如果指定，带有 `arglist`）。
 
 `bt`
-
 
 :   Backtrace: display the program stack.
 
@@ -126,13 +113,11 @@ Here are some of the most frequently needed [GDB] commands:
 
 `print expr`
 
-
 :   Display the value of an expression.
 
 > 顯示表達式的值。
 
 `c`
-
 
 :   Continue running your program (after stopping, e.g. at a breakpoint).
 
@@ -140,13 +125,11 @@ Here are some of the most frequently needed [GDB] commands:
 
 `next`
 
-
 :   Execute next program line (after stopping); step *over* any function calls in the line.
 
 > 执行下一行程序（停止后）；跳过该行中的任何函数调用。
 
 `edit [file:]function`
-
 
 :   look at the program line where it is presently stopped.
 
@@ -154,13 +137,11 @@ Here are some of the most frequently needed [GDB] commands:
 
 `list [file:]function`
 
-
 :   type the text of the program in the vicinity of where it is presently stopped.
 
 > 在目前停止的位置附近输入程序文本。
 
 `step`
-
 
 :   Execute next program line (after stopping); step *into* any function calls in the line.
 
@@ -168,21 +149,18 @@ Here are some of the most frequently needed [GDB] commands:
 
 `help [name]`
 
-
 :   Show information about [GDB].
 
-> 显示有关GDB的信息。
+> 显示有关 GDB 的信息。
 
 `quit`
 `exit`
 
 :   Exit from [GDB].
 
-
 Any arguments other than options specify an executable file and core file (or process ID); that is, the first argument encountered with no associated option flag is equivalent to a `--se` option if it's the name of a file. Many options have both long and abbreviated forms; both are shown here. The long forms are also recognized if you truncate them, so long as enough of the option is present to be unambiguous.
 
-> 除了选项以外的任何参数都指定一个可执行文件和核心文件（或进程ID）；也就是说，如果第一个遇到的没有关联选项标志的参数是文件名，则等同于`--se`选项。许多选项都有长期和缩写形式；这里都显示出来。只要选项足够清晰，也可以识别长期形式的截断。
-
+> 除了选项以外的任何参数都指定一个可执行文件和核心文件（或进程 ID）；也就是说，如果第一个遇到的没有关联选项标志的参数是文件名，则等同于 `--se` 选项。许多选项都有长期和缩写形式；这里都显示出来。只要选项足够清晰，也可以识别长期形式的截断。
 
 The abbreviated forms are shown here with '`-` recognizes all of the following conventions for most options:
 
@@ -204,14 +182,12 @@ The abbreviated forms are shown here with '`-` recognizes all of the following c
 
 `-o value`
 
-
 All the options and command line arguments you give are processed in sequential order. The order makes a difference when the `-x` option is used.
 
-> 所有给定的选项和命令行参数都按顺序处理。当使用`-x`选项时，顺序就很重要了。
+> 所有给定的选项和命令行参数都按顺序处理。当使用 `-x` 选项时，顺序就很重要了。
 
 `--help`
 `-h`
-
 
 :   List all options, with brief explanations.
 
@@ -220,13 +196,11 @@ All the options and command line arguments you give are processed in sequential 
 `--symbols=file`
 `-s file`
 
-
 :   Read symbol table from `file`.
 
 > 从文件中读取符号表。
 
 `--write`
-
 
 :   Enable writing into executable and core files.
 
@@ -235,25 +209,22 @@ All the options and command line arguments you give are processed in sequential 
 `--exec=file`
 `-e file`
 
-
 :   Use `file` as the executable file to execute when appropriate, and for examining pure data in conjunction with a core dump.
 
-> 使用`文件`作为适当时执行的可执行文件，并且用来与核心转储一起检查纯数据。
+> 使用 `文件` 作为适当时执行的可执行文件，并且用来与核心转储一起检查纯数据。
 
 `--se=file`
 
-
 :   Read symbol table from `file` and use it as the executable file.
 
-> 从`文件`中读取符号表，并将其用作可执行文件。
+> 从 `文件` 中读取符号表，并将其用作可执行文件。
 
 `--core=file`
 `-c file`
 
-
 :   Use `file` as a core dump to examine.
 
-> 使用`文件`作为核心转储来进行检查。
+> 使用 `文件` 作为核心转储来进行检查。
 
 `--command=file`
 `-x file`
@@ -263,14 +234,12 @@ All the options and command line arguments you give are processed in sequential 
 `--eval-command=command`
 `-ex command`
 
-
 :   Execute given [GDB].
 
 > 执行给定的[GDB]。
 
 `--init-eval-command=command`
 `-iex`
-
 
 :   Execute [GDB] before loading the inferior.
 
@@ -279,30 +248,26 @@ All the options and command line arguments you give are processed in sequential 
 `--directory=directory`
 `-d directory`
 
-
 :   Add `directory` to the path to search for source files.
 
-> 将`directory`添加到路径中以搜索源文件。
+> 将 `directory` 添加到路径中以搜索源文件。
 
 `--nh`
 
-
 :   Do not execute commands from `~/.config/gdb/gdbinit`
 
-> 不要从`~/.config/gdb/gdbinit`执行命令。
+> 不要从 `~/.config/gdb/gdbinit` 执行命令。
 
 `--nx`
 `-n`
 
-
 :   Do not execute commands from any `.gdbinit` initialization files.
 
-> 不要执行任何`.gdbinit`初始化文件中的命令。
+> 不要执行任何 `.gdbinit` 初始化文件中的命令。
 
 `--quiet`
 `--silent`
 `-q`
-
 
 :   "Quiet". Do not print the introductory and copyright messages. These messages are also suppressed in batch mode.
 
@@ -310,10 +275,9 @@ All the options and command line arguments you give are processed in sequential 
 
 `--batch`
 
-
 :   Run in batch mode. Exit with status `0` after processing all the command files specified with `-x` commands in the command files.
 
-> 以批处理模式运行。在处理完命令文件中指定的`-x`命令后，以状态`0`退出。
+> 以批处理模式运行。在处理完命令文件中指定的 `-x` 命令后，以状态 `0` 退出。
 
 ```
 Batch mode may be useful for running [GDB] as a filter, for example to download and run a program on another computer; in order to make this more useful, the message

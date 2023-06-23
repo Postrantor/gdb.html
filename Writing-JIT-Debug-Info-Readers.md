@@ -9,7 +9,8 @@ keywords: Writing JIT Debug Info Readers (Debugging with GDB)
 lang: en
 resource-type: document
 title: Writing JIT Debug Info Readers (Debugging with GDB)
----
+----------------------------------------------------------
+
 ::: header
 Previous: [Using JIT Debug Info Readers](Using-JIT-Debug-Info-Readers.html#Using-JIT-Debug-Info-Readers)]
 :::
@@ -18,22 +19,19 @@ Previous: [Using JIT Debug Info Readers](Using-JIT-Debug-Info-Readers.html#Using
 
 #### 30.4.2 Writing JIT Debug Info Readers
 
-
 As mentioned, a reader is essentially a shared object conforming to a certain ABI. This ABI is described in `jit-reader.h`.
 
-> 如所提及的，读取器本质上是符合某种ABI的共享对象。此ABI在`jit-reader.h`中描述。
+> 如所提及的，读取器本质上是符合某种 ABI 的共享对象。此 ABI 在 `jit-reader.h` 中描述。
 
 `jit-reader.h` is the system include directory.
 
-
 Readers need to be released under a GPL compatible license. A reader can be declared as released under such a license by placing the macro `GDB_DECLARE_GPL_COMPATIBLE_READER` in a source file.
 
-> 读者需要在GPL兼容许可证下发布。可以通过在源文件中放置宏`GDB_DECLARE_GPL_COMPATIBLE_READER`来声明读者已经在此类许可证下发布。
-
+> 读者需要在 GPL 兼容许可证下发布。可以通过在源文件中放置宏 `GDB_DECLARE_GPL_COMPATIBLE_READER` 来声明读者已经在此类许可证下发布。
 
 The entry point for readers is the symbol `gdb_init_reader`, which is expected to be a function with the prototype
 
-> 读者的入口点是符号`gdb_init_reader`，预期它是一个具有原型的函数。
+> 读者的入口点是符号 `gdb_init_reader`，预期它是一个具有原型的函数。
 
 ::: smallexample
 
@@ -65,10 +63,9 @@ struct gdb_reader_funcs
 
 :::
 
-
 The callbacks are provided with another set of callbacks by [GDB] to do their job. For `read`, these callbacks are passed in a `struct gdb_symbol_callbacks` and for `unwind` and `get_frame_id`, in a `struct gdb_unwind_callbacks`. `struct gdb_symbol_callbacks` has callbacks to create new object files and new symbol tables inside those object files. `struct gdb_unwind_callbacks` has callbacks to read registers off the current frame and to write out the values of the registers in the previous frame. Both have a callback (`target_read`) to read bytes off the target's address space.
 
-> 回调函数由GDB提供另一组回调函数来完成其工作。对于“read”，这些回调函数会以“struct gdb_symbol_callbacks”的形式传递，而对于“unwind”和“get_frame_id”，则以“struct gdb_unwind_callbacks”的形式传递。“struct gdb_symbol_callbacks”有回调函数来创建新的对象文件以及在这些对象文件中的新符号表。“struct gdb_unwind_callbacks”有回调函数来读取当前帧的寄存器，并将上一帧的寄存器值写出。两者都有一个回调函数（“target_read”）来读取目标地址空间上的字节。
+> 回调函数由 GDB 提供另一组回调函数来完成其工作。对于“read”，这些回调函数会以“struct gdb_symbol_callbacks”的形式传递，而对于“unwind”和“get_frame_id”，则以“struct gdb_unwind_callbacks”的形式传递。“struct gdb_symbol_callbacks”有回调函数来创建新的对象文件以及在这些对象文件中的新符号表。“struct gdb_unwind_callbacks”有回调函数来读取当前帧的寄存器，并将上一帧的寄存器值写出。两者都有一个回调函数（“target_read”）来读取目标地址空间上的字节。
 
 ---
 

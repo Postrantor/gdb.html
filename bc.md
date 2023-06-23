@@ -9,8 +9,8 @@ keywords: bc (Debugging with GDB)
 lang: en
 resource-type: document
 title: bc (Debugging with GDB)
----
+------------------------------
 
 The node you are looking for is at [bc](Packets.html#bc).
 
-> 你要找的节点位于[bc](Packets.html#bc)。
+> 你要找的节点位于 [bc](Packets.html#bc)。

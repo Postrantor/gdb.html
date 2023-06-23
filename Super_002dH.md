@@ -9,7 +9,8 @@ keywords: Super-H (Debugging with GDB)
 lang: en
 resource-type: document
 title: Super-H (Debugging with GDB)
----
+-----------------------------------
+
 ::: header
 Previous: [CRIS](CRIS.html#CRIS)]
 :::
@@ -18,10 +19,9 @@ Previous: [CRIS](CRIS.html#CRIS)]
 
 #### 21.3.11 Renesas Super-H
 
-
 For the Renesas Super-H processor, [GDB] provides these commands:
 
-> 对于Renesas Super-H处理器，[GDB]提供了这些命令：
+> 对于 Renesas Super-H 处理器，[GDB]提供了这些命令：
 
 `set sh calling-convention convention`
 

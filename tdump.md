@@ -9,7 +9,8 @@ keywords: tdump (Debugging with GDB)
 lang: en
 resource-type: document
 title: tdump (Debugging with GDB)
----
+---------------------------------
+
 ::: header
 Next: [save tracepoints](save-tracepoints.html#save-tracepoints)]
 :::
@@ -17,7 +18,6 @@ Next: [save tracepoints](save-tracepoints.html#save-tracepoints)]
 ---
 
 #### 13.2.2 `tdump`
-
 
 This command takes no arguments. It prints all the data collected at the current trace snapshot.
 
@@ -78,10 +78,9 @@ gdb_long_test = 17 '\021'
 
 `tdump` works by scanning the tracepoint's current collection actions and printing the value of each expression listed. So `tdump` can fail, if after a run, you change the tracepoint's actions to mention variables that were not collected during the run.
 
-
 Also, for tracepoints with `while-stepping` loops, `tdump` uses the collected value of `$pc` to distinguish between trace frames that were collected at the tracepoint hit, and frames that were collected while stepping. This allows it to correctly choose whether to display the basic list of collections, or the collections from the body of the while-stepping loop. However, if `$pc` was not collected, then `tdump` will always attempt to dump using the basic collection list, and may fail if a while-stepping frame does not include all the same data that is collected at the tracepoint hit.
 
-> 对于具有“while-stepping”循环的跟踪点，tdump使用收集的$pc值来区分在跟踪点命中时收集的帧和在踏步时收集的帧。这样可以正确选择是显示基本的收集列表，还是从while-stepping循环体中收集的收集列表。但是，如果未收集$pc，则tdump将始终尝试使用基本的收集列表进行转储，如果while-stepping帧不包含在跟踪点命中时收集的所有相同数据，则可能会失败。
+> 对于具有“while-stepping”循环的跟踪点，tdump 使用收集的$pc值来区分在跟踪点命中时收集的帧和在踏步时收集的帧。这样可以正确选择是显示基本的收集列表，还是从while-stepping循环体中收集的收集列表。但是，如果未收集$pc，则 tdump 将始终尝试使用基本的收集列表进行转储，如果 while-stepping 帧不包含在跟踪点命中时收集的所有相同数据，则可能会失败。
 
 ---
 

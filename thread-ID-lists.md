@@ -9,8 +9,8 @@ keywords: thread ID lists (Debugging with GDB)
 lang: en
 resource-type: document
 title: thread ID lists (Debugging with GDB)
----
+-------------------------------------------
 
 The node you are looking for is at [thread ID lists](Threads.html#thread-ID-lists).
 
-> 您正在寻找的节点位于[线程ID列表](Threads.html#thread-ID-lists)中。
+> 您正在寻找的节点位于[线程 ID 列表](Threads.html#thread-ID-lists)中。

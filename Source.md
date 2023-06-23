@@ -9,7 +9,8 @@ keywords: Source (Debugging with GDB)
 lang: en
 resource-type: document
 title: Source (Debugging with GDB)
----
+----------------------------------
+
 ::: header
 Next: [Data](Data.html#Data)]
 :::
@@ -18,18 +19,15 @@ Next: [Data](Data.html#Data)]
 
 ## 9 Examining Source Files
 
-
 [GDB] prints the line where execution in that frame has stopped. You can print other portions of source files by explicit command.
 
 > [GDB] 打印出在该帧中停止执行的行。您可以通过显式命令打印源文件的其他部分。
-
 
 If you use [GDB] Emacs](Emacs.html#Emacs).
 
 > 如果你使用[GDB] Emacs（Emacs.html#Emacs）。
 
 ---
-
 
 • [List](List.html#List):                                                                 Printing source lines
 

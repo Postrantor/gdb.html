@@ -9,7 +9,8 @@ keywords: Basic Python (Debugging with GDB)
 lang: en
 resource-type: document
 title: Basic Python (Debugging with GDB)
----
+----------------------------------------
+
 ::: header
 Next: [Exception Handling](Exception-Handling.html#Exception-Handling)]
 :::
@@ -18,45 +19,38 @@ Next: [Exception Handling](Exception-Handling.html#Exception-Handling)]
 
 #### 23.3.2.1 Basic Python
 
-
 At startup, [GDB]'s output-paging streams. A Python program which outputs to one of these streams may have its output interrupted by the user (see [Screen Size](Screen-Size.html#Screen-Size)). In this situation, a Python `KeyboardInterrupt` exception is thrown.
 
-> 在启动时，GDB的输出分页流。一个输出到这些流之一的Python程序的输出可能会被用户中断（参见[屏幕尺寸](Screen-Size.html#Screen-Size)）。在这种情况下，Python会抛出KeyboardInterrupt异常。
-
+> 在启动时，GDB 的输出分页流。一个输出到这些流之一的 Python 程序的输出可能会被用户中断（参见[屏幕尺寸](Screen-Size.html#Screen-Size)）。在这种情况下，Python 会抛出 KeyboardInterrupt 异常。
 
 Some care must be taken when writing Python code to run in [GDB]. Two things worth noting in particular:
 
-> 在编写用于[GDB]中运行的Python代码时，必须要小心。特别值得注意的两件事：
+> 在编写用于[GDB]中运行的 Python 代码时，必须要小心。特别值得注意的两件事：
 
 - [GDB] will most likely stop working correctly. Note that it is unfortunately common for GUI toolkits to install a `SIGCHLD` handler.
 - [GDB] takes care to mark its internal file descriptors as close-on-exec. However, this cannot be done in a thread-safe way on all platforms. Your Python programs should be aware of this and should both create new file descriptors with the close-on-exec flag set and arrange to close unneeded file descriptors before starting a child process.
 
-
 [GDB] automatically `import` s the `gdb` module for use in all scripts evaluated by the `python` command.
 
-> GDB会自动为python命令评估的所有脚本导入gdb模块。
-
+> GDB 会自动为 python 命令评估的所有脚本导入 gdb 模块。
 
 Some types of the `gdb` module come with a textual representation (accessible through the `repr` or `str` functions). These are offered for debugging purposes only, expect them to change over time.
 
-> 一些`gdb`模块带有文本表示（通过`repr`或`str`函数访问）。这些仅供调试目的，期望它们随着时间的推移而改变。
-
+> 一些 `gdb` 模块带有文本表示（通过 `repr` 或 `str` 函数访问）。这些仅供调试目的，期望它们随着时间的推移而改变。
 
 Variable: **gdb.PYTHONDIR**
 
 > 变量：**gdb.PYTHONDIR**
 
-
 :   A string containing the python directory (see [Python](Python.html#Python)).
 
-> 一个包含Python目录的字符串（参见[Python](Python.html#Python)）。
+> 一个包含 Python 目录的字符串（参见 [Python](Python.html#Python)）。
 
 )*
 
-
 :   Evaluate `command` runs, it is translated as described in [Exception Handling](Exception-Handling.html#Exception-Handling).
 
-> 评估`command`运行，它按照[异常处理]（Exception-Handling.html#Exception-Handling）中所述进行翻译。
+> 评估 `command` 运行，它按照[异常处理]（Exception-Handling.html#Exception-Handling）中所述进行翻译。
 
 ```
 The `from_tty` ought to consider this command as having originated from the user invoking it interactively. It must be a boolean value. If omitted, it defaults to `False`.
@@ -64,15 +58,13 @@ The `from_tty` ought to consider this command as having originated from the user
 By default, any output produced by `command` virtual terminal will be temporarily set to unlimited width and height, and its pagination will be disabled; see [Screen Size](Screen-Size.html#Screen-Size).
 ```
 
-
 Function: **gdb.breakpoints** *()*
 
 > 功能：**gdb.breakpoints** *（）*
 
-
 :   Return a sequence holding all of [GDB] version 7.11 and earlier, this function returned `None` if there were no breakpoints. This peculiarity was subsequently fixed, and now `gdb.breakpoints` returns an empty sequence in this case.
 
-> 返回一个包含所有[GDB]版本7.11及更早版本的序列，如果没有断点，此函数将返回`None`。之后修复了这个特殊情况，现在`gdb.breakpoints`在这种情况下返回一个空序列。
+> 返回一个包含所有[GDB]版本 7.11 及更早版本的序列，如果没有断点，此函数将返回 `None`。之后修复了这个特殊情况，现在 `gdb.breakpoints` 在这种情况下返回一个空序列。
 
 ```
 
@@ -80,16 +72,13 @@ Function: **gdb.breakpoints** *()*
 
 )*
 
-
 :   Return a Python list holding a collection of newly set `gdb.Breakpoint` objects matching function names defined by the `regex` keyword takes a Python iterable that yields a collection of `gdb.Symtab` objects and will restrict the search to those functions only contained within the `gdb.Symtab` objects.
 
-> 返回一个Python列表，其中包含一系列新设置的gdb.Breakpoint对象，这些对象与由regex关键字定义的函数名匹配，该关键字接受一个Python可迭代对象，该可迭代对象会产生一系列gdb.Symtab对象，并将搜索限制为仅包含在gdb.Symtab对象中的函数。
-
+> 返回一个 Python 列表，其中包含一系列新设置的 gdb.Breakpoint 对象，这些对象与由 regex 关键字定义的函数名匹配，该关键字接受一个 Python 可迭代对象，该可迭代对象会产生一系列 gdb.Symtab 对象，并将搜索限制为仅包含在 gdb.Symtab 对象中的函数。
 
 Function: **gdb.parameter** *(parameter)*
 
 > 函数：**gdb.parameter**（参数）
-
 
 :   Return the value of a [GDB]' is a valid parameter name.
 
@@ -99,25 +88,21 @@ Function: **gdb.parameter** *(parameter)*
 If the named parameter does not exist, this function throws a `gdb.error` (see [Exception Handling](Exception-Handling.html#Exception-Handling)). Otherwise, the parameter's value is converted to a Python value of the appropriate type, and returned.
 ```
 
-
 Function: **gdb.set_parameter** *(name, value)*
 
 > 功能：**gdb.set_parameter**（名称，值）
 
-
 :   Sets the gdb parameter `name`. As with `gdb.parameter`, the parameter name string may contain spaces if the parameter has a multi-part name.
 
-> 设置gdb参数`name`。与`gdb.parameter`一样，如果参数具有多个部分的名称，参数名称字符串可以包含空格。
-
+> 设置 gdb 参数 `name`。与 `gdb.parameter` 一样，如果参数具有多个部分的名称，参数名称字符串可以包含空格。
 
 Function: **gdb.with_parameter** *(name, value)*
 
 > 功能：**gdb.with_parameter** *（名称，值）*
 
-
 :   Create a Python context manager (for use with the Python `with` statement) that temporarily sets the gdb parameter `name`. On exit from the context, the previous value will be restored.
 
-> 创建一个Python上下文管理器（可用于Python `with`语句），可以暂时设置gdb参数`name`。 退出上下文时，将恢复先前的值。
+> 创建一个 Python 上下文管理器（可用于 Python `with` 语句），可以暂时设置 gdb 参数 `name`。 退出上下文时，将恢复先前的值。
 
 ```
 This uses `gdb.parameter` in its implementation, so it can throw the same exceptions as that function.

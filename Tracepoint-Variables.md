@@ -9,7 +9,8 @@ keywords: Tracepoint Variables (Debugging with GDB)
 lang: en
 resource-type: document
 title: Tracepoint Variables (Debugging with GDB)
----
+------------------------------------------------
+
 ::: header
 Next: [Trace Files](Trace-Files.html#Trace-Files)]
 :::
@@ -20,13 +21,11 @@ Next: [Trace Files](Trace-Files.html#Trace-Files)]
 
 `(int) $trace_frame`
 
-
 The current trace snapshot (a.k.a. *frame*) number, or -1 if no snapshot is selected.
 
 > 当前跟踪快照（又称*帧*）编号，如果没有选择快照则为-1。
 
 `(int) $tracepoint`
-
 
 The tracepoint for the current trace snapshot.
 
@@ -34,13 +33,11 @@ The tracepoint for the current trace snapshot.
 
 `(int) $trace_line`
 
-
 The line number for the current trace snapshot.
 
 > 当前跟踪快照的行号。
 
 `(char ) $trace_file`
-
 
 The source file for the current trace snapshot.
 
@@ -48,13 +45,11 @@ The source file for the current trace snapshot.
 
 `(char ) $trace_func`
 
-
 The name of the function containing `$tracepoint`.
 
 > 函数名称包含 `$tracepoint`。
 
 Note: `$trace_file` is not suitable for use in `printf`, use `output` instead.
-
 
 Here's a simple example of using these convenience variables for stepping through all the trace snapshots and printing some of their data. Note that these are not the same as trace state variables, which are managed by the target.
 

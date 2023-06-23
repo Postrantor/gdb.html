@@ -9,7 +9,8 @@ keywords: Auto-loading sequences (Debugging with GDB)
 lang: en
 resource-type: document
 title: Auto-loading sequences (Debugging with GDB)
----
+--------------------------------------------------
+
 ::: header
 Previous: [Output](Output.html#Output)]
 :::
@@ -18,11 +19,9 @@ Previous: [Output](Output.html#Output)]
 
 #### 23.1.5 Controlling auto-loading native [GDB]
 
-
 When a new object file is read (for example, due to the `file` command, or because the inferior has loaded a shared library), [GDB]. See [Auto-loading extensions](Auto_002dloading-extensions.html#Auto_002dloading-extensions).
 
-> 当读取一个新的对象文件时（例如，由于`file`命令，或者因为次级已经加载了一个共享库），[GDB]就会自动加载扩展。请参阅[自动加载扩展](Auto_002dloading-extensions.html#Auto_002dloading-extensions)。
-
+> 当读取一个新的对象文件时（例如，由于 `file` 命令，或者因为次级已经加载了一个共享库），[GDB]就会自动加载扩展。请参阅[自动加载扩展](Auto_002dloading-extensions.html#Auto_002dloading-extensions)。
 
 Auto-loading can be enabled or disabled, and the list of auto-loaded scripts can be printed.
 
@@ -30,13 +29,11 @@ Auto-loading can be enabled or disabled, and the list of auto-loaded scripts can
 
 `set auto-load gdb-scripts [on|off]`
 
-
 Enable or disable the auto-loading of canned sequences of commands scripts.
 
 > 启用或禁用自动加载命令脚本序列的功能。
 
 `show auto-load gdb-scripts`
-
 
 Show whether auto-loading of canned sequences of commands scripts is enabled or disabled.
 
@@ -44,12 +41,10 @@ Show whether auto-loading of canned sequences of commands scripts is enabled or 
 
 `info auto-load gdb-scripts [regexp]`
 
-
 Print the list of all canned sequences of commands scripts that [GDB] auto-loaded.
 
-> 打印GDB自动加载的所有罐装命令脚本列表。
-
+> 打印 GDB 自动加载的所有罐装命令脚本列表。
 
 If `regexp` is supplied only canned sequences of commands scripts with matching names are printed.
 
-> 如果提供了`regexp`，只会打印带有匹配名称的命令脚本的罐装序列。
+> 如果提供了 `regexp`，只会打印带有匹配名称的命令脚本的罐装序列。

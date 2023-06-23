@@ -9,7 +9,8 @@ keywords: TUI Commands (Debugging with GDB)
 lang: en
 resource-type: document
 title: TUI Commands (Debugging with GDB)
----
+----------------------------------------
+
 ::: header
 Next: [TUI Configuration](TUI-Configuration.html#TUI-Configuration)]
 :::
@@ -18,10 +19,9 @@ Next: [TUI Configuration](TUI-Configuration.html#TUI-Configuration)]
 
 ### 25.5 TUI-specific Commands
 
-
 The TUI has specific commands to control the text windows. These commands are always available, even when [GDB] is in the standard mode, most of these commands will automatically switch to the TUI mode.
 
-> TUI有特定的命令来控制文本窗口。即使[GDB]处于标准模式时，这些命令也始终可用，大多数这些命令会自动切换到TUI模式。
+> TUI 有特定的命令来控制文本窗口。即使[GDB]处于标准模式时，这些命令也始终可用，大多数这些命令会自动切换到 TUI 模式。
 
 Note that if [GDB] Interface](GDB_002fMI.html#GDB_002fMI)), most of these commands will fail with an error, because it would not be possible or desirable to enable curses window management.
 

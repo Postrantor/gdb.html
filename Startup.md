@@ -9,7 +9,8 @@ keywords: Startup (Debugging with GDB)
 lang: en
 resource-type: document
 title: Startup (Debugging with GDB)
----
+-----------------------------------
+
 ::: header
 Next: [Initialization Files](Initialization-Files.html#Initialization-Files)]
 :::
@@ -18,11 +19,9 @@ Next: [Initialization Files](Initialization-Files.html#Initialization-Files)]
 
 #### 2.1.3 What [GDB]
 
-
 Here's the description of what [GDB] does during session startup:
 
 > 这是[GDB]在会话启动时所做的描述：
-
 
 1. Performs minimal setup required to initialize basic internal state.
 
@@ -58,23 +57,25 @@ Here's the description of what [GDB] does during session startup:
 
 9. Reads and executes the commands from the initialization file (if any) in the current working directory as long as '`set auto-load local-gdbinit`. See [Init File in the Current Directory during Startup](Initialization-Files.html#Init-File-in-the-Current-Directory-during-Startup).
 
-> 从当前工作目录中的初始化文件（如果有）中读取并执行命令，只要设置了“自动加载本地GDBINIT”。详见[启动时当前目录中的初始化文件](Initialization-Files.html#Init-File-in-the-Current-Directory-during-Startup)。
+> 从当前工作目录中的初始化文件（如果有）中读取并执行命令，只要设置了“自动加载本地 GDBINIT”。详见[启动时当前目录中的初始化文件](Initialization-Files.html#Init-File-in-the-Current-Directory-during-Startup)。
 
 10. If the command line specified a program to debug, or a process to attach to, or a core file, [GDB] loads any auto-loaded scripts provided for the program or for its loaded shared libraries. See [Auto-loading](Auto_002dloading.html#Auto_002dloading).
 
 > 如果命令行指定了一个要调试的程序，或者要连接的进程，或者一个核心文件，[GDB]会加载为该程序或其加载的共享库提供的任何自动加载脚本。请参见[自动加载](Auto_002dloading.html#Auto_002dloading)。
 
-    If you wish to disable the auto-loading during startup, you must do something like the following:
+```
+If you wish to disable the auto-loading during startup, you must do something like the following:
 
-    ::: smallexample
+::: smallexample
 
-    ```bash
-    $ gdb -iex "set auto-load python-scripts off" myprogram
-    ```
+```bash
+$ gdb -iex "set auto-load python-scripts off" myprogram
+```
 
-    :::
+:::
 
-    Option '`-ex`' does not work because the auto-loading is then turned off too late.
+Option '`-ex`' does not work because the auto-loading is then turned off too late.
+```
 
 11. Executes commands and command files specified by the '`-ex` command files.
 
