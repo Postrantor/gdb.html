@@ -1,10 +1,4 @@
 ---
-description: python_breakpoint_thread (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: python_breakpoint_thread (Debugging with GDB)
-lang: en
-resource-type: document
-title: python_breakpoint_thread (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:27:45
+...
 ---
-The node you are looking for is at [python_breakpoint_thread](Breakpoints-In-Python.html#python_005fbreakpoint_005fthread).

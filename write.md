@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 15:44:23
+...
+---
 description: write (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -23,11 +26,17 @@ Synopsis:
 
 Request:
 
+
 :   '`Fwrite,fd,bufptr,count`'
+
+> 写入，fd，bufptr，计数
 
 Return value:
 
+
 :   On success, the number of bytes written are returned. Zero indicates nothing was written. On error, -1 is returned.
+
+> 如果成功，将返回写入的字节数。零表示没有写入。如果出错，则返回-1。
 
 Errors:
 

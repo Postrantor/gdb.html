@@ -1,10 +1,4 @@
 ---
-description: AMD GPU Attaching Restrictions (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: AMD GPU Attaching Restrictions (Debugging with GDB)
-lang: en
-resource-type: document
-title: AMD GPU Attaching Restrictions (Debugging with GDB)
+tip: translate by openai@2023-06-23 11:52:11
+...
 ---
-The node you are looking for is at [AMD GPU Attaching Restrictions](AMD-GPU.html#AMD-GPU-Attaching-Restrictions).

@@ -1,10 +1,4 @@
 ---
-description: AMD GPU Signals (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: AMD GPU Signals (Debugging with GDB)
-lang: en
-resource-type: document
-title: AMD GPU Signals (Debugging with GDB)
+tip: translate by openai@2023-06-23 11:52:12
+...
 ---
-The node you are looking for is at [AMD GPU Signals](AMD-GPU.html#AMD-GPU-Signals).

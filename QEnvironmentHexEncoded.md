@@ -1,10 +1,4 @@
 ---
-description: QEnvironmentHexEncoded (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: QEnvironmentHexEncoded (Debugging with GDB)
-lang: en
-resource-type: document
-title: QEnvironmentHexEncoded (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:27:47
+...
 ---
-The node you are looking for is at [QEnvironmentHexEncoded](General-Query-Packets.html#QEnvironmentHexEncoded).

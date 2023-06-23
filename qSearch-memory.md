@@ -1,10 +1,4 @@
 ---
-description: qSearch memory (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: qSearch memory (Debugging with GDB)
-lang: en
-resource-type: document
-title: qSearch memory (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:27:53
+...
 ---
-The node you are looking for is at [qSearch memory](General-Query-Packets.html#qSearch-memory).

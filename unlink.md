@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 15:15:47
+...
+---
 description: unlink (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -23,11 +26,17 @@ Synopsis:
 
 Request:
 
+
 :   '`Funlink,pathnameptr/len`'
+
+> Funlink，pathnameptr/len
 
 Return value:
 
+
 :   On success, zero is returned. On error, -1 is returned.
+
+> 在成功的情况下，返回零。在出错的情况下，返回-1。
 
 Errors:
 

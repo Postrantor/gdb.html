@@ -1,10 +1,4 @@
 ---
-description: qMemTags (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: qMemTags (Debugging with GDB)
-lang: en
-resource-type: document
-title: qMemTags (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:27:49
+...
 ---
-The node you are looking for is at [qMemTags](General-Query-Packets.html#qMemTags).

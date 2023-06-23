@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 14:46:03
+...
+---
 description: Tracepoint Packets (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,9 +18,15 @@ Next: [Host I/O Packets](Host-I_002fO-Packets.html#Host-I_002fO-Packets)]
 
 ### E.6 Tracepoint Packets
 
+
 Here we describe the packets [GDB] uses to implement tracepoints (see [Tracepoints](Tracepoints.html#Tracepoints)).
 
+> 在这里，我们描述GDB使用的数据包来实现跟踪点（参见[跟踪点](Tracepoints.html#Tracepoints)）。
+
+
 '`QTDP:n:addr:ena:step:pass[:Fflen][:Xlen,bytes][-]`'
+
+> QTDP：n：addr：ena：步骤：pass[：Fflen][：Xlen，字节][-]
 
 :
 
@@ -39,9 +48,15 @@ Replies:
 :   The packet was not recognized.
 ```
 
+
 '`QTDP:-n:addr:[S]action…[-]`'
 
+> QTDP：-n：addr：[S]行动...[-]
+
+
 :   Define actions to be taken when a tracepoint is hit. The `n`' packets will follow, specifying more actions for this tracepoint.
+
+> 当跟踪点被命中时，定义所采取的行动。 `n` 个数据包将随后指定此跟踪点的更多行动。
 
 ```
 In the series of action packets for a given tracepoint, at most one can have an '`S`', then all the packets in the series specify ordinary tracepoint actions.
@@ -77,7 +92,10 @@ Replies:
 :   The packet was not recognized.
 ```
 
+
 '`QTDPsrc:n:addr:type:start:slen:bytes`'
+
+> QTDPsrc：n：addr：type：start：slen：bytes
 
 :
 
@@ -93,7 +111,10 @@ The target does not need to do anything with source strings except report them b
 Although this packet is optional, and [GDB]' not to work, or a particular trace frame not be found.
 ```
 
+
 '`QTDV:n:value:builtin:name`'
+
+> 'QTDV：n：值：内置：名称'
 
 :
 
@@ -121,19 +142,37 @@ A successful reply from the stub indicates that the stub has found the requested
 
 '`QTFrame:pc:addr`'
 
+
 :   Like '`QTFrame:n` is a hexadecimal number.
+
+> QTFrame:n是一个十六进制数字。
 
 '`QTFrame:tdp:t`'
 
+
 :   Like '`QTFrame:n` is a hexadecimal number.
+
+> QTFrame:n是一个十六进制数字。
+
 
 '`QTFrame:range:start:end`'
 
+> QTFrame：范围：开始：结束
+
+
 :   Like '`QTFrame:n` are hexadecimal numbers.
+
+> 像'QTFrame:n'这样的十六进制数字。
+
 
 '`QTFrame:outside:start:end`'
 
+> QTFrame：外部：开始：结束
+
+
 :   Like '`QTFrame:range:start:end`', but select the first frame *outside* the given range of addresses (exclusive).
+
+> 像'`QTFrame:range:start:end`'，但选择给定地址范围之外的第一帧（排除）。
 
 '`qTMinFTPILen`'
 
@@ -201,7 +240,10 @@ Disable tracepoint `n`' is subsequently issued.
 Clear the table of tracepoints, and empty the trace frame buffer.
 ```
 
+
 '`QTro:start1,end1:start2,end2:…`'
+
+> QTro：开始1，结束1：开始2，结束2：…
 
 :
 
@@ -211,7 +253,10 @@ Establish the given ranges of memory as "transparent". The stub will answer requ
 [GDB] uses this to mark read-only regions of memory, like those containing program code. Since these areas never change, they should still have the same contents they did when the tracepoint was hit, so there's no reason for the stub to refuse to provide their contents.
 ```
 
+
 '`QTDisconnected:value`'
+
+> QT已断开连接：值
 
 :
 
@@ -402,9 +447,15 @@ This packet directs the target to save trace data to the file name `filename` is
 Return up to `len`. The trace buffer is treated as if it were a contiguous collection of traceframes, as per the trace file format. The reply consists as many hex-encoded bytes as the target can deliver in a packet; it is not an error to return fewer than were asked for. A reply consisting of just `l` indicates that no bytes are available.
 ```
 
+
 '`QTBuffer:circular:value`'
 
+> 'QTBuffer：环形：值'
+
+
 :   This packet directs the target to use a circular trace buffer if `value` is 1, or a linear buffer if the value is 0.
+
+> 如果`值`为1，此数据包指示目标使用圆形跟踪缓冲区，如果值为0，则使用线性缓冲区。
 
 '`QTBuffer:size:size`'
 
@@ -414,7 +465,10 @@ Return up to `len`. The trace buffer is treated as if it were a contiguous colle
 This packet directs the target to make the trace buffer be of size `size` if possible. A value of `-1` tells the target to use whatever size it prefers.
 ```
 
+
 '`QTNotes:[type:text][;type:text]…`'
+
+> 'QTNotes:[类型：文本][;类型：文本]…'
 
 :
 
@@ -424,23 +478,41 @@ This packet adds optional textual notes to the trace run. Allowable types includ
 
 #### E.6.1 Relocate instruction reply packet
 
+
 When installing fast tracepoints in memory, the target may need to relocate the instruction currently at the tracepoint address to a different address in memory. For most instructions, a simple copy is enough, but, for example, call instructions that implicitly push the return address on the stack, and relative branches or other PC-relative instructions require offset adjustment, so that the effect of executing the instruction at a different address is the same as if it had executed in the original location.
+
+> 当在内存中安装快速跟踪点时，目标可能需要将当前位于跟踪点地址的指令重新定位到内存中的不同地址。对于大多数指令，只需要简单复制即可，但是，例如隐式将返回地址压入堆栈的调用指令以及相对分支或其他基于PC的相对指令，需要调整偏移量，以便在不同地址处执行指令的效果与在原始位置执行指令的效果相同。
+
 
 In response to several of the tracepoint packets, the target may also respond with a number of intermediate '`qRelocInsn`' packets. The format of the request is:
 
+> 对于几个跟踪点数据包，目标也可能以许多中间的'qRelocInsn'数据包做出响应。请求的格式是：
+
 '`qRelocInsn:from;to`'
+
 
 :   This requests [GDB].
 
+> 这个请求[GDB]。
+
 Replies:
+
 
 '`qRelocInsn:adjusted_size`'
 
+> qRelocInsn：调整后的大小
+
+
 :   Informs the stub the relocation is complete. The `adjusted_size` is the length in bytes of resulting relocated instruction sequence.
+
+> 通知存根重定位已完成。`adjusted_size`是重定位指令序列的字节长度。
 
 '`E NN`'
 
+
 :   A badly formed request was detected, or an error was encountered while relocating the instruction.
+
+> 检测到错误格式的请求，或者在重定位指令时遇到错误。
 
 ---
 

@@ -1,10 +1,4 @@
 ---
-description: bs (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: bs (Debugging with GDB)
-lang: en
-resource-type: document
-title: bs (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:13:43
+...
 ---
-The node you are looking for is at [bs](Packets.html#bs).

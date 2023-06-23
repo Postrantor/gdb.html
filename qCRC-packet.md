@@ -1,10 +1,4 @@
 ---
-description: qCRC packet (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: qCRC packet (Debugging with GDB)
-lang: en
-resource-type: document
-title: qCRC packet (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:27:46
+...
 ---
-The node you are looking for is at [qCRC packet](General-Query-Packets.html#qCRC-packet).

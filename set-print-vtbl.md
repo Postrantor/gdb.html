@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 13:06:44
+...
+---
 description: set print vtbl (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -7,4 +10,7 @@ lang: en
 resource-type: document
 title: set print vtbl (Debugging with GDB)
 ---
+
 The node you are looking for is at [set print vtbl](Print-Settings.html#set-print-vtbl).
+
+> 你正在寻找的节点位于[设置打印vtbl](Print-Settings.html#set-print-vtbl)。

@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 13:00:44
+...
+---
 description: Set Catchpoints (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,11 +18,17 @@ Next: [Delete Breaks](Delete-Breaks.html#Delete-Breaks)]
 
 #### 5.1.3 Setting Catchpoints
 
+
 You can use *catchpoints* to cause the debugger to stop for certain kinds of program events, such as C++ exceptions or the loading of a shared library. Use the `catch` command to set a catchpoint.
+
+> 你可以使用*捕获点*来导致调试器停止某些类型的程序事件，例如C++异常或加载共享库。使用`catch`命令设置捕获点。
 
 `catch event`
 
+
 Stop when `event` can be any of the following:
+
+> 停止，当`event`可以是以下任一个：
 
 `throw [regexp]`
 `rethrow [regexp]`
@@ -122,14 +131,23 @@ The example below illustrates how this command works if you don't provide argume
 (gdb) catch syscall
 Catchpoint 1 (syscall)
 (gdb) r
+
 Starting program: /tmp/catch-syscall
 
+> 开始程序：/tmp/catch-syscall
+
+
 Catchpoint 1 (call to syscall 'close'), \
+
+> 捕获点1（调用系统调用“关闭”）
        0xffffe424 in __kernel_vsyscall ()
 (gdb) c
 Continuing.
 
+
 Catchpoint 1 (returned from syscall 'close'), \
+
+> 捕获点1（从系统调用“close”返回）
     0xffffe424 in __kernel_vsyscall ()
 (gdb)
 ```
@@ -141,17 +159,32 @@ Here is an example of catching a system call by name:
 ::: smallexample
 
 ```bash
+
 (gdb) catch syscall chroot
+
+> (gdb) 捕获系统调用 chroot
+
 Catchpoint 1 (syscall 'chroot' [61])
+
+> 捕获点1（系统调用“chroot”[61]）
 (gdb) r
+
 Starting program: /tmp/catch-syscall
 
+> 开始程序：/tmp/catch-syscall
+
+
 Catchpoint 1 (call to syscall 'chroot'), \
+
+> 捕获点1（调用系统调用'chroot'）
            0xffffe424 in __kernel_vsyscall ()
 (gdb) c
 Continuing.
 
+
 Catchpoint 1 (returned from syscall 'chroot'), \
+
+> 捕获点1（从系统调用“chroot”返回）
     0xffffe424 in __kernel_vsyscall ()
 (gdb)
 ```
@@ -164,16 +197,28 @@ An example of specifying a system call numerically. In the case below, the sysca
 
 ```bash
 (gdb) catch syscall 252
+
 Catchpoint 1 (syscall(s) 'exit_group')
+
+> 捕获点1（系统调用'sexit_group'）
 (gdb) r
+
 Starting program: /tmp/catch-syscall
 
+> 开始程序：/tmp/catch-syscall
+
+
 Catchpoint 1 (call to syscall 'exit_group'), \
+
+> 捕获点1（调用系统调用“exit_group”）
            0xffffe424 in __kernel_vsyscall ()
 (gdb) c
 Continuing.
 
+
 Program exited normally.
+
+> 程序正常退出。
 (gdb)
 ```
 
@@ -184,15 +229,36 @@ Here is an example of catching a syscall group:
 ::: smallexample
 
 ```bash
+
 (gdb) catch syscall group:process
+
+> (gdb) 捕获系统调用组: 处理
+
 Catchpoint 1 (syscalls 'exit' [1] 'fork' [2] 'waitpid' [7]
+
+> 捕获点1（系统调用'exit'[1] 'fork'[2] 'waitpid'[7]）
+
 'execve' [11] 'wait4' [114] 'clone' [120] 'vfork' [190]
+
+> 'execve' [11]：执行  'wait4' [114]：等待4  'clone' [120]：克隆  'vfork' [190]：vfork
+
 'exit_group' [252] 'waitid' [284] 'unshare' [310])
+
+> 退出组[252]等待[284]不共享[310]
 (gdb) r
+
 Starting program: /tmp/catch-syscall
 
+> 开始程序：/tmp/catch-syscall
+
+
 Catchpoint 1 (call to syscall fork), 0x00007ffff7df4e27 in open64 ()
+
+> 捕获点1（调用系统调用fork），在open64（）中的0x00007ffff7df4e27。
+
    from /lib64/ld-linux-x86-64.so.2
+
+> 从/lib64/ld-linux-x86-64.so.2
 
 (gdb) c
 Continuing.
@@ -206,8 +272,14 @@ However, there can be situations when there is no corresponding name in XML file
 
 ```bash
 (gdb) catch syscall 764
+
 warning: The number '764' does not represent a known syscall.
+
+> 警告：数字“764”不代表一个已知的系统调用。
+
 Catchpoint 2 (syscall 764)
+
+> 捕获点2（系统调用764）
 (gdb)
 ```
 
@@ -219,9 +291,18 @@ If you configure [GDB]' option, it will not be able to display syscall names. Al
 
 ```bash
 (gdb) catch syscall
+
 warning: Could not open "syscalls/i386-linux.xml"
+
+> 警告：无法打开“syscalls/i386-linux.xml”
+
 warning: Could not load the syscall XML file 'syscalls/i386-linux.xml'.
+
+> 警告：无法加载系统调用XML文件'syscalls/i386-linux.xml'。
+
 GDB will not be able to display syscall names.
+
+> GDB无法显示系统调用的名称。
 Catchpoint 1 (syscall)
 (gdb)
 ```
@@ -236,7 +317,10 @@ Still using the example above, you can also try to catch a syscall by its number
 
 ```bash
 (gdb) catch syscall 252
+
 Catchpoint 1 (syscall(s) 252)
+
+> 捕获点1（系统调用（s）252）
 ```
 
 :::
@@ -300,9 +384,15 @@ When a signal is caught by a catchpoint, the signal's `stop` and `print` setting
 
 
 
+
 Set a catchpoint that is enabled only for one stop. The catchpoint is automatically deleted after the first time the event is caught.
 
+> 设置一个仅在一次停止时启用的捕获点。第一次捕获事件后，该捕获点将自动删除。
+
+
 Use the `info break` command to list the current catchpoints.
+
+> 使用`info break`命令列出当前的捕获点。
 
 ---
 

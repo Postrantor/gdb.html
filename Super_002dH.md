@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 13:43:06
+...
+---
 description: Super-H (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Previous: [CRIS](CRIS.html#CRIS)]
 
 #### 21.3.11 Renesas Super-H
 
+
 For the Renesas Super-H processor, [GDB] provides these commands:
+
+> 对于Renesas Super-H处理器，[GDB]提供了这些命令：
 
 `set sh calling-convention convention`
 

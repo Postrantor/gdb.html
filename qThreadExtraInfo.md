@@ -1,10 +1,4 @@
 ---
-description: qThreadExtraInfo (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: qThreadExtraInfo (Debugging with GDB)
-lang: en
-resource-type: document
-title: qThreadExtraInfo (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:27:59
+...
 ---
-The node you are looking for is at [qThreadExtraInfo](General-Query-Packets.html#qThreadExtraInfo).

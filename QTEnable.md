@@ -1,10 +1,4 @@
 ---
-description: QTEnable (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: QTEnable (Debugging with GDB)
-lang: en
-resource-type: document
-title: QTEnable (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:27:57
+...
 ---
-The node you are looking for is at [QTEnable](Tracepoint-Packets.html#QTEnable).

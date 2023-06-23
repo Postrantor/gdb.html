@@ -1,10 +1,4 @@
 ---
-description: qXfer memory map read (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: qXfer memory map read (Debugging with GDB)
-lang: en
-resource-type: document
-title: qXfer memory map read (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:28:07
+...
 ---
-The node you are looking for is at [qXfer memory map read](General-Query-Packets.html#qXfer-memory-map-read).

@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 12:45:50
+...
+---
 description: Separate Objdir (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,11 +18,20 @@ Next: [Config Names](Config-Names.html#Config-Names)]
 
 ### C.3 Compiling [GDB]
 
+
 If you want to run [GDB] `make` does), running `make` in each of these directories builds the `gdb` program specified there.
+
+> 如果你想运行GDB，在每个目录中运行'make'可以构建那里指定的'gdb'程序。
+
 
 To build `gdb` in a separate directory, run `configure`' option; it is assumed.)
 
+> 在一个单独的目录中构建`gdb`，运行`configure`选项；这是假定的。
+
+
 For example, with version 14.0.50.20230622-git, you can build [GDB] in a separate directory for a Sun 4 like this:
+
+> 例如，使用版本14.0.50.20230622-git，您可以在一个单独的目录中为Sun 4构建[GDB]：
 
 ::: smallexample
 
@@ -35,15 +47,30 @@ make
 
 When `configure`.
 
+
 Make sure that your path to the `configure`.
+
+> 确保你的路径指向`configure`。
+
 
 One popular reason to build several [GDB].
 
+> 一个流行的原因是建立多个GDB。
+
+
 When you run `make` to build a program or library, you must run it in a configured directory---whatever directory you were in when you called `configure` (or one of its subdirectories).
+
+> 当你运行`make`来构建一个程序或库时，你必须在一个配置好的目录里运行它---无论你调用`configure`时处于哪个目录（或它的子目录）。
+
 
 The `Makefile` that `configure`'), you will build all the required libraries, and then build GDB.
 
+> `configure` 所需的 `Makefile` 將會建立所有必要的函式庫，然後建置 GDB。
+
+
 When you have multiple hosts or targets configured in separate directories, you can run `make` on them in parallel (for example, if they are NFS-mounted on each of the hosts); they will not interfere with each other.
+
+> 当你在不同的目录中配置了多个主机或目标时，你可以并行地在它们上运行`make`（例如，如果它们在每个主机上NFS挂载）；它们不会相互干扰。
 
 ---
 

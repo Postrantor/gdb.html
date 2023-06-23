@@ -1,10 +1,4 @@
 ---
-description: quoting names (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: quoting names (Debugging with GDB)
-lang: en
-resource-type: document
-title: quoting names (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:28:02
+...
 ---
-The node you are looking for is at [quoting names](Symbols.html#quoting-names).

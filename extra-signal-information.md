@@ -1,10 +1,4 @@
 ---
-description: extra signal information (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: extra signal information (Debugging with GDB)
-lang: en
-resource-type: document
-title: extra signal information (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:15:13
+...
 ---
-The node you are looking for is at [extra signal information](Signals.html#extra-signal-information).

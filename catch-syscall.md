@@ -1,10 +1,4 @@
 ---
-description: catch syscall (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: catch syscall (Debugging with GDB)
-lang: en
-resource-type: document
-title: catch syscall (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:13:55
+...
 ---
-The node you are looking for is at [catch syscall](Set-Catchpoints.html#catch-syscall).

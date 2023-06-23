@@ -1,10 +1,4 @@
 ---
-description: Control Agent (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: Control Agent (Debugging with GDB)
-lang: en
-resource-type: document
-title: Control Agent (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:14:24
+...
 ---
-The node you are looking for is at [Control Agent](In_002dProcess-Agent.html#Control-Agent).

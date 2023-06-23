@@ -1,10 +1,4 @@
 ---
-description: cycle step packet (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: cycle step packet (Debugging with GDB)
-lang: en
-resource-type: document
-title: cycle step packet (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:14:30
+...
 ---
-The node you are looking for is at [cycle step packet](Packets.html#cycle-step-packet).

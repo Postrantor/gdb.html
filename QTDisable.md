@@ -1,10 +1,4 @@
 ---
-description: QTDisable (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: QTDisable (Debugging with GDB)
-lang: en
-resource-type: document
-title: QTDisable (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:27:57
+...
 ---
-The node you are looking for is at [QTDisable](Tracepoint-Packets.html#QTDisable).

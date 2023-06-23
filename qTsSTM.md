@@ -1,10 +1,4 @@
 ---
-description: qTsSTM (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: qTsSTM (Debugging with GDB)
-lang: en
-resource-type: document
-title: qTsSTM (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:28:00
+...
 ---
-The node you are looking for is at [qTsSTM](Tracepoint-Packets.html#qTsSTM).

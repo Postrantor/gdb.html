@@ -1,10 +1,4 @@
 ---
-description: builtin_disassemble (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: builtin_disassemble (Debugging with GDB)
-lang: en
-resource-type: document
-title: builtin_disassemble (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:13:47
+...
 ---
-The node you are looking for is at [builtin_disassemble](Disassembly-In-Python.html#builtin_005fdisassemble).

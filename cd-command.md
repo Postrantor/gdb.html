@@ -1,10 +1,4 @@
 ---
-description: cd command (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: cd command (Debugging with GDB)
-lang: en
-resource-type: document
-title: cd command (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:13:56
+...
 ---
-The node you are looking for is at [cd command](Working-Directory.html#cd-command).

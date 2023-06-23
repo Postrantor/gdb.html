@@ -1,10 +1,4 @@
 ---
-description: disconnected tracing (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: disconnected tracing (Debugging with GDB)
-lang: en
-resource-type: document
-title: disconnected tracing (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:14:53
+...
 ---
-The node you are looking for is at [disconnected tracing](Starting-and-Stopping-Trace-Experiments.html#disconnected-tracing).

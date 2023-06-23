@@ -1,10 +1,4 @@
 ---
-description: remove_inferiors_cli (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: remove_inferiors_cli (Debugging with GDB)
-lang: en
-resource-type: document
-title: remove_inferiors_cli (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:28:33
+...
 ---
-The node you are looking for is at [remove_inferiors_cli](Inferiors-Connections-and-Programs.html#remove_005finferiors_005fcli).

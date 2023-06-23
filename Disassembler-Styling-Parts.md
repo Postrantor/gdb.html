@@ -1,10 +1,4 @@
 ---
-description: Disassembler Styling Parts (Debugging with GDB)
-distribution: global
-Generator: makeinfo
-keywords: Disassembler Styling Parts (Debugging with GDB)
-lang: en
-resource-type: document
-title: Disassembler Styling Parts (Debugging with GDB)
+tip: translate by openai@2023-06-23 12:14:50
+...
 ---
-The node you are looking for is at [Disassembler Styling Parts](Disassembly-In-Python.html#Disassembler-Styling-Parts).
