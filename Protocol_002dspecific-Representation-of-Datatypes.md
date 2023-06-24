@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 01:35:48
+...
+---
 description: Protocol-specific Representation of Datatypes (Debugging with GDB)
 distribution: global
 Generator: makeinfo

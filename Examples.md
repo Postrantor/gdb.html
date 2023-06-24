@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 20:57:02
+...
+---
 description: Examples (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [File-I/O Remote Protocol Extension](File_002dI_002fO-Remote-Protocol-Exte
 
 ### E.12 Examples
 
+
 Example sequence of a target being re-started. Notice how the restart does not get any direct output:
+
+> 示例重新启动目标的序列。注意重新启动没有任何直接输出。
 
 ::: smallexample
 

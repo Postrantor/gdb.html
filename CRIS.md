@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 20:07:38
+...
+---
 description: CRIS (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [Super-H](Super_002dH.html#Super_002dH)]
 
 #### 21.3.10 CRIS
 
+
 When configured for debugging CRIS, [GDB] provides the following CRIS-specific commands:
+
+> 当配置用于调试CRIS时，[GDB]提供以下专门针对CRIS的命令：
 
 `set cris-version ver`
 

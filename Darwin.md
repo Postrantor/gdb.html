@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 20:12:41
+...
+---
 description: Darwin (Debugging with GDB)
 distribution: global
 Generator: makeinfo

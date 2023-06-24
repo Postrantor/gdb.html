@@ -1,0 +1,20 @@
+---
+tip: translate by openai@2023-06-24 00:00:09
+...
+---
+description: Machine Code (Debugging with GDB)
+distribution: global
+Generator: makeinfo
+keywords: Machine Code (Debugging with GDB)
+lang: en
+resource-type: document
+title: Machine Code (Debugging with GDB)
+---
+::: header
+Next: [Disable Reading Source](Disable-Reading-Source.html#Disable-Reading-Source)]
+:::
+
+---
+
+### 9.6 Source and Machine Code
+

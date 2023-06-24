@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 21:35:51
+...
+---
 description: GDB Scheme Data Types (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,17 +18,26 @@ Next: [Guile Exception Handling](Guile-Exception-Handling.html#Guile-Exception-H
 
 #### 23.4.3.3 GDB Scheme Data Types
 
+
 The values exposed by [GDB] object, and each is disjoint from all other types known to Guile.
+
+> [GDB] 对象暴露的值，每一个都与 Guile 所知道的所有其他类型不相交。
 
 Scheme Procedure: **gdb-object-kind** *object*
 
+
 :   Return the kind of the [GDB] object, e.g., `<gdb:breakpoint>`, as a symbol.
+
+> 返回[GDB]对象的类型，例如`<gdb:breakpoint>`，作为一个符号。
 
 [GDB] defines the following object types:
 
 `<gdb:arch>`
 
+
 :   See [Architectures In Guile](Architectures-In-Guile.html#Architectures-In-Guile).
+
+> 请参阅[Guile中的架构](Architectures-In-Guile.html#Architectures-In-Guile)。
 
 `<gdb:block>`
 
@@ -37,7 +49,10 @@ Scheme Procedure: **gdb-object-kind** *object*
 
 `<gdb:breakpoint>`
 
+
 :   See [Breakpoints In Guile](Breakpoints-In-Guile.html#Breakpoints-In-Guile).
+
+> 请参阅[Guile中的断点](Breakpoints-In-Guile.html#Breakpoints-In-Guile)。
 
 `<gdb:command>`
 
@@ -45,7 +60,10 @@ Scheme Procedure: **gdb-object-kind** *object*
 
 `<gdb:exception>`
 
+
 :   See [Guile Exception Handling](Guile-Exception-Handling.html#Guile-Exception-Handling).
+
+> 请参阅[Guile异常处理](Guile-Exception-Handling.html#Guile-Exception-Handling)。
 
 `<gdb:frame>`
 
@@ -57,7 +75,10 @@ Scheme Procedure: **gdb-object-kind** *object*
 
 `<gdb:lazy-string>`
 
+
 :   See [Lazy Strings In Guile](Lazy-Strings-In-Guile.html#Lazy-Strings-In-Guile).
+
+> 请查看[Guile中的懒惰字符串](Lazy-Strings-In-Guile.html#Lazy-Strings-In-Guile)。
 
 `<gdb:objfile>`
 
@@ -65,19 +86,31 @@ Scheme Procedure: **gdb-object-kind** *object*
 
 `<gdb:parameter>`
 
+
 :   See [Parameters In Guile](Parameters-In-Guile.html#Parameters-In-Guile).
+
+> 请参阅[Guile中的参数](Parameters-In-Guile.html#Parameters-In-Guile)。
 
 `<gdb:pretty-printer>`
 
+
 :   See [Guile Pretty Printing API](Guile-Pretty-Printing-API.html#Guile-Pretty-Printing-API).
+
+> 请参阅[Guile Pretty Printing API](Guile-Pretty-Printing-API.html#Guile-Pretty-Printing-API)。
 
 `<gdb:pretty-printer-worker>`
 
+
 :   See [Guile Pretty Printing API](Guile-Pretty-Printing-API.html#Guile-Pretty-Printing-API).
+
+> 请参阅[Guile Pretty Printing API](Guile-Pretty-Printing-API.html#Guile-Pretty-Printing-API)。
 
 `<gdb:progspace>`
 
+
 :   See [Progspaces In Guile](Progspaces-In-Guile.html#Progspaces-In-Guile).
+
+> 请查看[Guile中的Progspaces](Progspaces-In-Guile.html#Progspaces-In-Guile)。
 
 `<gdb:symbol>`
 
@@ -85,11 +118,17 @@ Scheme Procedure: **gdb-object-kind** *object*
 
 `<gdb:symtab>`
 
+
 :   See [Symbol Tables In Guile](Symbol-Tables-In-Guile.html#Symbol-Tables-In-Guile).
+
+> 请查看[Guile中的符号表](Symbol-Tables-In-Guile.html#Symbol-Tables-In-Guile)。
 
 `<gdb:sal>`
 
+
 :   See [Symbol Tables In Guile](Symbol-Tables-In-Guile.html#Symbol-Tables-In-Guile).
+
+> 查看[Guile中的符号表](Symbol-Tables-In-Guile.html#Symbol-Tables-In-Guile)。
 
 `<gdb:type>`
 
@@ -101,9 +140,15 @@ Scheme Procedure: **gdb-object-kind** *object*
 
 `<gdb:value>`
 
+
 :   See [Values From Inferior In Guile](Values-From-Inferior-In-Guile.html#Values-From-Inferior-In-Guile).
 
+> 请参阅[Guile中的下级值](Values-From-Inferior-In-Guile.html#Values-From-Inferior-In-Guile)。
+
+
 The following [GDB] objects are managed internally so that the Scheme function `eq?` may be applied to them.
+
+> 以下[GDB]对象由内部管理，以便可以将Scheme函数`eq？`应用于它们。
 
 `<gdb:arch>`
 

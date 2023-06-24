@@ -1,0 +1,37 @@
+---
+tip: translate by openai@2023-06-23 21:57:17
+...
+---
+description: GDB/MI Development and Front Ends (Debugging with GDB)
+distribution: global
+Generator: makeinfo
+keywords: GDB/MI Development and Front Ends (Debugging with GDB)
+lang: en
+resource-type: document
+title: GDB/MI Development and Front Ends (Debugging with GDB)
+---
+::: header
+Next: [GDB/MI Output Records](GDB_002fMI-Output-Records.html#GDB_002fMI-Output-Records)]
+:::
+
+---
+
+### 27.4 [GDB/MI]
+
+
+The application which takes the MI output and presents the state of the program being debugged to the user is called a *front end*.
+
+> 应用程序将MI输出提供给用户，以展示调试程序的状态，称为前端。
+
+
+Since [GDB/MI], changes to the MI interface may break existing usage. This section describes how the protocol changes and how to request previous version of the protocol when it does.
+
+> 自从GDB/MI以来，对MI接口的更改可能会破坏现有的使用情况。本节描述了协议的变化以及在变化时如何请求以前版本的协议。
+
+
+Some changes in MI need not break a carefully designed front end, and for these the MI version will remain unchanged. The following is a list of changes that may occur within one level, so front ends should parse MI output in a way that can handle them:
+
+> 一些对MI的更改不必破坏精心设计的前端，对于这些，MI版本将保持不变。 以下是可能在一个级别内发生的更改列表，因此前端应该以一种可以处理它们的方式解析MI输出：
+
+- New MI commands may be added.
+- New fields may be added to the output of any MI command.

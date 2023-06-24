@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 21:01:10
+...
+---
 description: File Options (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -17,11 +20,20 @@ Next: [Mode Options](Mode-Options.html#Mode-Options)]
 
 When [GDB].
 
+
 If [GDB] has not been configured to included core file support, such as for most embedded targets, then it will complain about a second argument and ignore it.
+
+> 如果GDB没有被配置包含内核文件支持，比如大多数嵌入式目标，那么它会抱怨第二个参数并忽略它。
+
 
 For the '`-s`' options, and their long form equivalents, the method used to search the file system for the symbol and/or executable file is the same as that used by the `file` command. See [file](Files.html#Files).
 
+> 对于'-s'选项及其长选项，用于搜索文件系统中的符号和/或可执行文件的方法与`file`命令使用的方法相同。参见[文件](Files.html#Files)。
+
+
 Many options have both long and short forms; both are shown in the following list. [GDB]', though we illustrate the more usual convention.)
+
+> 许多选项既有长形式，也有短形式；以下列表展示了两种形式（以更常见的惯例为例）。[GDB]
 
 `-symbols file`
 `-s file`

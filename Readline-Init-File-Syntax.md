@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 01:52:55
+...
+---
 description: Readline Init File Syntax (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,11 +18,17 @@ Next: [Conditional Init Constructs](Conditional-Init-Constructs.html#Conditional
 
 #### 33.3.1 Readline Init File Syntax
 
+
 There are only a few basic constructs allowed in the Readline init file. Blank lines are ignored. Lines beginning with a '`#`' indicate conditional constructs (see [Conditional Init Constructs](Conditional-Init-Constructs.html#Conditional-Init-Constructs)). Other lines denote variable settings and key bindings.
+
+> 只允许在Readline初始文件中使用几个基本结构。空行将被忽略。以'#'开头的行表示条件结构（参见[条件初始结构]（Conditional-Init-Constructs.html#Conditional-Init-Constructs））。其他行表示变量设置和按键绑定。
 
 Variable Settings
 
+
 :   You can modify the run-time behavior of Readline by altering the values of variables in Readline using the `set` command within the init file. The syntax is simple:
+
+> 你可以通过在init文件中使用'set'命令更改Readline的运行时行为。语法很简单：
 
 ```
 ::: example
@@ -50,7 +59,10 @@ A great deal of run-time behavior is changeable with the following variables.
 :
 
 ```
+
 Controls what happens when Readline wants to ring the terminal bell. If set to '`none`' (the default), Readline attempts to ring the terminal's bell.
+
+> 当Readline想要响铃时，控制发生什么。如果设置为“none”（默认值），Readline会尝试响铃终端的铃声。
 ```
 
 `bind-tty-special-chars`
@@ -58,7 +70,10 @@ Controls what happens when Readline wants to ring the terminal bell. If set to '
 :
 
 ```
+
 If set to '`on`' (the default), Readline attempts to bind the control characters treated specially by the kernel's terminal driver to their Readline equivalents.
+
+> 如果设置为“开启”（默认值），Readline会尝试将内核终端驱动程序特殊处理的控制字符绑定到其Readline等效物。
 ```
 
 `blink-matching-paren`
@@ -90,7 +105,10 @@ If set to '`on`'.
 :
 
 ```
+
 The string to insert at the beginning of the line when the `insert-comment` command is executed. The default value is `"#"`.
+
+> 当执行`insert-comment`命令时，在行首插入的字符串，默认值为`"#"`。
 ```
 
 `completion-display-width`
@@ -98,7 +116,10 @@ The string to insert at the beginning of the line when the `insert-comment` comm
 :
 
 ```
+
 The number of screen columns used to display possible matches when performing completion. The value is ignored if it is less than 0 or greater than the terminal screen width. A value of 0 will cause matches to be displayed one per line. The default value is -1.
+
+> 用于显示可能匹配项时使用的屏幕列数。如果值小于0或大于终端屏幕宽度，则忽略此值。值为0时，将每行显示一个匹配项。默认值为-1。
 ```
 
 `completion-ignore-case`
@@ -122,7 +143,10 @@ If set to '`on`'.
 :
 
 ```
+
 The length in characters of the common prefix of a list of possible completions that is displayed without modification. When set to a value greater than zero, common prefixes longer than this value are replaced with an ellipsis when displaying possible completions.
+
+> 列出可能补全的列表的公共前缀的字符长度，在设置为大于零的值时，在显示可能补全时，公共前缀超过此值的部分将被省略号替换。
 ```
 
 `completion-query-items`
@@ -130,7 +154,10 @@ The length in characters of the common prefix of a list of possible completions 
 :
 
 ```
+
 The number of possible completions that determines when the user is asked whether the list of possibilities should be displayed. If the number of possible completions is greater than or equal to this value, Readline will ask whether or not the user wishes to view them; otherwise, they are simply listed. This variable must be set to an integer value greater than or equal to 0. A negative value means Readline should never ask. The default limit is `100`.
+
+> 当用户被问及是否需要显示可能完成的列表时，决定可能完成的数量。如果可能完成的数量大于或等于这个值，Readline将询问用户是否需要查看它们；否则，它们将被简单地列出。此变量必须设置为大于或等于0的整数值。负值表示Readline永远不会问。默认限制为`100`。
 ```
 
 `convert-meta`
@@ -162,7 +189,10 @@ When set to '`on`'.
 :
 
 ```
+
 The `editing-mode` variable controls which default set of key bindings is used. By default, Readline starts up in Emacs editing mode, where the keystrokes are most similar to Emacs. This variable can be set to either '`emacs`'.
+
+> 变量`editing-mode`控制使用哪组默认的键绑定。默认情况下，Readline以Emacs编辑模式启动，其键击最接近Emacs。该变量可以设置为'`emacs`'。
 ```
 
 `emacs-mode-string`
@@ -214,7 +244,10 @@ If set to '`on`'.
 :
 
 ```
+
 Set the maximum number of history entries saved in the history list. If set to zero, any existing history entries are deleted and no new entries are saved. If set to a value less than zero, the number of history entries is not limited. By default, the number of history entries is not limited. If an attempt is made to set `history-size` to a non-numeric value, the maximum number of history entries will be set to 500.
+
+> 设置历史记录列表中保存的最大历史记录条目数。如果设置为零，则删除任何现有的历史记录，不保存新的记录。如果设置为小于零的值，则不限制历史记录条目数。默认情况下，不限制历史记录条目数。如果试图将“history-size”设置为非数字值，则将最大历史记录条目数设置为500。
 ```
 
 `horizontal-scroll-mode`
@@ -230,7 +263,10 @@ This variable can be set to either '`on`'.
 :
 
 ```
+
 If set to '`on`' if the locale contains eight-bit characters. The name `meta-flag` is a synonym for this variable.
+
+> 如果设置为“on”，如果语言环境包含八位字符，则将meta-flag变量同义词。
 ```
 
 `isearch-terminators`
@@ -238,7 +274,10 @@ If set to '`on`' if the locale contains eight-bit characters. The name `meta-fla
 :
 
 ```
+
 The string of characters that should terminate an incremental search without subsequently executing the character as a command (see [Searching](Searching.html#Searching)). If this variable has not been given a value, the characters ESC and [C-J] will terminate an incremental search.
+
+> 如果没有给出值，ESC和[C-J]将终止增量搜索，这个变量应该用来结束增量搜索而不会执行该字符作为命令（参见[搜索](Searching.html#Searching)）。
 ```
 
 `keymap`
@@ -246,7 +285,10 @@ The string of characters that should terminate an incremental search without sub
 :
 
 ```
+
 Sets Readline's idea of the current keymap for key binding commands. Built-in `keymap` names are `emacs`, `emacs-standard`, `emacs-meta`, `emacs-ctlx`, `vi`, `vi-move`, `vi-command`, and `vi-insert`. `vi` is equivalent to `vi-command` (`vi-move` is also a synonym); `emacs` is equivalent to `emacs-standard`. Applications may add additional names. The default value is `emacs`. The value of the `editing-mode` variable also affects the default keymap.
+
+> 设置Readline的当前键绑定命令的键映射想法。内置的`keymap`名称有`emacs`、`emacs-standard`、`emacs-meta`、`emacs-ctlx`、`vi`、`vi-move`、`vi-command`和`vi-insert`。`vi`等同于`vi-command`（`vi-move`也是同义词）；`emacs`等同于`emacs-standard`。应用程序可以添加其他名称。默认值为`emacs`。`editing-mode`变量的值也会影响默认的键映射。
 ```
 
 `keyseq-timeout`
@@ -322,7 +364,10 @@ If set to '`on`'.
 :
 
 ```
+
 This alters the default behavior of the completion functions. If set to '`on`'.
+
+> 这会改变补全功能的默认行为。如果设置为“on”。
 ```
 
 `show-all-if-unmodified`
@@ -330,7 +375,10 @@ This alters the default behavior of the completion functions. If set to '`on`'.
 :
 
 ```
+
 This alters the default behavior of the completion functions in a fashion similar to `show-all-if-ambiguous`'.
+
+> 这改变了完成函数的默认行为，类似于`show-all-if-ambiguous`。
 ```
 
 `show-mode-in-prompt`
@@ -377,7 +425,10 @@ If set to '`on`'.
 
 Key Bindings
 
+
 :   The syntax for controlling key bindings in the init file is simple. First you need to find the name of the command that you want to change. The following sections contain tables of the command name, the default keybinding, if any, and a short description of what the command does.
+
+> 在初始文件中控制键绑定的语法很简单。首先，您需要找到要更改的命令的名称。以下部分包含命令名称、默认键绑定（如果有）以及命令功能的短说明的表格。
 
 ```
 
@@ -401,7 +452,10 @@ Control-o: "> output"
 
 In the example above, [C-u]' into the line).
 
+
 A number of symbolic character names are recognized while processing this key binding syntax: `DEL`.
+
+> 在处理这个键绑定语法时，会识别出一些符号性的字符名称：DEL。
 
 ```
 

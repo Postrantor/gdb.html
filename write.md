@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 04:48:16
+...
+---
 description: write (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -27,7 +30,10 @@ Request:
 
 Return value:
 
+
 :   On success, the number of bytes written are returned. Zero indicates nothing was written. On error, -1 is returned.
+
+> 如果成功，会返回写入的字节数，如果没有写入任何东西，则返回0；如果出错，则返回-1。
 
 Errors:
 

@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 21:46:18
+...
+---
 description: GDB/MI Breakpoint Commands (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -79,7 +82,10 @@ line="5",thread-groups=["i1"],times="0",ignore="3"}]}
 
 :::
 
+
 Specifies the CLI commands that should be executed when breakpoint `number` are the commands. If no command is specified, any previously-set commands are cleared. See [Break Commands](Break-Commands.html#Break-Commands). Typical use of this functionality is tracing a program, that is, printing of values of some variables whenever breakpoint is hit and then continuing.
+
+> 当断点'number'被触发时，指定应该执行的CLI命令。如果没有指定命令，则清除任何先前设置的命令。请参阅[断点命令](Break-Commands.html#Break-Commands)。这个功能的典型用法是跟踪程序，即，当断点被触发时打印某些变量的值，然后继续执行。
 
 #### [GDB]
 
@@ -159,7 +165,10 @@ line="5",cond="1",thread-groups=["i1"],times="0",ignore="3"}]}
 
 :::
 
+
 Delete the breakpoint(s) whose number(s) are specified in the argument list. This is obviously reflected in the breakpoint list.
+
+> 删除参数列表中指定的断点号。这显然反映在断点列表中。
 
 #### [GDB]
 
@@ -288,7 +297,10 @@ line="5",thread-groups=["i1"],times="0"}]}
 
 Get information about a single breakpoint.
 
+
 The result is a table of breakpoints. See [GDB/MI Breakpoint Information](GDB_002fMI-Breakpoint-Information.html#GDB_002fMI-Breakpoint-Information), for details on the format of each breakpoint in the table.
+
+> 结果是一个断点表。有关每个断点表中断点的格式详情，请参见[GDB/MI断点信息](GDB_002fMI-Breakpoint-Information.html#GDB_002fMI-Breakpoint-Information)。
 
 #### [GDB]
 
@@ -316,11 +328,17 @@ If specified, `locspec`, can be one of:
 
 `linespec location`
 
+
 :   A linespec location. See [Linespec Locations](Linespec-Locations.html#Linespec-Locations).
+
+> 一个线规位置。参见[线规位置](Linespec-Locations.html#Linespec-Locations)。
 
 `explicit location`
 
+
 :   An explicit location. [GDB/MI] explicit locations are analogous to the CLI's explicit locations using the option names listed below. See [Explicit Locations](Explicit-Locations.html#Explicit-Locations).
+
+> 一个明确的位置。[GDB/MI] 明确的位置类似于CLI使用下面列出的选项名称的明确位置。请参见[明确的位置](Explicit-Locations.html#Explicit-Locations)。
 
 ```
 '`--source filename`'
@@ -342,7 +360,10 @@ If specified, `locspec`, can be one of:
 
 `address location`
 
+
 :   An address location, \*`address`. See [Address Locations](Address-Locations.html#Address-Locations).
+
+> 一个地址位置，*“地址”。参见[地址位置](Address-Locations.html#Address-Locations)。
 
 The possible optional parameters of this command are:
 
@@ -364,7 +385,10 @@ The possible optional parameters of this command are:
 
 '`-a`'
 
+
 :   Create a tracepoint. See [Tracepoints](Tracepoints.html#Tracepoints). When this parameter is used together with '`-h`', a fast tracepoint is created.
+
+> 创建一个跟踪点。参见[跟踪点](Tracepoints.html#Tracepoints)。当这个参数与“-h”一起使用时，会创建一个快速跟踪点。
 
 '`-c condition`'
 
@@ -372,7 +396,10 @@ The possible optional parameters of this command are:
 
 '`--force-condition`'
 
+
 :   Forcibly define the breakpoint even if the condition is invalid at all of the breakpoint locations.
+
+> 强制定义断点，即使所有断点位置的条件都无效。
 
 '`-i ignore-count`'
 
@@ -380,15 +407,24 @@ The possible optional parameters of this command are:
 
 '`-p thread-id`'
 
+
 :   Restrict the breakpoint to the thread with the specified global `thread-id` will automatically be deleted when the corresponding thread exits.
+
+> 限制断点仅针对具有指定的全局`thread-id`的线程，当相应的线程退出时，该断点将自动删除。
 
 '`--qualified`'
 
+
 :   This option makes [GDB] interpret a function name specified as a complete fully-qualified name.
+
+> 此选项使[GDB]解释指定为完全限定名称的函数名称。
 
 #### Result
 
+
 See [GDB/MI Breakpoint Information](GDB_002fMI-Breakpoint-Information.html#GDB_002fMI-Breakpoint-Information), for details on the format of the resulting breakpoint.
+
+> 请参阅[GDB/MI断点信息](GDB_002fMI-Breakpoint-Information.html#GDB_002fMI-Breakpoint-Information)，了解所得断点的格式细节。
 
 Note: this format is open to change.
 
@@ -448,9 +484,15 @@ times="0"}]}
 
 :::
 
+
 Insert a new dynamic print breakpoint at the given location. See [Dynamic Printf](Dynamic-Printf.html#Dynamic-Printf). `format` is the format to use, and any remaining arguments are passed as expressions to substitute.
 
+> 在给定位置插入新的动态打印断点。参见[Dynamic Printf](Dynamic-Printf.html#Dynamic-Printf)。`format`是要使用的格式，任何其余的参数都将作为表达式传递。
+
+
 If supplied, `locspec` and `--qualified` may be specified the same way as for the `-break-insert` command. See [-break-insert](#g_t_002dbreak_002dinsert).
+
+> 如果提供，`locspec`和`--qualified`可以以与`-break-insert`命令相同的方式指定。请参见[-break-insert](#g_t_002dbreak_002dinsert)。
 
 The possible optional parameters of this command are:
 
@@ -472,19 +514,31 @@ The possible optional parameters of this command are:
 
 '`--force-condition`'
 
+
 :   Forcibly define the breakpoint even if the condition is invalid at all of the breakpoint locations.
+
+> 强制定义断点，即使所有断点位置的条件都无效。
 
 '`-i ignore-count`'
 
+
 :   Set the ignore count of the breakpoint (see [ignore count](Conditions.html#Conditions)) to `ignore-count`.
+
+> 设置断点的忽略计数（见[忽略计数](Conditions.html#Conditions)）为“ignore-count”。
 
 '`-p thread-id`'
 
+
 :   Restrict the breakpoint to the thread with the specified global `thread-id`.
+
+> 限制断点仅针对具有指定的全局`thread-id`的线程。
 
 #### Result
 
+
 See [GDB/MI Breakpoint Information](GDB_002fMI-Breakpoint-Information.html#GDB_002fMI-Breakpoint-Information), for details on the format of the resulting breakpoint.
+
+> 请参阅[GDB / MI断点信息](GDB_002fMI-Breakpoint-Information.html#GDB_002fMI-Breakpoint-Information)，了解生成断点的格式的详细信息。
 
 #### [GDB]
 
@@ -550,7 +604,10 @@ Displays the list of inserted breakpoints, showing the following fields:
 
 '`What`'
 
+
 :   logical location of the breakpoint, expressed by function name, file name, line number
+
+> 逻辑断点位置，由函数名、文件名和行号表示。
 
 '`Thread-groups`'
 
@@ -560,7 +617,10 @@ Displays the list of inserted breakpoints, showing the following fields:
 
 :   number of times the breakpoint has been hit
 
+
 If there are no breakpoints or watchpoints, the `BreakpointTable` `body` field is an empty list.
+
+> 如果没有断点或监视点，则BreakpointTable的body字段是一个空列表。
 
 #### [GDB]
 
@@ -637,9 +697,15 @@ Set the passcount for tracepoint `tracepoint-number`'.
 
 :::
 
+
 Create a watchpoint. With the '`-a`' option, the watchpoint created is a *read* watchpoint, i.e., it will trigger only when the memory location is accessed for reading. Without either of the options, the watchpoint created is a regular watchpoint, i.e., it will trigger when the memory location is accessed for writing. See [Setting Watchpoints](Set-Watchpoints.html#Set-Watchpoints).
 
+> 创建一个监视点。使用'-a'选项，创建的监视点是一个读取监视点，即只有在访问内存位置进行读取时才会触发。如果没有任何选项，创建的监视点就是一个常规监视点，即只有在访问内存位置进行写入时才会触发。参见[设置监视点](Set-Watchpoints.html#Set-Watchpoints)。
+
+
 Note that '`-break-list`' will report a single list of watchpoints and breakpoints inserted.
+
+> 注意，'break-list'将报告插入的单个断点和断点列表。
 
 #### [GDB]
 
@@ -668,7 +734,10 @@ fullname="/home/foo/bar/recursive2.c",line="5",arch="i386:x86_64"}
 
 :::
 
+
 Setting a watchpoint on a variable local to a function. [GDB] will stop the program execution twice: first for the variable changing value, then for the watchpoint going out of scope.
+
+> 在函数的局部变量上设置一个监视点。[GDB]会停止程序执行两次：第一次是变量值改变，第二次是监视点超出作用域。
 
 ::: smallexample
 
@@ -701,7 +770,10 @@ arch="i386:x86_64"}
 
 :::
 
+
 Listing breakpoints and watchpoints, at different points in the program execution. Note that once the watchpoint goes out of scope, it is deleted.
+
+> 列出程序执行中的不同点的断点和监视点。注意，一旦监视点超出作用域，它就会被删除。
 
 ::: smallexample
 

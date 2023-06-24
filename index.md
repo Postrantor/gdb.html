@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 23:19:06
+...
+---
 description: Top (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -11,13 +14,22 @@ title: Top (Debugging with GDB)
 
 This file documents the [GNU].
 
+
 This is the Tenth Edition, of Debugging with [GDB] (GDB) Version 14.0.50.20230622-git.
+
+> 这是第十版，使用GDB（GDB）版本14.0.50.20230622-git调试。
 
 Copyright © 1988-2023 Free Software Foundation, Inc.
 
+
 Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with the Invariant Sections being "Free Software" and "Free Software Needs Free Documentation", with the Front-Cover Texts being "A GNU Manual," and with the Back-Cover Texts as in (a) below.
 
+> 允许根据GNU自由文档许可证（版本1.3或更高版本）发布的条款复制、分发和/或修改本文档，其不变部分为“自由软件”和“自由软件需要自由文档”，封面文字为“GNU手册”，封底文字如（a）所示。
+
+
 \(a\) The FSF's Back-Cover Text is: "You are free to copy and modify this GNU Manual. Buying copies from GNU Press supports the FSF in developing GNU and promoting software freedom."
+
+> （a）FSF的封底文字是：“您可以自由地复制和修改此GNU手册。从GNU Press购买副本可以支持FSF开发GNU并促进软件自由。”
 
 ::: header
 Next: [Summary](Summary.html#Summary)]
@@ -33,7 +45,10 @@ This is the Tenth Edition, for [GDB] (GDB) Version 14.0.50.20230622-git.
 
 Copyright (C) 1988-2023 Free Software Foundation, Inc.
 
+
 This edition of the GDB manual is dedicated to the memory of Fred Fish. Fred was a long-standing contributor to GDB and to Free software in general. We will miss him.
+
+> 这个GDB手册的版本献给Fred Fish的记忆。Fred是GDB和自由软件领域的长期贡献者。我们将怀念他。
 
 +:--------------------------------------------------------------------------------------------------------+-----------------------+:-----------------------------------------------------------------------------+
 | • [Summary](Summary.html#Summary)                                                     |
@@ -186,10 +201,16 @@ This edition of the GDB manual is dedicated to the memory of Fred Fish. Fred was
   - [4.6 Your Program's Input and Output](Input_002fOutput.html#Input_002fOutput)
   - [4.7 Debugging an Already-running Process](Attach.html#Attach)
   - [4.8 Killing the Child Process](Kill-Process.html#Kill-Process)
+
   - [4.9 Debugging Multiple Inferiors Connections and Programs](Inferiors-Connections-and-Programs.html#Inferiors-Connections-and-Programs)
+
+> - [4.9 调试多个下级连接和程序](Inferiors-Connections-and-Programs.html#Inferiors-Connections-and-Programs)
   - [4.10 Debugging Programs with Multiple Threads](Threads.html#Threads)
   - [4.11 Debugging Forks](Forks.html#Forks)
+
   - [4.12 Setting a *Bookmark* to Return to Later](Checkpoint_002fRestart.html#Checkpoint_002fRestart)
+
+> - [4.12 设置 *书签* 以便稍后返回](Checkpoint_002fRestart.html#Checkpoint_002fRestart)
     - [4.12.1 A Non-obvious Benefit of Using Checkpoints](Checkpoint_002fRestart.html#A-Non_002dobvious-Benefit-of-Using-Checkpoints)
 - [5 Stopping and Continuing](Stopping.html#Stopping)
   - [5.1 Breakpoints, Watchpoints, and Catchpoints](Breakpoints.html#Breakpoints)
@@ -206,7 +227,10 @@ This edition of the GDB manual is dedicated to the memory of Fred Fish. Fred was
     - [5.1.11 "Cannot insert breakpoints"](Error-in-Breakpoints.html#Error-in-Breakpoints)
     - [5.1.12 "Breakpoint address adjusted\..."](Breakpoint_002drelated-Warnings.html#Breakpoint_002drelated-Warnings)
   - [5.2 Continuing and Stepping](Continuing-and-Stepping.html#Continuing-and-Stepping)
+
   - [5.3 Skipping Over Functions and Files](Skipping-Over-Functions-and-Files.html#Skipping-Over-Functions-and-Files)
+
+> - [5.3 跳过函数和文件](Skipping-Over-Functions-and-Files.html#Skipping-Over-Functions-and-Files)
   - [5.4 Signals](Signals.html#Signals)
   - [5.5 Stopping and Starting Multi-thread Programs](Thread-Stops.html#Thread-Stops)
     - [5.5.1 All-Stop Mode](All_002dStop-Mode.html#All_002dStop-Mode)
@@ -264,7 +288,10 @@ This edition of the GDB manual is dedicated to the memory of Fred Fish. Fred was
       - [10.18.1.3 Data Cache](Memory-Region-Attributes.html#Data-Cache)
     - [10.18.2 Memory Access Checking](Memory-Region-Attributes.html#Memory-Access-Checking)
   - [10.19 Copy Between Memory and a File](Dump_002fRestore-Files.html#Dump_002fRestore-Files)
+
   - [10.20 How to Produce a Core File from Your Program](Core-File-Generation.html#Core-File-Generation)
+
+> - [10.20 如何从您的程序生成核心文件](Core-File-Generation.html#Core-File-Generation)
   - [10.21 Character Sets](Character-Sets.html#Character-Sets)
   - [10.22 Caching Data of Targets](Caching-Target-Data.html#Caching-Target-Data)
   - [10.23 Search Memory](Searching-Memory.html#Searching-Memory)
@@ -294,7 +321,10 @@ This edition of the GDB manual is dedicated to the memory of Fred Fish. Fred was
 - [14 Debugging Programs That Use Overlays](Overlays.html#Overlays)
   - [14.1 How Overlays Work](How-Overlays-Work.html#How-Overlays-Work)
   - [14.2 Overlay Commands](Overlay-Commands.html#Overlay-Commands)
+
   - [14.3 Automatic Overlay Debugging](Automatic-Overlay-Debugging.html#Automatic-Overlay-Debugging)
+
+> - [14.3 自动覆盖调试](Automatic-Overlay-Debugging.html#Automatic-Overlay-Debugging)
   - [14.4 Overlay Sample Program](Overlay-Sample-Program.html#Overlay-Sample-Program)
 - [15 Using [GDB]
   - [15.1 Switching Between Source Languages](Setting.html#Setting)
@@ -558,7 +588,10 @@ This edition of the GDB manual is dedicated to the memory of Fred Fish. Fred was
       - [23.5.2.1 Script File Entries](dotdebug_005fgdb_005fscripts-section.html#Script-File-Entries)
       - [23.5.2.2 Script Text Entries](dotdebug_005fgdb_005fscripts-section.html#Script-Text-Entries)
     - [23.5.3 Which flavor to choose?](Which-flavor-to-choose_003f.html#Which-flavor-to-choose_003f)
+
   - [23.6 Multiple Extension Languages](Multiple-Extension-Languages.html#Multiple-Extension-Languages)
+
+> - [23.6 多种扩展语言](Multiple-Extension-Languages.html#Multiple-Extension-Languages)
     - [23.6.1 Python comes first](Multiple-Extension-Languages.html#Python-comes-first)
 - [24 Command Interpreters](Interpreters.html#Interpreters)
 - [25 [GDB]
@@ -630,7 +663,10 @@ This edition of the GDB manual is dedicated to the memory of Fred Fish. Fred was
     - [30.4.1 Using JIT Debug Info Readers](Using-JIT-Debug-Info-Readers.html#Using-JIT-Debug-Info-Readers)
     - [30.4.2 Writing JIT Debug Info Readers](Writing-JIT-Debug-Info-Readers.html#Writing-JIT-Debug-Info-Readers)
 - [31 In-Process Agent](In_002dProcess-Agent.html#In_002dProcess-Agent)
+
   - [31.1 In-Process Agent Protocol](In_002dProcess-Agent-Protocol.html#In_002dProcess-Agent-Protocol)
+
+> - [31.1 内部代理协议](In_002dProcess-Agent-Protocol.html#In_002dProcess-Agent-Protocol)
     - [31.1.1 IPA Protocol Objects](IPA-Protocol-Objects.html#IPA-Protocol-Objects)
     - [31.1.2 IPA Protocol Commands](IPA-Protocol-Commands.html#IPA-Protocol-Commands)
 - [32 Reporting Bugs in [GDB]
@@ -671,7 +707,10 @@ This edition of the GDB manual is dedicated to the memory of Fred Fish. Fred was
   - [C.3 Compiling [GDB]
   - [C.4 Specifying Names for Hosts and Targets](Config-Names.html#Config-Names)
   - [C.5 `configure`
+
   - [C.6 System-wide configuration and settings](System_002dwide-configuration.html#System_002dwide-configuration)
+
+> - [C.6 系统级配置和设置](System_002dwide-configuration.html#System_002dwide-configuration)
     - [C.6.1 Installed System-wide Configuration Scripts](System_002dwide-Configuration-Scripts.html#System_002dwide-Configuration-Scripts)
 - [Appendix D Maintenance Commands](Maintenance-Commands.html#Maintenance-Commands)
 - [Appendix E [GDB]
@@ -679,7 +718,10 @@ This edition of the GDB manual is dedicated to the memory of Fred Fish. Fred was
   - [E.2 Packets](Packets.html#Packets)
   - [E.3 Stop Reply Packets](Stop-Reply-Packets.html#Stop-Reply-Packets)
   - [E.4 General Query Packets](General-Query-Packets.html#General-Query-Packets)
+
   - [E.5 Architecture-Specific Protocol Details](Architecture_002dSpecific-Protocol-Details.html#Architecture_002dSpecific-Protocol-Details)
+
+> - [E.5 架构特定的协议细节](Architecture_002dSpecific-Protocol-Details.html#Architecture_002dSpecific-Protocol-Details)
     - [E.5.1 ARM-specific Protocol Details](ARM_002dSpecific-Protocol-Details.html#ARM_002dSpecific-Protocol-Details)
       - [E.5.1.1 ARM Breakpoint Kinds](ARM-Breakpoint-Kinds.html#ARM-Breakpoint-Kinds)
       - [E.5.1.2 ARM Memory Tag Types](ARM-Memory-Tag-Types.html#ARM-Memory-Tag-Types)
@@ -694,7 +736,10 @@ This edition of the GDB manual is dedicated to the memory of Fred Fish. Fred was
   - [E.10 Remote Protocol Support for Non-Stop Mode](Remote-Non_002dStop.html#Remote-Non_002dStop)
   - [E.11 Packet Acknowledgment](Packet-Acknowledgment.html#Packet-Acknowledgment)
   - [E.12 Examples](Examples.html#Examples)
+
   - [E.13 File-I/O Remote Protocol Extension](File_002dI_002fO-Remote-Protocol-Extension.html#File_002dI_002fO-Remote-Protocol-Extension)
+
+> - [E.13 文件I/O远程协议扩展](File_002dI_002fO-Remote-Protocol-Extension.html#File_002dI_002fO-Remote-Protocol-Extension)
     - [E.13.1 File-I/O Overview](File_002dI_002fO-Overview.html#File_002dI_002fO-Overview)
     - [E.13.2 Protocol Basics](Protocol-Basics.html#Protocol-Basics)
     - [E.13.3 The `F` Request Packet](The-F-Request-Packet.html#The-F-Request-Packet)
@@ -727,17 +772,26 @@ This edition of the GDB manual is dedicated to the memory of Fred Fish. Fred was
       - [Limits](Limits.html#Limits)
     - [E.13.10 File-I/O Examples](File_002dI_002fO-Examples.html#File_002dI_002fO-Examples)
   - [E.14 Library List Format](Library-List-Format.html#Library-List-Format)
+
   - [E.15 Library List Format for SVR4 Targets](Library-List-Format-for-SVR4-Targets.html#Library-List-Format-for-SVR4-Targets)
+
+> - [E.15 用于 SVR4 目标的库列表格式](Library-List-Format-for-SVR4-Targets.html#Library-List-Format-for-SVR4-Targets)
   - [E.16 Memory Map Format](Memory-Map-Format.html#Memory-Map-Format)
   - [E.17 Thread List Format](Thread-List-Format.html#Thread-List-Format)
   - [E.18 Traceframe Info Format](Traceframe-Info-Format.html#Traceframe-Info-Format)
   - [E.19 Branch Trace Format](Branch-Trace-Format.html#Branch-Trace-Format)
+
   - [E.20 Branch Trace Configuration Format](Branch-Trace-Configuration-Format.html#Branch-Trace-Configuration-Format)
+
+> - [E.20 分支跟踪配置格式](Branch-Trace-Configuration-Format.html#Branch-Trace-Configuration-Format)
 - [Appendix F The GDB Agent Expression Mechanism](Agent-Expressions.html#Agent-Expressions)
   - [F.1 General Bytecode Design](General-Bytecode-Design.html#General-Bytecode-Design)
   - [F.2 Bytecode Descriptions](Bytecode-Descriptions.html#Bytecode-Descriptions)
   - [F.3 Using Agent Expressions](Using-Agent-Expressions.html#Using-Agent-Expressions)
+
   - [F.4 Varying Target Capabilities](Varying-Target-Capabilities.html#Varying-Target-Capabilities)
+
+> - [F.4 可变目标功能](Varying-Target-Capabilities.html#Varying-Target-Capabilities)
   - [F.5 Rationale](Rationale.html#Rationale)
 - [Appendix G Target Descriptions](Target-Descriptions.html#Target-Descriptions)
   - [G.1 Retrieving Descriptions](Retrieving-Descriptions.html#Retrieving-Descriptions)

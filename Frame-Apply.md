@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 21:19:30
+...
+---
 description: Frame Apply (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -17,7 +20,10 @@ Next: [Frame Filter Management](Frame-Filter-Management.html#Frame-Filter-Manage
 
 `frame apply [all | count | -count | level level…] [option]… command`
 
+
 :   The `frame apply` command allows you to apply the named `command` to one or more frames.
+
+> 命令`frame apply`允许您将指定的命令应用于一个或多个框架。
 
 ```
 `all`
@@ -116,9 +122,15 @@ $13 = (void *) 0xffffd1f0
 
 `faas command`
 
+
 Shortcut for `frame apply all -s command`. Applies `command` on all frames, ignoring errors and empty output.
 
+> 给所有帧应用`command`的快捷方式，忽略错误和空输出。
+
+
 It can for example be used to print a local variable or a function argument without knowing the frame where this variable or argument is, using:
+
+> 它可以用来打印局部变量或函数参数，而无需知道这个变量或参数所在的框架，方法是：
 
 ::: smallexample
 
@@ -128,9 +140,15 @@ It can for example be used to print a local variable or a function argument with
 
 :::
 
+
 The `faas` command accepts the same options as the `frame apply` command. See [frame apply](#Frame-Apply).
 
+> `命令`faas`接受与`frame apply`命令相同的选项。请参见[frame apply](#Frame-Apply)。`
+
+
 Note that the command `tfaas command` applies `command` on all frames of all threads. See See [Threads](Threads.html#Threads).
+
+> 注意，命令`tfaas command`会在所有线程的所有帧上应用`command`。请参见[线程](Threads.html#Threads)。
 
 ---
 

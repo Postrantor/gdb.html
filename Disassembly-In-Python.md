@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 20:35:46
+...
+---
 description: Disassembly In Python (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,11 +18,17 @@ Previous: [TUI Windows In Python](TUI-Windows-In-Python.html#TUI-Windows-In-Pyth
 
 #### 23.3.2.38 Instruction Disassembly In Python
 
+
 [GDB]'s builtin disassembler can be extended, or even replaced, using the Python API. The disassembler related features are contained within the `gdb.disassembler` module:
+
+> GDB的内置反汇编器可以使用Python API进行扩展甚至替换。反汇编相关功能包含在`gdb.disassembler`模块中：
 
 class: **gdb.disassembler.DisassembleInfo**
 
+
 :   Disassembly is driven by instances of this class. Each time [GDB] needs to disassemble an instruction, an instance of this class is created and passed to a registered disassembler. The disassembler is then responsible for disassembling an instruction and returning a result.
+
+> 拆解由此类的实例驱动。每次[GDB]需要拆解指令时，都会创建一个此类的实例，并将其传递给注册的拆解器。然后，拆解器负责拆解指令并返回结果。
 
 ```
 Instances of this type are usually created within [GDB], however, it is possible to create a copy of an instance of this type, see the description of `__init__` for more details.
@@ -81,7 +90,10 @@ Function: **DisassembleInfo.address_part** *(address)*
 
 class: **gdb.disassembler.Disassembler**
 
+
 :   This is a base class from which all user implemented disassemblers must inherit.
+
+> 这是一个基类，所有用户实现的反汇编器必须从中继承。
 
 ```
 Function: **Disassembler.__init__** *(name)*
@@ -109,7 +121,10 @@ Function: **Disassembler.__call__** *(info)*
 
 class: **gdb.disassembler.DisassemblerResult**
 
+
 :   This class represents the result of disassembling a single instruction. An instance of this class will be returned from `builtin_disassemble` (see [builtin_disassemble](#builtin_005fdisassemble)), and an instance of this class should be returned from `Disassembler.__call__` (see [Disassembler Class](#Disassembler-Class)) if an instruction was successfully disassembled.
+
+> 这个类代表着单个指令拆解的结果。从`builtin_disassemble`（参见[builtin_disassemble]（#builtin_005fdisassemble））返回的实例，以及从`Disassembler.__call__`（参见[Disassembler Class]（#Disassembler-Class））返回的实例，如果指令被成功拆解，应该返回这个类的实例。
 
 ```
 It is not possible to sub-class the `DisassemblerResult` class.
@@ -145,7 +160,10 @@ Variable: **DisassemblerResult.parts**
 
 class: **gdb.disassembler.DisassemblerPart**
 
+
 :   This is a parent class from which the different part sub-classes inherit. Only instances of the sub-classes detailed below will be returned by the Python API.
+
+> 这是一个父类，不同的子类从中继承。只有下面详细描述的子类的实例才能由Python API返回。
 
 ```
 It is not possible to directly create instances of either this parent class, or any of the sub-classes listed below. Instances of the sub-classes listed below are created by calling `builtin_disassemble` (see [builtin_disassemble](#builtin_005fdisassemble)) and are returned within the `DisassemblerResult` object, or can be created by calling the `text_part` and `address_part` methods on the `DisassembleInfo` class (see [DisassembleInfo Class](#DisassembleInfo-Class)).
@@ -163,7 +181,10 @@ Variable: **DisassemblerPart.string**
 
 class: **gdb.disassembler.DisassemblerTextPart**
 
+
 :   The `DisassemblerTextPart` class represents a piece of the disassembled instruction and the associated style for that piece. Instances of this class can't be created directly, instead call `DisassembleInfo.text_part` to create a new instance of this class (see [DisassembleInfo Class](#DisassembleInfo-Class)).
+
+> 类`DisassemblerTextPart`表示被反汇编指令的一部分及其相关样式。不能直接创建此类的实例，而是调用`DisassembleInfo.text_part`来创建此类的新实例（参见[DisassembleInfo类](#DisassembleInfo-Class)）。
 
 ```
 As well as the properties of its parent class, the `DisassemblerTextPart` has the following additional property:
@@ -179,7 +200,10 @@ Variable: **DisassemblerTextPart.style**
 
 class: **gdb.disassembler.DisassemblerAddressPart**
 
+
 :   The `DisassemblerAddressPart` class represents an absolute address within a disassembled instruction. Using a `DisassemblerAddressPart` instead of a `DisassemblerTextPart` with `STYLE_ADDRESS` is preferred, [GDB] will display the address as both an absolute address, and will look up a suitable symbol to display next to the address. Using `DisassemblerAddressPart` also ensures that user settings such as `set print max-symbolic-offset` are respected.
+
+> `DisassemblerAddressPart`类表示解析指令中的绝对地址。使用`DisassemblerAddressPart`而不是具有`STYLE_ADDRESS`的`DisassemblerTextPart`更可取，[GDB]将显示该地址作为绝对地址，并将查找适当的符号显示在地址旁边。使用`DisassemblerAddressPart`还可以确保用户设置（如`set print max-symbolic-offset`）得到尊重。
 
 ```
 Here is an example of an x86-64 instruction:
@@ -207,27 +231,42 @@ Variable: **DisassemblerAddressPart.address**
 
 
 
+
 The following table lists all of the disassembler styles that are available. [GDB].
+
+> 以下表格列出所有可用的反汇编器样式[GDB]。
 
 
 
 `gdb.disassembler.STYLE_TEXT` 
 
+
 This is the default style used by [GDB] styles text with this style using its default style.
+
+> 这是GDB默认使用的样式，使用它的默认样式对文本进行样式化。
 
 
 
 `gdb.disassembler.STYLE_MNEMONIC` 
 
+
 This style is used for styling the primary instruction mnemonic, which usually appears at, or near, the start of the disassembled instruction string.
 
+> 这种样式用于为首要指令助记符进行样式化，通常出现在反汇编指令字符串的开头或附近。
+
+
 [GDB] styles text with this style using the `disassembler mnemonic` style setting.
+
+> GDB使用`汇编指令`样式设置来对文本进行样式渲染。
 
 
 
 `gdb.disassembler.STYLE_SUB_MNEMONIC` 
 
+
 This style is used for styling any sub-mnemonics within a disassembled instruction. A sub-mnemonic is any text within the instruction that controls the function of the instruction, but which is disjoint from the primary mnemonic (which will have styled `STYLE_MNEMONIC`).
+
+> 这种样式用于样式化拆解指令中的任何子助记符。子助记符是指令中控制指令功能的任何文本，但与主助记符（将具有样式“STYLE_MNEMONIC”）不相关。
 
 As an example, consider this AArch64 instruction:
 
@@ -239,13 +278,22 @@ add   w16, w7, w1, lsl #1
 
 :::
 
+
 The `add` is the primary instruction mnemonic, and would be given style `STYLE_MNEMONIC`, while `lsl` is the sub-mnemonic, and would be given the style `STYLE_SUB_MNEMONIC`.
+
+> `add`是主指令助记符，应使用`STYLE_MNEMONIC`样式，而`lsl`是子助记符，应使用`STYLE_SUB_MNEMONIC`样式。
+
 
 [GDB] styles text with this style using the `disassembler mnemonic` style setting.
 
+> GDB使用`反汇编指令`样式设置来对文本进行样式化。
+
 `gdb.disassembler.STYLE_ASSEMBLER_DIRECTIVE`
 
+
 Sometimes a series of bytes doesn't decode to a valid instruction. In this case the disassembler may choose to represent the result of disassembling using an assembler directive, for example:
+
+> 有时，一系列字节无法解码为有效指令。在这种情况下，反汇编器可能会选择使用汇编器指令来表示反汇编的结果，例如：
 
 ::: smallexample
 
@@ -255,41 +303,80 @@ Sometimes a series of bytes doesn't decode to a valid instruction. In this case 
 
 :::
 
+
 In this case, the `.word` would be give the `STYLE_ASSEMBLER_DIRECTIVE` style. An assembler directive is similar to a mnemonic in many ways but is something that is not part of the architecture's instruction set.
+
+> 在这种情况下，`.word`将被指定`STYLE_ASSEMBLER_DIRECTIVE`样式。组合指令在许多方面与操作码类似，但不属于架构的指令集。
+
 
 [GDB] styles text with this style using the `disassembler mnemonic` style setting.
 
+> 使用`反汇编指令`样式设置，GDB用这种样式格式化文本。
+
 `gdb.disassembler.STYLE_REGISTER`
+
 
 This style is used for styling any text that represents a register name, or register number, within a disassembled instruction.
 
+> 这种样式用于为解析指令中表示寄存器名称或寄存器号的任何文本进行样式化。
+
+
 [GDB] styles text with this style using the `disassembler register` style setting.
+
+> 使用`反汇编寄存器`样式设置，GDB用这种样式格式化文本。
 
 `gdb.disassembler.STYLE_ADDRESS`
 
+
 This style is used for styling numerical values that represent absolute addresses within the disassembled instruction.
+
+> 这种样式用于样式化表示拆解指令中的绝对地址的数值。
+
 
 When creating a `DisassemblerTextPart` with this style, you should consider if a `DisassemblerAddressPart` would be more appropriate. See [Disassembler Styling Parts](#Disassembler-Styling-Parts) for a description of what each part offers.
 
+> 当使用这种样式创建一个`DisassemblerTextPart`时，您应该考虑是否`DisassemblerAddressPart`更合适。有关每个部分提供的内容的描述，请参阅[Disassembler Styling Parts](#Disassembler-Styling-Parts)。
+
+
 [GDB] styles text with this style using the `disassembler address` style setting.
+
+> 使用`反汇编地址`样式设置，[GDB]使用这种样式来格式化文本。
 
 `gdb.disassembler.STYLE_ADDRESS_OFFSET`
 
+
 This style is used for styling numerical values that represent offsets to addresses within the disassembled instruction. A value is considered an address offset when the instruction itself is going to access memory, and the value is being used to offset which address is accessed.
+
+> 这种样式用于为解析指令中的地址偏移量进行样式化。当指令本身要访问内存时，将值视为地址偏移量，并使用值偏移要访问的地址。
+
 
 For example, an architecture might have an instruction that loads from memory using an address within a register. If that instruction also allowed for an immediate offset to be encoded into the instruction, this would be an address offset. Similarly, a branch instruction might jump to an address in a register plus an address offset that is encoded into the instruction.
 
+> 例如，架构可能有一条指令使用寄存器中的地址从内存中加载。如果该指令还允许将立即偏移量编码到指令中，则这将是一个地址偏移量。类似地，分支指令可能会跳转到寄存器中的地址加上指令中编码的地址偏移量。
+
+
 [GDB] styles text with this style using the `disassembler immediate` style setting.
+
+> GDB使用`disassembler immediate`样式设置来对文本进行样式化。
 
 `gdb.disassembler.STYLE_IMMEDIATE`
 
+
 Use `STYLE_IMMEDIATE` for any numerical values within a disassembled instruction when those values are not addresses, address offsets, or register numbers (The styles `STYLE_ADDRESS`, `STYLE_ADDRESS_OFFSET`, or `STYLE_REGISTER` can be used in those cases).
+
+> 使用`STYLE_IMMEDIATE`来标记解析指令中的任何数值，如果这些数值不是地址、地址偏移量或寄存器编号（在这些情况下可以使用`STYLE_ADDRESS`、`STYLE_ADDRESS_OFFSET`或`STYLE_REGISTER`样式）。
+
 
 [GDB] styles text with this style using the `disassembler immediate` style setting.
 
+> [GDB] 使用 `disassembler immediate` 样式设置来给文本添加此样式。
+
 `gdb.disassembler.STYLE_SYMBOL`
 
+
 This style is used for styling the textual name of a symbol that is included within a disassembled instruction. A symbol name is often included next to an absolute address within a disassembled instruction to make it easier for the user to understand what the address is referring too. For example:
+
+> 这种样式用于对反汇编指令中包含的符号的文本名称进行样式化。符号名称通常附加在反汇编指令的绝对地址旁边，以便用户更容易理解地址指的是什么。例如：
 
 ::: smallexample
 
@@ -299,25 +386,49 @@ call   0x401136 <foo>
 
 :::
 
+
 Here `foo` is the name of a symbol, and should be given the `STYLE_SYMBOL` style.
+
+> 这里，`foo`是一个符号的名称，应该给予`STYLE_SYMBOL`样式。
+
 
 Adding symbols next to absolute addresses like this is handled automatically by the `DisassemblerAddressPart` class (see [Disassembler Styling Parts](#Disassembler-Styling-Parts)).
 
+> 加入符号到绝对地址旁边，像这样，可以由`DisassemblerAddressPart`类自动处理（参见[反汇编样式部件]（#Disassembler-Styling-Parts））。
+
+
 [GDB] styles text with this style using the `disassembler symbol` style setting.
+
+> 使用`disassembler symbol`样式设置，GDB用这种样式格式化文本。
 
 `gdb.disassembler.STYLE_COMMENT_START`
 
+
 This style is used to start a line comment in the disassembly output. Unlike other styles, which only apply to the single `DisassemblerTextPiece` to which they are applied, the comment style is sticky, and overrides the style of any further pieces within this instruction.
+
+> 这种样式用于在反汇编输出中开始一行注释。与其他样式不同，它们只适用于应用了它们的单个`DisassemblerTextPiece`，注释样式是粘性的，并覆盖此指令中的任何进一步片段的样式。
+
 
 This means that, after a `STYLE_COMMENT_START` piece has been seen, [GDB] will apply the comment style until the end of the line, ignoring the specific style within a piece.
 
+> 这意味着，在看到一个`STYLE_COMMENT_START`片段之后，[GDB]会在行尾应用注释样式，忽略片段内的特定样式。
+
+
 [GDB] styles text with this style using the `disassembler comment` style setting.
+
+> GDB使用“反汇编注释”样式设置来对文本进行样式化。
+
 
 The following functions are also contained in the `gdb.disassembler` module:
 
+> 以下功能也包含在`gdb.disassembler`模块中：
+
 Function: **register_disassembler** *(disassembler, architecture)*
 
+
 :   The `disassembler` must be a sub-class of `gdb.disassembler.Disassembler` or `None`.
+
+> 解码器必须是gdb.disassembler.Disassembler的子类或者为None。
 
 ```
 The optional `architecture`, as returned either from `gdb.Architecture.name` (see [gdb.Architecture.name](Architectures-In-Python.html#gdbpy_005farchitecture_005fname)), or from `gdb.architecture_names` (see [gdb.architecture_names](Basic-Python.html#gdb_005farchitecture_005fnames)).
@@ -339,7 +450,10 @@ You can use the [maint info python-disassemblers] command (see [maint info pytho
 
 Function: **builtin_disassemble** *(info)*
 
+
 :   This function calls back into [GDB], an instance, or sub-class, of `DisassembleInfo`.
+
+> 这个函数回调[GDB]，一个`DisassembleInfo`的实例或子类。
 
 ```
 When the builtin disassembler needs to read memory the `read_memory` method on `info` will be called. By sub-classing `DisassembleInfo` and overriding the `read_memory` method, it is possible to intercept calls to `read_memory` from the builtin disassembler, and to modify the values returned.
@@ -355,7 +469,10 @@ Any exception that is not a `MemoryError`, that is raised in a call to `read_mem
 Finally, there are a few cases where [GDB]'s builtin disassembler can fail for reasons that are not covered by `MemoryError`. In these cases, a `GdbError` will be raised. The contents of the exception will be a string describing the problem the disassembler encountered.
 ```
 
+
 Here is an example that registers a global disassembler. The new disassembler invokes the builtin disassembler, and then adds a comment, `## Comment`, to each line of disassembly output:
+
+> 这里有一个注册全局反汇编器的例子。新的反汇编器会调用内置反汇编器，并在每一行反汇编输出后添加注释 `## Comment`。
 
 ::: smallexample
 
@@ -375,7 +492,10 @@ gdb.disassembler.register_disassembler(ExampleDisassembler())
 
 :::
 
+
 The following example creates a sub-class of `DisassembleInfo` in order to intercept the `read_memory` calls, within `read_memory` any bytes read from memory have the two 4-bit nibbles swapped around. This isn't a very useful adjustment, but serves as an example.
+
+> 以下示例创建了一个DisassembleInfo的子类，以拦截read_memory调用，在read_memory中，从内存读取的任何字节都会交换两个4位的豆腐块。 这不是一个非常有用的调整，但可以作为示例。
 
 ::: smallexample
 

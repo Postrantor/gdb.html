@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 20:28:35
+...
+---
 description: Declarations (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [Registering Code](Registering-Code.html#Registering-Code)]
 
 ### 30.1 JIT Declarations
 
+
 These are the relevant struct declarations that a C program should include to implement the interface:
+
+> 这些是实现接口所需的相关结构声明：
 
 ::: smallexample
 
@@ -55,4 +61,7 @@ struct jit_descriptor __jit_debug_descriptor = ;
 
 :::
 
+
 If the JIT is multi-threaded, then it is important that the JIT synchronize any modifications to this global data properly, which can easily be done by putting a global mutex around modifications to these structures.
+
+> 如果JIT是多线程的，那么重要的是JIT通过在这些结构的修改周围放置一个全局互斥量来正确同步对这些全局数据的任何修改。

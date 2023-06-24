@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 04:11:40
+...
+---
 description: Tracepoint Passcounts (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -17,7 +20,10 @@ Next: [Tracepoint Conditions](Tracepoint-Conditions.html#Tracepoint-Conditions)]
 
 `passcount [n [num]]`
 
+
 Set the *passcount* of a tracepoint. The passcount is a way to automatically stop a trace experiment. If a tracepoint's passcount is `n` is not specified, the `passcount` command sets the passcount of the most recently defined tracepoint. If no passcount is given, the trace experiment will run until stopped explicitly by the user.
+
+> 设置断点的通过次数。通过次数是一种自动停止跟踪实验的方式。如果没有指定断点的通过次数n，则`passcount`命令将设置最近定义的断点的通过次数。如果没有给出通过次数，跟踪实验将一直运行，直到用户明确停止。
 
 Examples:
 

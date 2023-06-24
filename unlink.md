@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 04:28:52
+...
+---
 description: unlink (Debugging with GDB)
 distribution: global
 Generator: makeinfo

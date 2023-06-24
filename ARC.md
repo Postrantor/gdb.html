@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 17:19:15
+...
+---
 description: ARC (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [ARM](ARM.html#ARM)]
 
 #### 21.3.1 Synopsys ARC
 
+
 [GDB] provides the following ARC-specific commands:
+
+> [GDB] 提供以下特定于 ARC 的命令：
 
 `set debug arc`
 

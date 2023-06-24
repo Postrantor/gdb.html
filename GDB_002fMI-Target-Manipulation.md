@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 22:17:38
+...
+---
 description: GDB/MI Target Manipulation (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -60,7 +63,10 @@ The corresponding [GDB]'.
 
 :::
 
+
 Detach from the remote target which normally resumes its execution. If either `pid` is specified, detaches from either the specified process, or specified thread group. There's no output.
+
+> 从远程目标断开连接，通常会恢复其执行。如果指定了`pid`，则从指定的进程或指定的线程组中断开连接。没有输出。
 
 #### [GDB]
 
@@ -91,7 +97,10 @@ The corresponding [GDB]'.
 
 :::
 
+
 Disconnect from the remote target. There's no output and the target is generally not resumed.
+
+> 断开远程目标。没有输出，目标通常不会恢复。
 
 #### [GDB]
 
@@ -122,7 +131,10 @@ The corresponding [GDB]'.
 
 :::
 
+
 Loads the executable onto the remote target. It prints out an update message every half second, which includes the fields:
+
+> 将可执行文件加载到远程目标上。每隔半秒会打印一条更新消息，包括以下字段：
 
 '`section`'
 
@@ -138,15 +150,24 @@ Loads the executable onto the remote target. It prints out an update message eve
 
 '`total-sent`'
 
+
 :   The total size of what was sent so far (the current and the previous sections).
+
+> 总共发送的大小（当前和之前的部分）。
 
 '`total-size`'
 
 :   The size of the overall executable to download.
 
+
 Each message is sent as status record (see [[GDB/MI] Output Syntax](GDB_002fMI-Output-Syntax.html#GDB_002fMI-Output-Syntax)).
 
+> 每条消息都以状态记录的形式发送（请参阅[[GDB/MI] Output Syntax](GDB_002fMI-Output-Syntax.html#GDB_002fMI-Output-Syntax))。
+
+
 In addition, it prints the name and size of the sections, as they are downloaded. These messages include the following fields:
+
+> 此外，它还会打印下载时的部分名称和大小。这些消息包括以下字段：
 
 '`section`'
 
@@ -168,7 +189,10 @@ The corresponding [GDB]'.
 
 #### Example
 
+
 Note: each status message appears on a single line. Here the messages have been broken down so that they can fit onto a page.
+
+> 注意：每条状态消息在单独的一行中显示。为了适应页面，这里的消息已经分行显示。
 
 ::: smallexample
 
@@ -248,7 +272,10 @@ Erases all known flash memory regions on the target.
 
 The corresponding [GDB]'.
 
+
 The output is a list of flash regions that have been erased, with starting addresses and memory region sizes.
+
+> 输出是一个已擦除的闪存区域列表，包括起始地址和内存区域大小。
 
 ::: smallexample
 
@@ -281,9 +308,15 @@ Connect [GDB] to the remote target. This command takes two args:
 
 '`parameters`'
 
+
 :   Device names, host names and the like. See [Commands for Managing Targets](Target-Commands.html#Target-Commands), for more details.
 
+> 设备名称、主机名等。有关更多详情，请参见[管理目标的命令](Target-Commands.html#Target-Commands)。
+
+
 The output is a connection notification, followed by the address at which the target program is, in the following form:
+
+> 输出是一个连接通知，其次是目标程序所在的地址，格式如下：
 
 ::: smallexample
 

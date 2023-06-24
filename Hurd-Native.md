@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 23:13:17
+...
+---
 description: Hurd Native (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -183,11 +186,17 @@ This command sets the suspend count [GDB] when it notices the thread; use `set t
 `set thread exception-port`
 `set thread excp`
 
+
 :   Set the thread exception port to which to forward exceptions. This overrides the port set by `set task exception-port` (see above). `set thread excp` is the shorthand alias.
+
+> 将线程异常端口设置为转发异常。这将覆盖由“set task exception-port”（见上文）设置的端口。“set thread excp”是简写别名。
 
 `set thread takeover-suspend-count`
 
+
 :   Normally, [GDB] finds when it notices each thread. This command changes the suspend counts to be absolute instead.
+
+> 通常，[GDB]在注意到每个线程时找到它。此命令将挂起计数更改为绝对值。
 
 `set thread default`
 `show thread default`

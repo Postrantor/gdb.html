@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 00:22:49
+...
+---
 description: MIPS Breakpoint Kinds (Debugging with GDB)
 distribution: global
 Generator: makeinfo

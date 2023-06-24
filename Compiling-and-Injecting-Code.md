@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 19:21:07
+...
+---
 description: Compiling and Injecting Code (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,15 +18,24 @@ Previous: [Patching](Patching.html#Patching)]
 
 ### 17.7 Compiling and injecting code in [GDB]
 
+
 [GDB] must be installed for this functionality to be enabled. This functionality is implemented with the following commands.
+
+> 此功能需要安装[GDB]才能启用。这个功能使用以下命令实现。
 
 `compile code source-code`
 
 `compile code -raw -- source-code`
 
+
 Compile `source-code` and any new types or variables you have defined will be deleted.
 
+> 编译源代码，任何新定义的类型或变量都将被删除。
+
+
 The command allows you to specify `source-code` in two ways. The simplest method is to provide a single line of code to the command. E.g.:
+
+> 命令允许您以两种方式指定源代码。最简单的方法是向命令提供单行代码。例如：
 
 ::: smallexample
 
@@ -33,7 +45,10 @@ compile code printf ("hello world\n");
 
 :::
 
+
 If you specify options on the command line as well as source code, they may conflict. The '`--`' delimiter can be used to separate options from actual source code. E.g.:
+
+> 如果您在命令行上指定选项以及源代码，它们可能会发生冲突。可以使用'--'分隔符来将选项与实际源代码分开。例如：
 
 ::: smallexample
 
@@ -43,7 +58,10 @@ compile code -r -- printf ("hello world\n");
 
 :::
 
+
 Alternatively you can enter source code as multiple lines of text. To enter this mode, invoke the '`compile code`' on its own line to exit the editor.
+
+> 另外，您也可以将源代码输入为多行文本。要进入此模式，请在其自己的行上调用“编译代码”以退出编辑器。
 
 ::: smallexample
 
@@ -56,7 +74,10 @@ compile code
 
 :::
 
+
 Specifying '`-raw`' lines which may conflict with inferior symbols otherwise.
+
+> 指定'-raw'行，以避免与较低符号发生冲突。
 
 `compile file filename`
 
@@ -75,7 +96,10 @@ compile file /home/user/example.c
 `compile print [[options] --] expr`
 `compile print [[options] --] /f expr`
 
+
 :   Compile and execute `expr` is a letter specifying the format; see [Output Formats](Output-Formats.html#Output-Formats). The `compile print` command accepts the same options as the `print` command; see [print options](Data.html#print-options).
+
+> 编译和执行`expr`是一个指定格式的信件；参见[输出格式](Output-Formats.html#Output-Formats)。`编译打印`命令接受与`打印`命令相同的选项；参见[打印选项](Data.html#print-options)。
 
 `compile print [[options] --]`
 `compile print [[options] --] /f`
@@ -90,19 +114,31 @@ The process of compiling and injecting the code can be inspected using:
 
 `set debug compile`
 
+
 Turns on or off display of [GDB] process of compiling and injecting the code. The default is off.
+
+> 开启或关闭[GDB]编译和注入代码的过程的显示，默认为关闭。
 
 `show debug compile`
 
+
 Displays the current state of displaying [GDB] process of compiling and injecting the code.
+
+> 显示[GDB]编译和注入代码的当前状态。
 
 `set debug compile-cplus-types`
 
+
 Turns on or off the display of C++ type conversion debugging information. The default is off.
+
+> 开启或关闭C++类型转换调试信息的显示。默认情况下是关闭的。
 
 `show debug compile-cplus-types`
 
+
 Displays the current state of displaying debugging information for C++ type conversion.
+
+> 显示C++类型转换的调试信息的当前状态。
 
 #### 17.7.1 Compilation options for the `compile` command
 
@@ -112,11 +148,17 @@ The options used, in increasing precedence:
 
 target architecture and OS options (`gdbarch`)
 
+
 These options depend on target processor type and target operating system, usually they specify at least 32-bit (`-m32`) or 64-bit (`-m64`) compilation option.
+
+> 这些选项取决于目标处理器类型和目标操作系统，通常它们至少指定32位（`-m32`）或64位（`-m64`）编译选项。
 
 compilation options recorded in the target
 
+
 [GCC] produces no DWARF. This feature is only relevant for platforms where `-g` produces DWARF by default, otherwise one may try to enforce DWARF by using `-gdwarf-4`.
+
+> [GCC] 不会生成DWARF。这个特性只有在`-g`默认生成DWARF的平台上才有意义，否则可以尝试使用`-gdwarf-4`来强制生成DWARF。
 
 compilation options set by `set compile-args`
 
@@ -132,11 +174,17 @@ Set compilation options used for compiling and injecting code with the `compile`
 
 `show compile-args`
 
+
 :   Displays the current state of compilation options override. This does not show all the options actually used during compilation, use [set debug compile](#set-debug-compile) for that.
+
+> 显示编译选项覆盖的当前状态。 这不会显示编译期间实际使用的所有选项，请使用[set debug compile](#set-debug-compile)。
 
 #### 17.7.2 Caveats when using the `compile` command
 
+
 There are a few caveats to keep in mind when using the `compile` command. As the caveats are different per language, the table below highlights specific issues on a per language basis.
+
+> 需要注意的是，在使用`编译`命令时有一些注意事项。由于每种语言的注意事项不同，下表按每种语言列出了特定问题。
 
 C code examples and caveats
 
@@ -249,7 +297,10 @@ Similar caution must be exercised with any structs, unions, and typedefs defined
 ```bash
 (gdb) compile code static struct a ; argv = &v;
 (gdb) compile code printf ("%d\n", ((struct a *) argv)->a);
+
 gdb command line:1:36: error: dereferencing pointer to incomplete type âstruct aâ
+
+> 错误：解引用未完全类型的指针“struct a”，gdb命令行：1:36
 Compilation failed.
 (gdb) compile code struct a ; printf ("%d\n", ((struct a *) argv)->a);
 42
@@ -265,11 +316,20 @@ Variables that have been optimized away by the compiler are not accessible to th
 
 #### 17.7.3 Compiler search for the `compile` command 
 
+
 [GDB] command `set environment`). See [Environment](Environment.html#Environment).
+
+> [GDB] 命令 `设置环境`。请参阅 [环境](Environment.html#Environment)。
+
 
 Specifically `PATH` is searched for binaries matching regular expression `arch(-[^-]*)?-os-gcc` according to the inferior target being debugged. `arch` is currently supported only for pattern `linux(-gnu)?`.
 
+> 具体来说，根据被调试的次级目标，会在`PATH`中搜索与正则表达式`arch(-[^-]*)?-os-gcc`匹配的二进制文件。目前仅支持`linux(-gnu)?`模式的`arch`。
+
+
 On Posix hosts the compiler driver [GDB] is found according to the installation of the found compiler --- as possibly specified by the `set compile-gcc` command.
+
+> 在Posix主机上，编译器驱动程序[GDB]根据发现的编译器的安装情况而被发现，可能由`set compile-gcc`命令指定。
 
 `set compile-gcc`
 

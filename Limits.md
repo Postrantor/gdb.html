@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 23:51:24
+...
+---
 description: Limits (Debugging with GDB)
 distribution: global
 Generator: makeinfo

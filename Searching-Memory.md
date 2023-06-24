@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 02:19:45
+...
+---
 description: Searching Memory (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [Value Sizes](Value-Sizes.html#Value-Sizes)]
 
 ### 10.23 Search Memory
 
+
 Memory can be searched for a particular sequence of bytes with the `find` command.
+
+> 可以使用 `find` 命令在内存中搜索特定字节序列。
 
 `find [/sn] start_addr, +len, val1 [, val2, …]`
 
@@ -53,13 +59,25 @@ If the value size is not specified, it is taken from the value's type in the cur
 
 [`n`
 
+
 :   The maximum number of matches to print. The default is to print all finds.
+
+> 最多打印的匹配数。默认是打印所有的发现。
+
 
 You can use strings as search values. Quote them with double-quotes (`"`). The string value is copied into the search pattern byte by byte, regardless of the endianness of the target and the size specification.
 
+> 你可以使用字符串作为搜索值。用双引号（`"`）引用它们。无论目标的大小端和大小规格如何，字符串值都会被一个字节一个字节地复制到搜索模式中。
+
+
 The address of each match found is printed as well as a count of the number of matches found.
 
+> 每个匹配到的地址都会被打印出来，同时也会显示出找到的匹配数量。
+
+
 The address of the last value found is stored in convenience variable '`$_`'.
+
+> 在便利變量'$_'中存儲最後找到的值的地址。
 
 For example, if stopped at the `printf` in this function:
 

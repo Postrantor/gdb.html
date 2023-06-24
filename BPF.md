@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 18:08:26
+...
+---
 description: BPF (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -17,7 +20,10 @@ Next: [M68K](M68K.html#M68K)]
 
 `target sim [simargs] …`
 
+
 :   The [GDB] BPF simulator accepts the following optional arguments.
+
+> BPF模拟器可接受以下可选参数。
 
 ```
 `--skb-data-offset=offset`

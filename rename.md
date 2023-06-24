@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 02:09:34
+...
+---
 description: rename (Debugging with GDB)
 distribution: global
 Generator: makeinfo

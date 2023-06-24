@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 23:57:51
+...
+---
 description: lseek (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -43,7 +46,10 @@ Request:
 
 Return value:
 
+
 :   On success, the resulting unsigned offset in bytes from the beginning of the file is returned. Otherwise, a value of -1 is returned.
+
+> 如果成功，将返回从文件开头的无符号偏移量（以字节为单位）。否则，将返回-1。
 
 Errors:
 

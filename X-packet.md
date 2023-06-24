@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 04:57:35
+...
+---
 description: X packet (Debugging with GDB)
 distribution: global
 Generator: makeinfo

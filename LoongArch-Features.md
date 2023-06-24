@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 23:57:48
+...
+---
 description: LoongArch Features (Debugging with GDB)
 distribution: global
 Generator: makeinfo

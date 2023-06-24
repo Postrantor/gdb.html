@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 03:50:52
+...
+---
 description: tdump (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [save tracepoints](save-tracepoints.html#save-tracepoints)]
 
 #### 13.2.2 `tdump`
 
+
 This command takes no arguments. It prints all the data collected at the current trace snapshot.
+
+> 这个命令不需要参数。它打印出当前跟踪快照收集的所有数据。
 
 ::: smallexample
 
@@ -72,7 +78,10 @@ gdb_long_test = 17 '\021'
 
 `tdump` works by scanning the tracepoint's current collection actions and printing the value of each expression listed. So `tdump` can fail, if after a run, you change the tracepoint's actions to mention variables that were not collected during the run.
 
+
 Also, for tracepoints with `while-stepping` loops, `tdump` uses the collected value of `$pc` to distinguish between trace frames that were collected at the tracepoint hit, and frames that were collected while stepping. This allows it to correctly choose whether to display the basic list of collections, or the collections from the body of the while-stepping loop. However, if `$pc` was not collected, then `tdump` will always attempt to dump using the basic collection list, and may fail if a while-stepping frame does not include all the same data that is collected at the tracepoint hit.
+
+> 也對於帶有`while-stepping`循環的跟蹤點，`tdump`使用收集到的`$pc`值來區分在跟蹤點命中時收集的框架和在踩步過程中收集的框架。這使得它可以正確地選擇是顯示基本收集列表還是從while-stepping循環體中收集的收集列表。但是，如果沒有收集到`$pc`，那麼`tdump`將始終嘗試使用基本收集列表進行轉傳，並且如果while-stepping框架不包括在跟蹤點命中時收集的所有相同數據，則可能失敗。
 
 ---
 

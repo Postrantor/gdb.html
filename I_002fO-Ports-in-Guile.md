@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 23:43:58
+...
+---
 description: I/O Ports in Guile (Debugging with GDB)
 distribution: global
 Generator: makeinfo

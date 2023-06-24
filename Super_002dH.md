@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 03:25:53
+...
+---
 description: Super-H (Debugging with GDB)
 distribution: global
 Generator: makeinfo

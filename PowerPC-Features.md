@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 01:07:23
+...
+---
 description: PowerPC Features (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [RISC-V Features](RISC_002dV-Features.html#RISC_002dV-Features)]
 
 #### G.5.12 PowerPC Features
 
+
 The '`org.gnu.gdb.power.core`'. They may be 32-bit or 64-bit depending on the target.
+
+> org.gnu.gdb.power.core可能是32位或64位，取决于目标。
 
 The '`org.gnu.gdb.power.fpu`'.
 

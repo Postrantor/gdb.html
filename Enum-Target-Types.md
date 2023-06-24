@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 20:50:56
+...
+---
 description: Enum Target Types (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [Standard Target Features](Standard-Target-Features.html#Standard-Target-F
 
 ### G.4 Enum Target Types
 
+
 Enum target types are useful in '`struct`' register descriptions. See [Target Description Format](Target-Description-Format.html#Target-Description-Format).
+
+> 枚举目标类型在“struct”寄存器描述中很有用。请参阅[目标描述格式](Target-Description-Format.html#Target-Description-Format)。
 
 Enum types have a name, size and a list of name/value pairs.
 
@@ -48,7 +54,10 @@ Enums must be defined before they are used.
 
 :::
 
+
 Given that description, a value of 3 for the '`flags`' register would be printed as:
+
+> 给定该描述，“flags”寄存器的值为3时将被打印为：
 
 ::: smallexample
 

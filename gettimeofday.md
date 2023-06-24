@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 22:47:47
+...
+---
 description: gettimeofday (Debugging with GDB)
 distribution: global
 Generator: makeinfo

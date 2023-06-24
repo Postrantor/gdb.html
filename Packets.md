@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 01:00:24
+...
+---
 description: Packets (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,17 +18,32 @@ Next: [Stop Reply Packets](Stop-Reply-Packets.html#Stop-Reply-Packets)]
 
 ### E.2 Packets
 
+
 The following table provides a complete list of all currently defined `command`. See [File-I/O Remote Protocol Extension](File_002dI_002fO-Remote-Protocol-Extension.html#File_002dI_002fO-Remote-Protocol-Extension), for details about the File I/O extension of the remote protocol.
+
+> 以下表格提供了当前定义的所有命令的完整列表。有关文件I/O远程协议扩展的详细信息，请参阅[File-I/O Remote Protocol Extension](File_002dI_002fO-Remote-Protocol-Extension.html#File_002dI_002fO-Remote-Protocol-Extension)。
+
 
 Each packet's description has a template showing the packet's overall syntax, followed by an explanation of the packet's meaning. We include spaces in some of the templates for clarity; these are not part of the packet's syntax. No [GDB].
 
+> 每个数据包的描述都有一个模板，显示数据包的整体语法，然后解释数据包的含义。为了清晰起见，我们在一些模板中包含空格；这些不是数据包语法的一部分。没有[GDB]。
+
 Several packets and replies include a `thread-id`' to pick any thread.
+
 
 In addition, the remote protocol supports a multiprocess feature in which the `thread-id`.
 
+> 此外，远程协议支持多进程功能，其中包括“线程ID”。
+
+
 The multiprocess `thread-id`'. See [multiprocess extensions](General-Query-Packets.html#multiprocess-extensions), for more information.
 
+> 多进程`thread-id`。有关更多信息，请参阅[多进程扩展](General-Query-Packets.html#multiprocess-extensions)。
+
+
 Note that all packet forms beginning with an upper- or lower-case letter, other than those described here, are reserved for future use.
+
+> 注意，除了这里描述的以大写或小写字母开头的数据包格式外，其他格式将保留供将来使用。
 
 Here are the packet descriptions.
 
@@ -97,7 +115,10 @@ Don't use this packet. Use the '`Z`' packets instead (see [insert breakpoint or 
 
 '`bc`'
 
+
 :   Backward continue. Execute the target system in reverse. No parameter. See [Reverse Execution](Reverse-Execution.html#Reverse-Execution), for more information.
+
+> 继续向后执行。反向执行目标系统，无需参数。更多信息请参见[反向执行](Reverse-Execution.html#Reverse-Execution)。
 
 ```
 Reply: See [Stop Reply Packets](Stop-Reply-Packets.html#Stop-Reply-Packets), for the reply specifications.
@@ -107,7 +128,10 @@ Reply: See [Stop Reply Packets](Stop-Reply-Packets.html#Stop-Reply-Packets), for
 
 '`bs`'
 
+
 :   Backward single step. Execute one instruction in reverse. No parameter. See [Reverse Execution](Reverse-Execution.html#Reverse-Execution), for more information.
+
+> 逆向单步执行。反向执行一条指令。没有参数。更多信息请参阅[反向执行](Reverse-Execution.html#Reverse-Execution)。
 
 ```
 Reply: See [Stop Reply Packets](Stop-Reply-Packets.html#Stop-Reply-Packets), for the reply specifications.

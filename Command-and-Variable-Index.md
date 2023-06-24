@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 19:02:04
+...
+---
 description: Command and Variable Index (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -17,8 +20,14 @@ Previous: [Concept Index](Concept-Index.html#Concept-Index)]
 
 ---
 
+
 Jump to:                            [**!**](#Command-and-Variable-Index_fn_symbol-1)  
+
+> 跳转至：指令[**!**](#Command-and-Variable-Index_fn_symbol-1)
+
 [**A**](#Command-and-Variable-Index_fn_letter-A)  
+
+> [**A**](#命令和变量索引_fn_字母-A)
 
 ---
 
@@ -5160,8 +5169,14 @@ Jump to:                            [**!**](#Command-and-Variable-Index_fn_symb
 
 ---
 
+
 Jump to:                            [**!**](#Command-and-Variable-Index_fn_symbol-1)  
+
+> 跳转至：指令[**！**](#Command-and-Variable-Index_fn_symbol-1)
+
 [**A**](#Command-and-Variable-Index_fn_letter-A)  
+
+> [**A**](#命令和变量索引_fn_letter-A)
 
 ---
 

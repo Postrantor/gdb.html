@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 20:35:27
+...
+---
 description: Disassembly In Guile (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,11 +18,17 @@ Next: [I/O Ports in Guile](I_002fO-Ports-in-Guile.html#I_002fO-Ports-in-Guile)]
 
 #### 23.4.3.22 Disassembly In Guile
 
+
 The disassembler can be invoked from Scheme code. Furthermore, the disassembler can take a Guile port as input, allowing one to disassemble from any source, and not just target memory.
+
+> 解码器可以从Scheme代码中调用。此外，解码器可以接受Guile端口作为输入，允许人们从任何来源而不仅仅是目标内存进行反汇编。
 
 *
 
+
 :   Return a list of disassembled instructions starting from the memory address `start-pc`.
+
+> 返回从内存地址'start-pc'开始的拆解指令列表。
 
 ```
 The optional argument `port` is `#f` then bytes are read from target memory.

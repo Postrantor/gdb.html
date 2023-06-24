@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 21:09:47
+...
+---
 description: File-I/O Examples (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Previous: [Constants](Constants.html#Constants)]
 
 #### E.13.10 File-I/O Examples
 
+
 Example sequence of a write call, file descriptor 3, buffer is at target address 0x1234, 6 bytes should be written:
+
+> 示例写调用的序列，文件描述符3，缓冲区位于目标地址0x1234，应写入6个字节：
 
 ::: smallexample
 
@@ -30,7 +36,10 @@ return "6 bytes written"
 
 :::
 
+
 Example sequence of a read call, file descriptor 3, buffer is at target address 0x1234, 6 bytes should be read:
+
+> 示例读取调用序列，文件描述符为3，缓冲区位于目标地址0x1234，应读取6个字节：
 
 ::: smallexample
 
@@ -44,7 +53,10 @@ return "6 bytes read"
 
 :::
 
+
 Example sequence of a read call, call fails on the host due to invalid file descriptor (`EBADF`):
+
+> 例如，由於無效的文件描述符（`EBADF`）而導致對主機上的讀取調用失敗的調用序列：
 
 ::: smallexample
 
@@ -55,7 +67,10 @@ Example sequence of a read call, call fails on the host due to invalid file desc
 
 :::
 
+
 Example sequence of a read call, user presses [Ctrl-c] before syscall on host is called:
+
+> 示例读调用序列，用户在主机上调用系统调用之前按下[Ctrl-c]：
 
 ::: smallexample
 
@@ -67,7 +82,10 @@ Example sequence of a read call, user presses [Ctrl-c] before syscall on host is
 
 :::
 
+
 Example sequence of a read call, user presses [Ctrl-c] after syscall on host is called:
+
+> 示例读取调用序列：在主机上调用系统调用后，用户按下[Ctrl-c]。
 
 ::: smallexample
 

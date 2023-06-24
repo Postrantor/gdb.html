@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 04:14:59
+...
+---
 description: TUI Configuration (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -96,7 +99,10 @@ Set whether the TUI source window is displayed in "compact" form. The default di
 
 `set debug tui [on|off]`
 
+
 :   Turn on or off display of [GDB] internal debug messages relating to the TUI.
+
+> 开启或关闭[GDB] TUI的内部调试消息的显示。
 
 ```
 
@@ -104,9 +110,15 @@ Set whether the TUI source window is displayed in "compact" form. The default di
 
 `show debug tui`
 
+
 :   Show the current status of displaying [GDB] internal debug messages relating to the TUI.
 
+> 显示有关TUI的GDB内部调试消息的当前状态。
+
+
 Note that the colors of the TUI borders can be controlled using the appropriate `set style` commands. See [Output Styling](Output-Styling.html#Output-Styling).
+
+> 注意，可以使用适当的`set style`命令来控制TUI边框的颜色。请参见[输出样式](Output-Styling.html#Output-Styling)。
 
 ---
 

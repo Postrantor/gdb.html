@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 04:03:46
+...
+---
 description: TIC6x Features (Debugging with GDB)
 distribution: global
 Generator: makeinfo

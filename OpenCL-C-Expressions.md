@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 00:45:19
+...
+---
 description: OpenCL C Expressions (Debugging with GDB)
 distribution: global
 Generator: makeinfo

@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 19:25:47
+...
+---
 description: Concept Index (Debugging with GDB)
 distribution: global
 Generator: makeinfo

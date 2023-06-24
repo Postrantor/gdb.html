@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 23:13:07
+...
+---
 description: HPPA (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [PowerPC](PowerPC.html#PowerPC)]
 
 #### 21.4.5 HPPA
 
+
 When [GDB] is debugging the HP PA architecture, it provides the following special commands:
+
+> 当GDB在调试HP PA架构时，它提供以下特殊命令：
 
 `set debug hppa`
 

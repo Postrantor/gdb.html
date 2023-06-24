@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 00:30:14
+...
+---
 description: mode_t Values (Debugging with GDB)
 distribution: global
 Generator: makeinfo

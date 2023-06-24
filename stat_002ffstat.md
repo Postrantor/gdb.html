@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 03:20:42
+...
+---
 description: stat/fstat (Debugging with GDB)
 distribution: global
 Generator: makeinfo

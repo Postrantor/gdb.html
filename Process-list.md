@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 01:22:42
+...
+---
 description: Process list (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -8,7 +11,10 @@ resource-type: document
 title: Process list (Debugging with GDB)
 ---
 ::: header
+
 Up: [Operating System Information](Operating-System-Information.html#Operating-System-Information)]
+
+> 上：[操作系统信息](Operating-System-Information.html#Operating-System-Information)
 :::
 
 ---

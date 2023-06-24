@@ -1,0 +1,20 @@
+---
+tip: translate by openai@2023-06-24 00:21:21
+...
+---
+description: Method Names in Commands (Debugging with GDB)
+distribution: global
+Generator: makeinfo
+keywords: Method Names in Commands (Debugging with GDB)
+lang: en
+resource-type: document
+title: Method Names in Commands (Debugging with GDB)
+---
+::: header
+Next: [The Print Command with Objective-C](The-Print-Command-with-Objective_002dC.html#The-Print-Command-with-Objective_002dC)]
+:::
+
+---
+
+#### 15.4.4.1 Method Names in Commands
+

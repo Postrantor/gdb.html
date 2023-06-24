@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 00:31:29
+...
+---
 description: MPFR (Debugging with GDB)
 distribution: global
 Generator: makeinfo

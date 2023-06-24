@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 04:33:18
+...
+---
 description: Using JIT Debug Info Readers (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [Writing JIT Debug Info Readers](Writing-JIT-Debug-Info-Readers.html#Writi
 
 #### 30.4.1 Using JIT Debug Info Readers
 
+
 Readers can be loaded and unloaded using the `jit-reader-load` and `jit-reader-unload` commands.
+
+> 读者可以使用`jit-reader-load`和`jit-reader-unload`命令来加载和卸载。
 
 `jit-reader-load reader`
 

@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 03:21:05
+...
+---
 description: Stop Reply Packets (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -17,9 +20,15 @@ Next: [General Query Packets](General-Query-Packets.html#General-Query-Packets)]
 
 The '`C` source code.
 
+
 In non-stop mode, the server will simply reply '`OK`'; any stop will be the subject of a future notification. See [Remote Non-Stop](Remote-Non_002dStop.html#Remote-Non_002dStop).
 
+> 在非停止模式下，服务器将会简单地回复'OK'；任何停止都将成为未来通知的主题。请参阅[远程非停止](Remote-Non_002dStop.html#Remote-Non_002dStop)。
+
+
 As in the description of request packets, we include spaces in the reply templates for clarity; these are not part of the reply packet's syntax. No [GDB] stop reply packet uses spaces to separate its components.
+
+> 根据请求包的描述，为了清晰起见，我们在回复模板中包含空格；这些不是回复包语法的一部分。没有[GDB]停止回复包使用空格来分隔其组件。
 
 '`S AA`'
 
@@ -123,7 +132,10 @@ The currently defined stop reasons are:
 '`W AA`'
 '`W AA ; process:pid`'
 
+
 :   The process exited, and `AA` is the exit status. This is only applicable to certain targets.
+
+> 进程退出，退出状态的代号是AA。这只适用于某些目标。
 
 ```
 The second form of the response, including the process ID of the exited process, can be used only when [GDB] are formatted as big-endian hex strings.
@@ -146,7 +158,10 @@ The second form of the response, including the process ID of the terminated proc
 
 '`N`'
 
+
 :   There are no resumed threads left in the target. In other words, even though the process is alive, the last resumed thread has exited. For example, say the target process has two threads: thread 1 and thread 2. The client leaves thread 1 stopped, and resumes thread 2, which subsequently exits. At this point, even though the process is still alive, and thus no '`W`' feature indicating support.
+
+> 目标中没有剩余的恢复线程。换句话说，即使进程仍然活着，最后一个恢复的线程也已退出。例如，假设目标进程有两个线程：线程1和线程2。客户端将线程1停止，并恢复线程2，后者随后退出。此时，即使进程仍然存活，也没有表示支持的'W'功能。
 
 '`O XX…`'
 
@@ -154,7 +169,10 @@ The second form of the response, including the process ID of the terminated proc
 
 '`F call-id,parameter…`'
 
+
 :   `call-id`. See [File-I/O Remote Protocol Extension](File_002dI_002fO-Remote-Protocol-Extension.html#File_002dI_002fO-Remote-Protocol-Extension), for a list of implemented system calls.
+
+> 调用ID。请参阅[文件I/O远程协议扩展](File_002dI_002fO-Remote-Protocol-Extension.html#File_002dI_002fO-Remote-Protocol-Extension)，了解实现的系统调用列表。
 
 ```
 '`parameter…`' is a list of parameters as defined for this very system call.

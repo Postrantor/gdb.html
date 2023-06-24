@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 05:02:40
+...
+---
 description: \--readnever (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -7,4 +10,7 @@ lang: en
 resource-type: document
 title: \--readnever (Debugging with GDB)
 ---
+
 The node you are looking for is at [\--readnever](File-Options.html#g_t_002d_002dreadnever).
+
+> 你正在寻找的节点位于[\--readnever](File-Options.html#g_t_002d_002dreadnever)。

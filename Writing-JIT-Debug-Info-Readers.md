@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 04:56:47
+...
+---
 description: Writing JIT Debug Info Readers (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,13 +18,22 @@ Previous: [Using JIT Debug Info Readers](Using-JIT-Debug-Info-Readers.html#Using
 
 #### 30.4.2 Writing JIT Debug Info Readers
 
+
 As mentioned, a reader is essentially a shared object conforming to a certain ABI. This ABI is described in `jit-reader.h`.
+
+> 如前所述，读取器本质上是符合某种ABI的共享对象。此ABI描述在“jit-reader.h”中。
 
 `jit-reader.h` is the system include directory.
 
+
 Readers need to be released under a GPL compatible license. A reader can be declared as released under such a license by placing the macro `GDB_DECLARE_GPL_COMPATIBLE_READER` in a source file.
 
+> 读取器需要根据GPL兼容许可发布。可以通过在源文件中放置宏`GDB_DECLARE_GPL_COMPATIBLE_READER`来声明读取器已经发布了GPL兼容许可。
+
+
 The entry point for readers is the symbol `gdb_init_reader`, which is expected to be a function with the prototype
+
+> 读者的入口点是符号`gdb_init_reader`，预期它是一个具有原型的函数
 
 ::: smallexample
 
@@ -53,7 +65,10 @@ struct gdb_reader_funcs
 
 :::
 
+
 The callbacks are provided with another set of callbacks by [GDB] to do their job. For `read`, these callbacks are passed in a `struct gdb_symbol_callbacks` and for `unwind` and `get_frame_id`, in a `struct gdb_unwind_callbacks`. `struct gdb_symbol_callbacks` has callbacks to create new object files and new symbol tables inside those object files. `struct gdb_unwind_callbacks` has callbacks to read registers off the current frame and to write out the values of the registers in the previous frame. Both have a callback (`target_read`) to read bytes off the target's address space.
+
+> 回调函数由GDB提供另一组回调函数来完成其工作。对于“读取”，这些回调函数被传入一个“struct gdb_symbol_callbacks”，对于“unwind”和“get_frame_id”，则传入一个“struct gdb_unwind_callbacks”。“struct gdb_symbol_callbacks”有回调函数来创建新的对象文件，以及这些对象文件中的新符号表。“struct gdb_unwind_callbacks”有回调函数读取当前帧的寄存器，以及将上一帧的寄存器值写出。两者都有一个回调函数（“target_read”）来读取目标地址空间的字节。
 
 ---
 

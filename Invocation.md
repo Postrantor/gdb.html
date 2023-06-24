@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 23:36:04
+...
+---
 description: Invocation (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [Commands](Commands.html#Commands)]
 
 ## 2 Getting In and Out of [GDB]
 
+
 This chapter discusses how to start [GDB], and how to get out of it. The essentials are:
+
+> 本章讨论如何开始使用GDB以及如何退出GDB。基本要点是：
 
 - type '`gdb`.
 - type [quit] to exit.

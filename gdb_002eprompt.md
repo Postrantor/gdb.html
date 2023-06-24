@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 21:41:21
+...
+---
 description: gdb.prompt (Debugging with GDB)
 distribution: global
 Generator: makeinfo

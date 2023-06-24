@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 00:45:47
+...
+---
 description: OpenRISC 1000 Features (Debugging with GDB)
 distribution: global
 Generator: makeinfo

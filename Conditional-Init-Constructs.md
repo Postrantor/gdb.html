@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 19:25:49
+...
+---
 description: Conditional Init Constructs (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,11 +18,17 @@ Next: [Sample Init File](Sample-Init-File.html#Sample-Init-File)]
 
 #### 33.3.2 Conditional Init Constructs
 
+
 Readline implements a facility similar in spirit to the conditional compilation features of the C preprocessor which allows key bindings and variable settings to be performed as the result of tests. There are four parser directives used.
+
+> Readline实现了一种类似于C预处理器中条件编译功能的设施，允许根据测试执行键绑定和变量设置。使用了四个解析器指令。
 
 `$if`
 
+
 :   The `$if` construct allows bindings to be made based on the editing mode, the terminal being used, or the application using Readline. The text of the test, after any comparison operator, extends to the end of the line; unless otherwise noted, no characters are required to isolate it.
+
+> `$if`结构允许根据编辑模式、使用的终端或使用Readline的应用程序进行绑定。测试的文本继续到行末；除非另有说明，不需要任何字符来隔离它。
 
 ```
 `mode`
@@ -70,15 +79,24 @@ Readline implements a facility similar in spirit to the conditional compilation 
 
 `$endif`
 
+
 :   This command, as seen in the previous example, terminates an `$if` command.
+
+> 这个命令，如前面例子所示，终止一个`$if` 命令。
 
 `$else`
 
+
 :   Commands in this branch of the `$if` directive are executed if the test fails.
+
+> 如果测试失败，则会执行此`$if`指令分支中的命令。
 
 `$include`
 
+
 :   This directive takes a single filename as an argument and reads commands and bindings from that file. For example, the following directive reads from `/etc/inputrc`:
+
+> 这个指令接受单个文件名作为参数，并从该文件中读取命令和绑定。例如，下面的指令从`/etc/inputrc`中读取：
 
 ```
 ::: example

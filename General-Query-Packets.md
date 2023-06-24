@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 22:41:04
+...
+---
 description: General Query Packets (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,24 +18,42 @@ Next: [Architecture-Specific Protocol Details](Architecture_002dSpecific-Protoco
 
 ### E.4 General Query Packets
 
+
 Packets starting with '`q`' are *general set packets*. General query and set packets are a semi-unified form for retrieving and sending information to and from the stub.
+
+> 包以“q”开头的是一般设置包。一般查询和设置包是一种用于从存根检索和发送信息的半统一形式。
+
 
 The initial letter of a query or set packet is followed by a name indicating what sort of thing the packet applies to. For example, [GDB]' packet to exchange symbol definitions with the stub. These packet names follow some conventions:
 
+> 初始字母的查询或设置数据包后跟一个名称，指示该数据包适用于什么类型的东西。例如，[GDB]“数据包用于与存根交换符号定义。这些数据包名称遵循一些约定：
+
 - The name must not contain commas, colons or semicolons.
 - Most [GDB] query and set packets have a leading upper case letter.
+
 - The names of custom vendor packets should use a company prefix, in lower case, followed by a period. For example, packets designed at the Acme Corporation might begin with '`qacme.foo`' (for setting bars).
+
+> 自定义供应商数据包的名称应使用公司前缀，以小写字母开头，后跟一个句号。例如，在Acme Corporation设计的数据包可能以'qacme.foo'开头（用于设置栏）。
+
 
 The name of a query or set packet should be separated from any parameters by a '`:`.
 
+> 查询或设置包的名称应该用“：”与参数隔开。
+
+
 Like the descriptions of the other packets, each description here has a template showing the packet's overall syntax, followed by an explanation of the packet's meaning. We include spaces in some of the templates for clarity; these are not part of the packet's syntax. No [GDB] packet uses spaces to separate its components.
+
+> 像其他数据包的描述一样，这里的每个描述都有一个模板，显示数据包的整体语法，然后是对数据包含义的解释。为了清晰起见，我们在一些模板中包含了空格；这些不是数据包语法的一部分。没有[GDB]数据包使用空格来分隔其组件。
 
 Here are the currently defined query and set packets:
 
 '`QAgent:1`'
 '`QAgent:0`'
 
+
 :   Turn on or off the agent as a helper to perform some debugging operations delegated from [GDB] (see [Control Agent](In_002dProcess-Agent.html#Control-Agent)).
+
+> 开启或关闭代理作为辅助程序来执行从[GDB]（参见[控制代理](In_002dProcess-Agent.html#Control-Agent)）委派的一些调试操作。
 
 '`QAllow:op:val…`'
 
@@ -759,87 +780,150 @@ These are the currently defined stub features, in more detail:
 
 '`PacketSize=bytes`'
 
+
 :   The remote stub can accept packets up to at least `bytes`' packet response.
+
+> 远程存根至少可以接受`字节`数量的数据包响应。
 
 '`qXfer:auxv:read`'
 
+
 :   The remote stub understands the '`qXfer:auxv:read`' packet (see [qXfer auxiliary vector read](#qXfer-auxiliary-vector-read)).
+
+> 远程存根理解'qXfer：auxv：read'数据包（参见[qXfer辅助向量读取]（#qXfer辅助向量读取））。
 
 '`qXfer:btrace:read`'
 
+
 :   The remote stub understands the '`qXfer:btrace:read`' packet (see [qXfer btrace read](#qXfer-btrace-read)).
+
+> 远程存根理解'qXfer:btrace:read'数据包（参见[qXfer btrace read]（#qXfer-btrace-read））。
 
 '`qXfer:btrace-conf:read`'
 
+
 :   The remote stub understands the '`qXfer:btrace-conf:read`' packet (see [qXfer btrace-conf read](#qXfer-btrace_002dconf-read)).
+
+> 远程存根理解“qXfer：btrace-conf：read”数据包（请参见[qXfer btrace-conf read]（#qXfer-btrace_002dconf-read））。
 
 '`qXfer:exec-file:read`'
 
+
 :   The remote stub understands the '`qXfer:exec-file:read`' packet (see [qXfer executable filename read](#qXfer-executable-filename-read)).
+
+> 远程存根理解'qXfer：exec-file：read'数据包（参见[qXfer可执行文件名称读取]（#qXfer-executable-filename-read））。
 
 '`qXfer:features:read`'
 
+
 :   The remote stub understands the '`qXfer:features:read`' packet (see [qXfer target description read](#qXfer-target-description-read)).
+
+> 远程存根理解“qXfer：features：read”数据包（参见[qXfer目标描述读取]（#qXfer-target-description-read））。
 
 '`qXfer:libraries:read`'
 
+
 :   The remote stub understands the '`qXfer:libraries:read`' packet (see [qXfer library list read](#qXfer-library-list-read)).
+
+> 远程存根理解'qXfer：libraries：read'数据包（参见[qXfer库列表读取]（＃qXfer库列表读取））。
 
 '`qXfer:libraries-svr4:read`'
 
+
 :   The remote stub understands the '`qXfer:libraries-svr4:read`' packet (see [qXfer svr4 library list read](#qXfer-svr4-library-list-read)).
+
+> 远程存根理解'qXfer:libraries-svr4:read'数据包（参见[qXfer svr4库列表读取]（＃qXfer-svr4-library-list-read））。
 
 '`augmented-libraries-svr4-read`'
 
+
 :   The remote stub understands the augmented form of the '`qXfer:libraries-svr4:read`' packet (see [qXfer svr4 library list read](#qXfer-svr4-library-list-read)).
+
+> 远程存根理解'qXfer：libraries-svr4：read'数据包的增强形式（参见[qXfer svr4库列表读取]（#qXfer-svr4-library-list-read））。
 
 '`qXfer:memory-map:read`'
 
+
 :   The remote stub understands the '`qXfer:memory-map:read`' packet (see [qXfer memory map read](#qXfer-memory-map-read)).
+
+> 远程存根理解'qXfer:memory-map:read'数据包（参见[qXfer内存映射读取]（#qXfer-memory-map-read））。
 
 '`qXfer:sdata:read`'
 
+
 :   The remote stub understands the '`qXfer:sdata:read`' packet (see [qXfer sdata read](#qXfer-sdata-read)).
+
+> 远程存根理解'qXfer:sdata:read'数据包（参见[qXfer sdata read]（#qXfer-sdata-read））。
 
 '`qXfer:siginfo:read`'
 
+
 :   The remote stub understands the '`qXfer:siginfo:read`' packet (see [qXfer siginfo read](#qXfer-siginfo-read)).
+
+> 远程存根理解'qXfer：siginfo：read'数据包（参见[qXfer siginfo read]（#qXfer-siginfo-read））。
 
 '`qXfer:siginfo:write`'
 
+
 :   The remote stub understands the '`qXfer:siginfo:write`' packet (see [qXfer siginfo write](#qXfer-siginfo-write)).
+
+> 远程存根理解 'qXfer：siginfo：write' 数据包（参见[qXfer siginfo write]（#qXfer-siginfo-write））。
 
 '`qXfer:threads:read`'
 
+
 :   The remote stub understands the '`qXfer:threads:read`' packet (see [qXfer threads read](#qXfer-threads-read)).
+
+> 远程存根理解'qXfer：threads：read'数据包（参见[qXfer threads read]（＃qXfer-threads-read））。
 
 '`qXfer:traceframe-info:read`'
 
+
 :   The remote stub understands the '`qXfer:traceframe-info:read`' packet (see [qXfer traceframe info read](#qXfer-traceframe-info-read)).
+
+> 远程存根理解 'qXfer：traceframe-info：read' 数据包（参见[qXfer traceframe info read]（#qXfer-traceframe-info-read））。
 
 '`qXfer:uib:read`'
 
+
 :   The remote stub understands the '`qXfer:uib:read`' packet (see [qXfer unwind info block](#qXfer-unwind-info-block)).
+
+> 远程存根理解'qXfer:uib:read'数据包（请参阅[qXfer无序信息块]（#qXfer-unwind-info-block））。
 
 '`qXfer:fdpic:read`'
 
+
 :   The remote stub understands the '`qXfer:fdpic:read`' packet (see [qXfer fdpic loadmap read](#qXfer-fdpic-loadmap-read)).
+
+> 远程存根理解'qXfer：fdpic：read'数据包（参见[qXfer fdpic loadmap read]（#qXfer-fdpic-loadmap-read））。
 
 '`QNonStop`'
 
+
 :   The remote stub understands the '`QNonStop`' packet (see [QNonStop](#QNonStop)).
+
+> 远程存根理解'QNonStop'数据包（参见[QNonStop]（＃QNonStop））。
 
 '`QCatchSyscalls`'
 
+
 :   The remote stub understands the '`QCatchSyscalls`' packet (see [QCatchSyscalls](#QCatchSyscalls)).
+
+> 远程存根理解'QCatchSyscalls'数据包（参见[QCatchSyscalls]（＃QCatchSyscalls））。
 
 '`QPassSignals`'
 
+
 :   The remote stub understands the '`QPassSignals`' packet (see [QPassSignals](#QPassSignals)).
+
+> 远程存根理解'QPassSignals'数据包（参见[QPassSignals]（#QPassSignals））。
 
 '`QStartNoAckMode`'
 
+
 :   The remote stub understands the '`QStartNoAckMode`' packet and prefers to operate in no-acknowledgment mode. See [Packet Acknowledgment](Packet-Acknowledgment.html#Packet-Acknowledgment).
+
+> 远程存根理解“QStartNoAckMode”数据包，并且更喜欢在无需确认模式下运行。请参见[数据包确认](Packet-Acknowledgment.html#Packet-Acknowledgment)。
 
 '`multiprocess`'
 
@@ -851,27 +935,45 @@ The remote stub understands the multiprocess extensions to the remote protocol s
 
 '`qXfer:osdata:read`'
 
+
 :   The remote stub understands the '`qXfer:osdata:read`' packet ((see [qXfer osdata read](#qXfer-osdata-read)).
+
+> 远程存根理解' 'qXfer：osdata：read' '分组（参见[qXfer osdata read]（#qXfer-osdata-read））。
 
 '`ConditionalBreakpoints`'
 
+
 :   The target accepts and implements evaluation of conditional expressions defined for breakpoints. The target will only report breakpoint triggers when such conditions are true (see [Break Conditions](Conditions.html#Conditions)).
+
+> 目标接受并实施为断点定义的条件表达式的评估。只有当这些条件为真时，目标才会报告断点触发器（请参见[断点条件]（Conditions.html#Conditions））。
 
 '`ConditionalTracepoints`'
 
+
 :   The remote stub accepts and implements conditional expressions defined for tracepoints (see [Tracepoint Conditions](Tracepoint-Conditions.html#Tracepoint-Conditions)).
+
+> 遠程存根接受并實現為跟蹤點定義的條件表達式（請參閱[跟蹤點條件]（Tracepoint-Conditions.html#Tracepoint-Conditions））。
 
 '`ReverseContinue`'
 
+
 :   The remote stub accepts and implements the reverse continue packet (see [bc](Packets.html#bc)).
+
+> 远程存根接受并实现反向继续数据包（参见[bc]（Packets.html#bc））。
 
 '`ReverseStep`'
 
+
 :   The remote stub accepts and implements the reverse step packet (see [bs](Packets.html#bs)).
+
+> 远程存根接受并实施反向步骤数据包（请参见[bs]（Packets.html#bs））。
 
 '`TracepointSource`'
 
+
 :   The remote stub understands the '`QTDPsrc`' packet that supplies the source form of tracepoint definitions.
+
+> 远程存根理解提供跟踪点定义源形式的'QTDPsrc'数据包。
 
 '`QAgent`'
 
@@ -903,11 +1005,17 @@ The remote stub supports installing tracepoint in tracing.
 
 '`EnableDisableTracepoints`'
 
+
 :   The remote stub supports the '`QTEnable`' (see [QTDisable](Tracepoint-Packets.html#QTDisable)) packets that allow tracepoints to be enabled and disabled while a trace experiment is running.
+
+> 远程存根支持'QTEnable'（参见[QTDisable]（Tracepoint-Packets.html#QTDisable））数据包，允许在运行跟踪实验时启用和禁用跟踪点。
 
 '`QTBuffer:size`'
 
+
 :   The remote stub supports the '`QTBuffer:size`' (see [QTBuffer-size](Tracepoint-Packets.html#QTBuffer_002dsize)) packet that allows to change the size of the trace buffer.
+
+> 远程存根支持'QTBuffer:size'（参见[QTBuffer-size] (Tracepoint-Packets.html#QTBuffer_002dsize)）数据包，允许更改跟踪缓冲区的大小。
 
 '`tracenz`'
 
@@ -947,11 +1055,17 @@ The remote stub supports running a breakpoint's command list itself, rather than
 
 '`swbreak`'
 
+
 :   The remote stub reports the '`swbreak`' stop reason for memory breakpoints.
+
+> 远程存根报告'`swbreak`'停止原因用于内存断点。
 
 '`hwbreak`'
 
+
 :   The remote stub reports the '`hwbreak`' stop reason for hardware breakpoints.
+
+> 远程存根报告“hwbreak”停止原因为硬件断点。
 
 '`fork-events`'
 
@@ -959,7 +1073,10 @@ The remote stub supports running a breakpoint's command list itself, rather than
 
 '`vfork-events`'
 
+
 :   The remote stub reports the '`vfork`' stop reason for vfork events and vforkdone events.
+
+> 远程存根报告'vfork'停止原因用于vfork事件和vforkdone事件。
 
 '`exec-events`'
 
@@ -967,7 +1084,10 @@ The remote stub supports running a breakpoint's command list itself, rather than
 
 '`vContSupported`'
 
+
 :   The remote stub reports the supported actions in the reply to '`vCont?`' packet.
+
+> 远程存根报告在'`vCont?`'数据包的回复中支持的操作。
 
 '`QThreadEvents`'
 
@@ -979,7 +1099,10 @@ The remote stub supports running a breakpoint's command list itself, rather than
 
 '`memory-tagging`'
 
+
 :   The remote stub supports and implements the required memory tagging functionality and understands the '`qMemTags`' (see [QMemTags](#QMemTags)) packets.
+
+> 远程存根支持并实现所需的内存标记功能，并理解'qMemTags'（参见[QMemTags]（#QMemTags））数据包。
 
 ```
 For AArch64 GNU/Linux systems, this feature also requires access to the `/proc/pid/smaps`' requests.
@@ -987,7 +1110,10 @@ For AArch64 GNU/Linux systems, this feature also requires access to the `/proc/p
 
 '`qSymbol::`'
 
+
 Notify the target that [GDB] is prepared to serve symbol lookup requests. Accept requests from the target for the values of symbols.
+
+> 通知目标[GDB]已准备好提供符号查找请求。接受来自目标的符号值请求。
 
 Reply:
 
@@ -997,7 +1123,10 @@ Reply:
 
 '`qSymbol:sym_name`'
 
+
 :   The target requests the value of symbol `sym_name`' message, described below.
+
+> 目标请求符号`sym_name`的值
 
 '`qSymbol:sym_value:sym_name`'
 
@@ -1015,7 +1144,10 @@ Reply:
 
 '`qSymbol:sym_name`'
 
+
 :   The target requests the value of a new symbol `sym_name` will continue to supply the values of symbols (if available), until the target ceases to request them.
+
+> 目标请求新符号`sym_name`的值，如果可用，将继续提供符号的值，直到目标停止请求它们。
 
 '`qTBuffer`'
 
@@ -1041,15 +1173,24 @@ See [Tracepoint Packets](Tracepoint-Packets.html#Tracepoint-Packets).
 
 '`qThreadExtraInfo,thread-id`'
 
+
 Obtain from the target OS a printable string description of thread attributes for the thread `thread-id`'.
+
+> 从目标操作系统获取线程`thread-id`的可打印字符串属性描述。
 
 Reply:
 
 '`XX…`'
 
+
 :   Where '`XX…` data, comprising the printable string containing the extra information about the thread's attributes.
 
+> 在哪里可以找到'XX…'数据，包括可打印字符串，其中包含有关线程属性的额外信息。
+
+
 (Note that the `qThreadExtraInfo` packet's name is separated from the command by a '`,`', contrary to the naming conventions above. Please don't use this packet as a model for new packets.)
+
+> (注意，`qThreadExtraInfo`数据包的名称与命令之间由一个'`,`'分隔，这与上述命名约定不同。请不要将此数据包用作新数据包的模型。)
 
 '`QTNotes`'
 
@@ -1087,7 +1228,10 @@ See [Tracepoint Packets](Tracepoint-Packets.html#Tracepoint-Packets).
 
 '`qXfer:object:read:annex:offset,length`'
 
+
 Read uninterpreted bytes from the target's special data area identified by the keyword `object`; it can supply additional details about what data to access.
+
+> 从目标的特殊数据区域中读取未经解释的字节，该数据区域由关键字“对象”标识；它可以提供有关要访问哪些数据的附加详细信息。
 
 Reply:
 
@@ -1101,7 +1245,10 @@ Reply:
 
 '`l`'
 
+
 :   The `offset` in the request is at the end of the data. There is no more data to be read.
+
+> 在请求中的`偏移量`在数据的末尾。没有更多的数据可以读取了。
 
 '`E00`'
 
@@ -1109,13 +1256,22 @@ Reply:
 
 '`E nn`'
 
+
 :   The offset was invalid, or there was an error encountered reading the data. The `nn` part is a hex-encoded `errno` value.
+
+> 偏移无效，或者在读取数据时遇到错误。`nn`部分是十六进制编码的`errno`值。
 
 '``'
 
+
 :   An empty reply indicates the `object` string was not recognized by the stub, or that the object does not support reading.
 
+> 空白回复表明存根没有识别到`对象`字符串，或者该对象不支持读取。
+
+
 Here are the specific requests of this form defined so far. All the '`qXfer:object:read:…`' requests use the same reply formats, listed above.
+
+> 以下是目前定义的此表格的具体请求。所有的`qXfer:object:read:…`请求使用上面列出的相同的回复格式。
 
 '`qXfer:auxv:read::offset,length`'
 
@@ -1301,13 +1457,19 @@ Access the target's *operating system information*. See [Operating System Inform
 
 '`qXfer:object:write:annex:offset:data…`'
 
+
 Write uninterpreted bytes into the target's special data area identified by the keyword `object`; it can supply additional details about what data to access.
+
+> 写入未解释的字节到由关键词“对象”标识的目标的特殊数据区域；它可以提供关于访问哪些数据的附加细节。
 
 Reply:
 
 '`nn`'
 
+
 :   `nn` (hex encoded) is the number of bytes written. This may be fewer bytes than supplied in the request.
+
+> `nn`（以十六进制编码）是写入的字节数，可能少于请求中提供的字节数。
 
 '`E00`'
 
@@ -1315,13 +1477,22 @@ Reply:
 
 '`E nn`'
 
+
 :   The offset was invalid, or there was an error encountered writing the data. The `nn` part is a hex-encoded `errno` value.
+
+> 偏移量无效，或者在写入数据时遇到了错误。`nn`部分是十六进制编码的`errno`值。
 
 '``'
 
+
 :   An empty reply indicates the `object` string was not recognized by the stub, or that the object does not support writing.
 
+> 空白的回复表明存根未能识别对象字符串，或者该对象不支持写入。
+
+
 Here are the specific requests of this form defined so far. All the '`qXfer:object:write:…`' requests use the same reply formats, listed above.
+
+> 以下是迄今为止定义的此表单的具体请求。所有“qXfer:object:write：…”请求都使用上述列出的相同回复格式。
 
 '`qXfer:siginfo:write::offset:data…`'
 
@@ -1335,13 +1506,22 @@ This packet is not probed by default; the remote stub must request it, by supply
 
 '`qXfer:object:operation:…`'
 
+
 Requests of this form may be added in the future. When a stub does not recognize the `object` keyword, the stub must respond with an empty packet.
+
+> 未来可能会加入这种形式的请求。当存根不识别`object`关键字时，存根必须回复一个空数据包。
 
 '`qAttached:pid`'
 
+
 Return an indication of whether the remote server attached to an existing process or created a new process. When the multiprocess protocol extensions are supported (see [multiprocess extensions](#multiprocess-extensions)), `pid`'.
 
+> 返回一个指示，表明远程服务器是连接到现有进程，还是创建了一个新的进程。当支持多进程协议扩展(参见[多进程扩展])时，`pid`。
+
+
 This query is used, for example, to know whether the remote process should be detached or killed when a [GDB] session is ended with the `quit` command.
+
+> 这个查询可以用来知道当使用`quit`命令结束[GDB]会话时，远程进程是应该被分离还是杀死。
 
 Reply:
 
@@ -1401,7 +1581,10 @@ Reply:
 
 '`Qbtrace-conf:bts:size=value`'
 
+
 Set the requested ring buffer size for new threads that use the btrace recording method in bts format.
+
+> 设置使用bts格式的btrace记录方法的新线程所请求的环形缓冲区大小。
 
 Reply:
 
@@ -1415,7 +1598,10 @@ Reply:
 
 '`Qbtrace-conf:pt:size=value`'
 
+
 Set the requested ring buffer size for new threads that use the btrace recording method in pt format.
+
+> 设置新线程使用btrace记录方法以pt格式请求的环形缓冲区大小。
 
 Reply:
 
@@ -1435,7 +1621,10 @@ Reply:
 
 ### [(22)](#DOCF22)
 
+
 The '`qP`' packet has no arguments, but some existing stubs (e.g. RedBoot) are known to not check for the end of the packet.
+
+> 'qP'包没有参数，但是已知一些现有的存根（例如RedBoot）不检查包的结束。
 :::
 
 ---

@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 01:46:18
+...
+---
 description: qXfer read (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -7,4 +10,7 @@ lang: en
 resource-type: document
 title: qXfer read (Debugging with GDB)
 ---
+
 The node you are looking for is at [qXfer read](General-Query-Packets.html#qXfer-read).
+
+> 你正在寻找的节点位于[qXfer read](General-Query-Packets.html#qXfer-read)。

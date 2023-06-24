@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 02:16:17
+...
+---
 description: Sample Init File (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Previous: [Conditional Init Constructs](Conditional-Init-Constructs.html#Conditi
 
 #### 33.3.3 Sample Init File
 
+
 Here is an example of an `inputrc` file. This illustrates key binding, variable assignment, and conditional syntax.
+
+> 这里是一个`inputrc`文件的示例。这个示例展示了按键绑定、变量赋值和条件语法。
 
 ::: example
 

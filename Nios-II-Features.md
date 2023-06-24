@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 00:32:40
+...
+---
 description: Nios II Features (Debugging with GDB)
 distribution: global
 Generator: makeinfo

@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 03:44:31
+...
+---
 description: S/390 and System z Features (Debugging with GDB)
 distribution: global
 Generator: makeinfo

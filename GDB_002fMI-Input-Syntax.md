@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 22:01:01
+...
+---
 description: GDB/MI Input Syntax (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -25,7 +28,10 @@ Next: [GDB/MI Output Syntax](GDB_002fMI-Output-Syntax.html#GDB_002fMI-Output-Syn
 
 `mi-command →`
 
+
 :   `[ token ] "-" operation ( " " option )* [` \" \--\" `]` ( \" \" `parameter`
+
+> [令牌] "-" 操作（" " 选项）* [`"--"`]（" " 参数）
 
 `token →`
 
@@ -45,7 +51,10 @@ Next: [GDB/MI Output Syntax](GDB_002fMI-Output-Syntax.html#GDB_002fMI-Output-Syn
 
 `non-blank-sequence →`
 
+
 :   *anything, provided it doesn't contain special characters such as \"-\", `nl`, \"\"\" and of course \" \"*
+
+> 任何东西，只要不包含特殊字符，如"-"、"nl"、""""和" "即可。
 
 `c-string →`
 

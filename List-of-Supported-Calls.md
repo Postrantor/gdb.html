@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 23:53:12
+...
+---
 description: List of Supported Calls (Debugging with GDB)
 distribution: global
 Generator: makeinfo

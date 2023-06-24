@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 20:52:12
+...
+---
 description: Errno Values (Debugging with GDB)
 distribution: global
 Generator: makeinfo

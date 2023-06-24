@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 02:41:35
+...
+---
 description: Set Catchpoints (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [Delete Breaks](Delete-Breaks.html#Delete-Breaks)]
 
 #### 5.1.3 Setting Catchpoints
 
+
 You can use *catchpoints* to cause the debugger to stop for certain kinds of program events, such as C++ exceptions or the loading of a shared library. Use the `catch` command to set a catchpoint.
+
+> 你可以使用捕获点来使调试器停止某些类型的程序事件，比如C++异常或共享库的加载。使用`catch`命令来设置捕获点。
 
 `catch event`
 
@@ -300,7 +306,10 @@ When a signal is caught by a catchpoint, the signal's `stop` and `print` setting
 
 
 
+
 Set a catchpoint that is enabled only for one stop. The catchpoint is automatically deleted after the first time the event is caught.
+
+> 设置一个仅在一次停止时启用的捕获点。捕获事件的第一次后，捕获点将自动删除。
 
 Use the `info break` command to list the current catchpoints.
 

@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 04:10:30
+...
+---
 description: Tracepoint Packets (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,7 +18,10 @@ Next: [Host I/O Packets](Host-I_002fO-Packets.html#Host-I_002fO-Packets)]
 
 ### E.6 Tracepoint Packets
 
+
 Here we describe the packets [GDB] uses to implement tracepoints (see [Tracepoints](Tracepoints.html#Tracepoints)).
+
+> 在这里，我们描述[GDB]用来实现跟踪点（请参见[跟踪点](Tracepoints.html#Tracepoints)）的数据包。
 
 '`QTDP:n:addr:ena:step:pass[:Fflen][:Xlen,bytes][-]`'
 
@@ -41,7 +47,10 @@ Replies:
 
 '`QTDP:-n:addr:[S]action…[-]`'
 
+
 :   Define actions to be taken when a tracepoint is hit. The `n`' packets will follow, specifying more actions for this tracepoint.
+
+> 当跟踪点被命中时，定义所要采取的行动。 `n` 个数据包将随后指定此跟踪点的更多行动。
 
 ```
 In the series of action packets for a given tracepoint, at most one can have an '`S`', then all the packets in the series specify ordinary tracepoint actions.
@@ -133,7 +142,10 @@ A successful reply from the stub indicates that the stub has found the requested
 
 '`QTFrame:outside:start:end`'
 
+
 :   Like '`QTFrame:range:start:end`', but select the first frame *outside* the given range of addresses (exclusive).
+
+> 像'`QTFrame:range:start:end`'，但是选择给定地址范围（不包括）之外的第一帧。
 
 '`qTMinFTPILen`'
 
@@ -404,7 +416,10 @@ Return up to `len`. The trace buffer is treated as if it were a contiguous colle
 
 '`QTBuffer:circular:value`'
 
+
 :   This packet directs the target to use a circular trace buffer if `value` is 1, or a linear buffer if the value is 0.
+
+> 如果`值`为1，此数据包指示目标使用圆形跟踪缓冲区；如果值为0，则使用线性缓冲区。
 
 '`QTBuffer:size:size`'
 
@@ -424,9 +439,15 @@ This packet adds optional textual notes to the trace run. Allowable types includ
 
 #### E.6.1 Relocate instruction reply packet
 
+
 When installing fast tracepoints in memory, the target may need to relocate the instruction currently at the tracepoint address to a different address in memory. For most instructions, a simple copy is enough, but, for example, call instructions that implicitly push the return address on the stack, and relative branches or other PC-relative instructions require offset adjustment, so that the effect of executing the instruction at a different address is the same as if it had executed in the original location.
 
+> 在内存中安装快速跟踪点时，目标可能需要将当前跟踪点地址处的指令重新定位到内存中的不同地址。对于大多数指令，只需要简单的复制即可，但是，例如隐式将返回地址压入堆栈的调用指令，以及相对跳转或其他PC相对指令，需要调整偏移量，以便在不同地址处执行指令的效果与在原始位置执行相同。
+
+
 In response to several of the tracepoint packets, the target may also respond with a number of intermediate '`qRelocInsn`' packets. The format of the request is:
+
+> 在回应一些tracepoint数据包的情况下，目标也可以响应一些中间的“qRelocInsn”数据包。请求的格式是：
 
 '`qRelocInsn:from;to`'
 
@@ -436,11 +457,17 @@ Replies:
 
 '`qRelocInsn:adjusted_size`'
 
+
 :   Informs the stub the relocation is complete. The `adjusted_size` is the length in bytes of resulting relocated instruction sequence.
+
+> 告知存根重定位已完成。`adjusted_size`是重定位指令序列的字节长度。
 
 '`E NN`'
 
+
 :   A badly formed request was detected, or an error was encountered while relocating the instruction.
+
+> 检测到错误格式的请求，或在重定位指令时遇到错误。
 
 ---
 

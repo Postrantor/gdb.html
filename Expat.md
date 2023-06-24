@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 20:58:01
+...
+---
 description: Expat (Debugging with GDB)
 distribution: global
 Generator: makeinfo

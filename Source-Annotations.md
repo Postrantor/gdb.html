@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 03:01:48
+...
+---
 description: Source Annotations (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -25,4 +28,7 @@ The following annotation is used instead of displaying source code:
 
 :::
 
+
 where `filename`' followed by one or more lowercase hex digits (note that this does not depend on the language).
+
+> 在`文件名`后跟一个或多个小写十六进制数字（注意，这与语言无关）。

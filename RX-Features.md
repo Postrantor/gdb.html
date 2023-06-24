@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 02:16:09
+...
+---
 description: RX Features (Debugging with GDB)
 distribution: global
 Generator: makeinfo

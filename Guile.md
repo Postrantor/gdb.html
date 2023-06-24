@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 23:05:23
+...
+---
 description: Guile (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -22,7 +25,10 @@ You can extend [GDB].
 • [Guile Introduction](Guile-Introduction.html#Guile-Introduction)
 • [Guile Commands](Guile-Commands.html#Guile-Commands)
 • [Guile API](Guile-API.html#Guile-API) from Guile
+
 • [Guile Auto-loading](Guile-Auto_002dloading.html#Guile-Auto_002dloading):        Automatically loading Guile code
+
+> • [Guile自动加载](Guile-Auto_002dloading.html#Guile-Auto_002dloading):        自动加载Guile代码
 • [Guile Modules](Guile-Modules.html#Guile-Modules)
 
 ---

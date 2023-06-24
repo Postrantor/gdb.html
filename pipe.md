@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 01:05:42
+...
+---
 description: pipe (Debugging with GDB)
 distribution: global
 Generator: makeinfo

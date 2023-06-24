@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 23:03:54
+...
+---
 description: Guile Pretty Printing API (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,11 +18,20 @@ Next: [Selecting Guile Pretty-Printers](Selecting-Guile-Pretty_002dPrinters.html
 
 #### 23.4.3.8 Guile Pretty Printing API
 
+
 An example output is provided (see [Pretty Printing](Pretty-Printing.html#Pretty-Printing)).
+
+> 一个示例输出已提供（参见[漂亮的打印](Pretty-Printing.html#Pretty-Printing))。
+
 
 A pretty-printer is represented by an object of type \<gdb:pretty-printer\>. Pretty-printer objects are created with `make-pretty-printer`.
 
+> 一个漂亮的打印机由\<gdb:pretty-printer\>类型的对象表示。可以使用`make-pretty-printer`来创建Pretty-printer对象。
+
+
 The following pretty-printer-related procedures are provided by the `(gdb)` module:
+
+> `(gdb)` 模块提供以下与格式化程序相关的程序：
 
 Scheme Procedure: **make-pretty-printer** *name lookup-function*
 
@@ -35,7 +47,10 @@ Scheme Procedure: **make-pretty-printer** *name lookup-function*
 
 Scheme Procedure: **pretty-printer?** *object*
 
+
 :   Return `#t` if `object` is a `<gdb:pretty-printer>` object. Otherwise return `#f`.
+
+> 如果对象是<gdb:pretty-printer>对象，则返回#t，否则返回#f。
 
 ```
 <!-- -->
@@ -51,7 +66,10 @@ Scheme Procedure: **pretty-printer-enabled?** *pretty-printer*
 
 Scheme Procedure: **set-pretty-printer-enabled!** *pretty-printer flag*
 
+
 :   Set the enabled flag of `pretty-printer`. The value returned is unspecified.
+
+> 设置pretty-printer的启用标志。返回的值不确定。
 
 ```
 <!-- -->
@@ -67,13 +85,19 @@ Scheme Procedure: **pretty-printers**
 
 Scheme Procedure: **set-pretty-printers!** *pretty-printers*
 
+
 :   Set the list of global pretty-printers to `pretty-printers`. The value returned is unspecified.
+
+> 将全局可美化打印机列表设置为'pretty-printers'，返回的值未指定。
 
 ```
 <!-- -->
 ```
 
+
 Scheme Procedure: **make-pretty-printer-worker** *display-hint to-string children*
+
+> 方案程序：**make-pretty-printer-worker** *显示提示to-string子元素*
 
 :   Return an object of type `<gdb:pretty-printer-worker>`.
 
@@ -127,11 +151,17 @@ This function takes three parameters:
     Children may be hidden from display based on the value of '`set print max-depth`' (see [Print Settings](Print-Settings.html#Print-Settings)).
 ```
 
+
 [GDB] provides a function which can be used to look up the default pretty-printer for a `<gdb:value>`:
+
+> GDB提供了一个函数，可用于查找<gdb:value>的默认美化打印机：
 
 Scheme Procedure: **default-visualizer** *value*
 
+
 :   This function takes a `<gdb:value>` object as an argument. If a pretty-printer for this value exists, then it is returned. If no such printer exists, then this returns `#f`.
+
+> 这个函数接受一个`<gdb:value>`对象作为参数。如果这个值有一个漂亮的打印机，那么它就会被返回。如果没有这样的打印机，那么它会返回`#f`。
 
 ---
 

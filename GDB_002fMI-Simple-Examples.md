@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 22:09:32
+...
+---
 description: GDB/MI Simple Examples (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,13 +18,22 @@ Next: [GDB/MI Command Description Format](GDB_002fMI-Command-Description-Format.
 
 ### 27.6 Simple Examples of [GDB/MI]
 
+
 This subsection presents several simple examples of interaction using the [GDB/MI].
+
+> 此子节提供了几个使用[GDB/MI]的简单交互示例。
+
 
 Note the line breaks shown in the examples are here only for readability, they don't appear in the real output.
 
+> 在示例中显示的换行仅用于可读性，实际输出中不会出现。
+
 #### Setting a Breakpoint
 
+
 Setting a breakpoint generates synchronous output which contains detailed information of the breakpoint.
+
+> 设置断点会生成同步输出，其中包含有关断点的详细信息。
 
 ::: smallexample
 
@@ -38,7 +50,10 @@ Setting a breakpoint generates synchronous output which contains detailed inform
 
 #### Program Execution
 
+
 Program execution generates asynchronous records and MI gives the reason that execution stopped.
+
+> 程序执行生成异步记录，MI给出了执行停止的原因。
 
 ::: smallexample
 

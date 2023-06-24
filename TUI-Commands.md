@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 04:14:19
+...
+---
 description: TUI Commands (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,9 +18,15 @@ Next: [TUI Configuration](TUI-Configuration.html#TUI-Configuration)]
 
 ### 25.5 TUI-specific Commands
 
+
 The TUI has specific commands to control the text windows. These commands are always available, even when [GDB] is in the standard mode, most of these commands will automatically switch to the TUI mode.
 
+> TUI拥有特定的命令来控制文本窗口。即使[GDB]处于标准模式，这些命令也始终可用，其中大多数命令将自动切换到TUI模式。
+
+
 Note that if [GDB] Interface](GDB_002fMI.html#GDB_002fMI)), most of these commands will fail with an error, because it would not be possible or desirable to enable curses window management.
+
+> 注意，如果使用[GDB]接口（GDB / MI），大多数这些命令将会失败，因为不可能或不可取地启用curses窗口管理。
 
 `tui enable`
 
@@ -90,7 +99,10 @@ This will result in side-by-side source and assembly windows; with the status an
 `tui layout name`
 `layout name`
 
+
 :   Changes which TUI windows are displayed. The `name` parameter controls which layout is shown. It can be either one of the built-in layout names, or the name of a layout defined by the user using `tui new-layout`.
+
+> 更改要显示的TUI窗口。`name`参数控制要显示哪种布局。它可以是内置布局名称之一，也可以是使用`tui new-layout`定义的布局的名称。
 
 ```
 
@@ -125,7 +137,10 @@ The built-in layouts are as follows:
 `tui focus name`
 `focus name`
 
+
 :   Changes which TUI window is currently active for scrolling. The `name` parameter can be any of the following:
+
+> 更改当前活动的TUI窗口以进行滚动。`name`参数可以是以下任何一个：
 
 ```
 
@@ -213,7 +228,10 @@ Update the source window and the current execution point.
 `winheight name +count`
 `winheight name -count`
 
+
 :   Change the height of the window `name` (see [info win](#info_005fwin_005fcommand)).
+
+> 更改窗口`name`的高度（参见[info win](#info_005fwin_005fcommand)）
 
 ```
 
@@ -226,7 +244,10 @@ The set of currently visible windows must always fill the terminal, and so, it i
 `winwidth name +count`
 `winwidth name -count`
 
+
 :   Change the width of the window `name` parameter can be the name of any currently visible window. The names of the currently visible windows can be discovered using `info win` (see [info win](#info_005fwin_005fcommand)).
+
+> 改变窗口`name`参数的宽度，`name`参数可以是当前可见窗口的任何名称。当前可见窗口的名称可以使用`info win`发现（请参阅[info win](#info_005fwin_005fcommand)）。
 
 ```
 

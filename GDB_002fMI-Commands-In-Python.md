@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 21:52:13
+...
+---
 description: GDB/MI Commands In Python (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,11 +18,17 @@ Next: [Parameters In Python](Parameters-In-Python.html#Parameters-In-Python)]
 
 #### 23.3.2.21 [GDB/MI]
 
+
 It is possible to add [GDB/MI] command is implemented using an instance of the `gdb.MICommand` class, most commonly using a subclass.
+
+> 可以使用`gdb.MICommand`类的实例来添加[GDB/MI]命令，通常使用子类来实现。
 
 Function: **MICommand.__init__** *(name)*
 
+
 :   The object initializer for `MICommand` registers the new command with [GDB]. This initializer is normally invoked from the subclass' own `__init__` method.
+
+> `MICommand` 的对象初始化程序会将新命令注册到[GDB]中。通常，这个初始化程序会从子类的`__init__`方法中调用。
 
 ```
 `name` command previously defined in Python is allowed, the previous command will be replaced with the new command.
@@ -53,7 +62,10 @@ An instance of `MICommand` has the following attributes:
 
 Variable: **MICommand.name**
 
+
 :   A string, the name of this [GDB/MI] command, as was passed to the `__init__` method. This attribute is read-only.
+
+> 这个属性是只读的，它是一个字符串，作为传递给`__init__`方法的GDB/MI命令的名称。
 
 ```
 <!-- -->
@@ -61,7 +73,10 @@ Variable: **MICommand.name**
 
 Variable: **MICommand.installed**
 
+
 :   A boolean value indicating if this command is installed ready for a user to call from the command line. Commands are automatically installed when they are instantiated, after which this attribute will be `True`.
+
+> 一个布尔值，指示此命令是否已安装，准备供用户从命令行调用。命令实例化后会自动安装，之后此属性将为“True”。
 
 ```
 If later, a new command is created with the same name, then the original command will become uninstalled, and this attribute will be `False`.
@@ -69,7 +84,10 @@ If later, a new command is created with the same name, then the original command
 This attribute is read-write, setting this attribute to `False` will uninstall the command, removing it from the set of available commands. Setting this attribute to `True` will install the command for use. If there is already a Python command with this name installed, the currently installed command will be uninstalled, and this command installed in its stead.
 ```
 
+
 The following code snippet shows how some trivial MI commands can be implemented in Python:
+
+> 以下代码片段展示了如何在Python中实现一些简单的MI命令：
 
 ::: smallexample
 
@@ -97,11 +115,20 @@ MIEcho("-echo-string", "string")
 
 :::
 
+
 The last three lines instantiate the class three times, creating three new [GDB/MI].
+
+> 最后三行实例化该类三次，创建三个新的[GDB/MI]。
+
 
 Depending on how the Python code is read into [GDB], you may need to import the `gdb` module explicitly.
 
+> 根据Python代码如何被读入[GDB]，您可能需要显式导入`gdb`模块。
+
+
 The following example shows a [GDB] session in which the above commands have been added:
+
+> 以下示例展示了添加了上述命令的GDB会话：
 
 ::: smallexample
 
@@ -120,11 +147,17 @@ The following example shows a [GDB] session in which the above commands have bee
 
 :::
 
+
 Conversely, it is possible to execute [GDB/MI] commands from Python, with the results being a Python object and not a specially-formatted string. This is done with the `gdb.execute_mi` function.
+
+> 反过来，可以使用`gdb.execute_mi`函数从Python执行[GDB / MI]命令，结果是Python对象而不是特殊格式的字符串。
 
 ...)*
 
+
 :   Invoke a [GDB/MI], are passed to the command. Each argument must also be a string.
+
+> 调用[GDB / MI]，参数必须是字符串。
 
 ```
 This function returns a Python dictionary whose contents reflect the corresponding [GDB/MI] command's output. Refer to the documentation for these commands for details. Lists are represented as Python lists, and tuples are represented as Python dictionaries.

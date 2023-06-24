@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 22:05:40
+...
+---
 description: GDB/MI Program Context (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -89,7 +92,10 @@ The corresponding [GDB]'.
 
 :::
 
+
 Add directories `pathdir`' option, the search path is first reset and then addition occurs as normal. Multiple directories may be specified, separated by blanks. Specifying multiple directories in a single command results in the directories added to the beginning of the search path in the same order they were presented in the command. If blanks are needed as part of a directory name, double-quotes should be used around the name. In the command output, the path will show up separated by the system directory-separator character. The directory-separator character must not be used in any directory name. If no directories are specified, the current search path is displayed.
+
+> 添加目录`pathdir`选项，首先重置搜索路径，然后按正常方式进行添加。可以指定多个目录，用空格分隔。在单个命令中指定多个目录将会按照命令中提供的顺序，将这些目录添加到搜索路径的开头。如果需要在目录名称中使用空格，应该在名称周围使用双引号。在命令输出中，路径将使用系统的目录分隔符分隔。不能在任何目录名称中使用目录分隔符。如果没有指定目录，则会显示当前的搜索路径。
 
 #### [GDB]
 
@@ -129,7 +135,10 @@ The corresponding [GDB]'.
 
 :::
 
+
 Add directories `pathdir`' option, the search path is first reset and then addition occurs as normal. Multiple directories may be specified, separated by blanks. Specifying multiple directories in a single command results in the directories added to the beginning of the search path in the same order they were presented in the command. If blanks are needed as part of a directory name, double-quotes should be used around the name. In the command output, the path will show up separated by the system directory-separator character. The directory-separator character must not be used in any directory name. If no directories are specified, the current path is displayed.
+
+> 添加目录`pathdir`选项，搜索路径会先重置，然后按正常方式进行添加。可以指定多个目录，用空格分隔。在单个命令中指定多个目录会以命令中提供的顺序添加到搜索路径的开头。如果需要在目录名称中使用空格，应该在名称周围使用双引号。 在命令输出中，路径会以系统目录分隔符分隔显示。不能在任何目录名称中使用目录分隔符。如果没有指定目录，则会显示当前路径。
 
 #### [GDB]
 

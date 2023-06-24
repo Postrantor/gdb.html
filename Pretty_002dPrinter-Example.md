@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 01:10:51
+...
+---
 description: Pretty-Printer Example (Debugging with GDB)
 distribution: global
 Generator: makeinfo

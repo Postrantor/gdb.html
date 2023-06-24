@@ -1,0 +1,20 @@
+---
+tip: translate by openai@2023-06-24 03:44:32
+...
+---
+description: Tail Call Frames (Debugging with GDB)
+distribution: global
+Generator: makeinfo
+keywords: Tail Call Frames (Debugging with GDB)
+lang: en
+resource-type: document
+title: Tail Call Frames (Debugging with GDB)
+---
+::: header
+Previous: [Inline Functions](Inline-Functions.html#Inline-Functions)]
+:::
+
+---
+
+### 11.2 Tail Call Frames
+

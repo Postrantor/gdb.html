@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-23 19:00:21
+...
+---
 description: close (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -27,7 +30,10 @@ Request:
 
 Return value:
 
+
 :   `close` returns zero on success, or -1 if an error occurred.
+
+> 关闭成功时会返回 0，如果发生错误则返回 -1。
 
 Errors:
 

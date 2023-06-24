@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 00:13:03
+...
+---
 description: Memory Map Format (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,11 +18,20 @@ Next: [Thread List Format](Thread-List-Format.html#Thread-List-Format)]
 
 ### E.16 Memory Map Format
 
+
 To be able to write into flash memory, [GDB] needs to obtain a memory map from the target. This section describes the format of the memory map.
+
+> 为了能够写入闪存，[GDB]需要从目标获取内存映射。本节描述了内存映射的格式。
+
 
 The memory map is obtained using the '`qXfer:memory-map:read`' (see [qXfer memory map read](General-Query-Packets.html#qXfer-memory-map-read)) packet and is an XML document that lists memory regions.
 
+> 获取内存映射的方法是使用'qXfer:memory-map:read'（参见[qXfer内存映射读取]（General-Query-Packets.html#qXfer-memory-map-read））数据包，它是一个XML文档，列出了内存区域。
+
+
 [GDB] must be linked with the Expat library to support XML memory maps. See [Expat](Requirements.html#Expat).
+
+> GDB必须与Expat库链接，以支持XML内存映射。请参阅[Expat](Requirements.html#Expat)。
 
 The top-level structure of the document is shown below:
 
@@ -69,7 +81,10 @@ Each region can be either:
 
   :::
 
+
 Regions must not overlap. [GDB]' packets to write to addresses in such ranges.
+
+> 区域不得重叠。[GDB] 包必须写入这些范围内的地址。
 
 The formal DTD for memory map format is given below:
 
