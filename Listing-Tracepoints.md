@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 10:24:17
+...
+---
 description: Listing Tracepoints (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -17,9 +20,15 @@ Next: [Listing Static Tracepoint Markers](Listing-Static-Tracepoint-Markers.html
 
 `info tracepoints [num…]`
 
+
 Display information about the tracepoint `num`. If you don't specify a tracepoint number, displays information about all the tracepoints defined so far. The format is similar to that used for `info breakpoints`; in fact, `info tracepoints` is the same command, simply restricting itself to tracepoints.
 
+> 顯示有關斷點`num`的信息。如果您沒有指定斷點號，則會顯示有關目前定義的所有斷點的信息。格式類似於`info breakpoints`; 事實上，`info tracepoints`是相同的命令，只是僅限斷點。
+
+
 A tracepoint's listing may include additional information specific to tracing:
+
+> 跟踪点的列表可能包括与跟踪相关的附加信息。
 
 - its passcount as given by the `passcount n` command
 - the state about installed on target of each location

@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 11:01:54
+...
+---
 description: Tail Call Frames (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -15,11 +18,20 @@ Previous: [Inline Functions](Inline-Functions.html#Inline-Functions)]
 
 ### 11.2 Tail Call Frames
 
+
 Function `B` can call function `C` in its very last statement. In unoptimized compilation the call of `C` is immediately followed by return instruction at the end of `B` code. Optimizing compiler may replace the call and return in function `B` into one jump to function `C` instead. Such use of a jump instruction is called *tail call*.
+
+> 函数B的最后一条语句可以调用函数C。在未优化的编译中，调用C之后立即返回函数B的代码结尾。优化编译器可能会将函数B中的调用和返回替换为跳转到函数C。这种使用跳转指令的方法称为尾调用。
+
 
 During execution of function `C`, there will be no indication in the function call stack frames that it was tail-called from `B`. If function `A` regularly calls function `B` which tail-calls function `C`, then [GDB] can determine that `C` was tail-called from `B`, and it will then create fictitious call frame for that, with the return address set up as if `B` called `C` normally.
 
+> 在执行函数C时，函数调用堆栈帧中不会有任何指示它是从B尾调用的。如果函数A定期调用函数B，而函数B又尾调用函数C，那么[GDB]可以确定C是从B尾调用的，它将为此创建虚拟的调用帧，并将返回地址设置为B正常调用C。
+
+
 This functionality is currently supported only by DWARF 2 debugging format and the compiler has to produce '`DW_TAG_call_site` during compilation, to get this information.
+
+> 此功能目前仅由DWARF 2调试格式支持，编译器必须在编译时产生'DW_TAG_call_site'才能获取此信息。
 
 [info frame] output:
 
@@ -39,17 +51,29 @@ Stack level 1, frame at 0x7fffffffda30:
 
 :::
 
+
 The detection of all the possible code path executions can find them ambiguous. There is no execution history stored (possible [Reverse Execution](Reverse-Execution.html#Reverse-Execution) is never used for this purpose) and the last known caller could have reached the known callee by multiple different jump sequences. In such case [GDB] still tries to show at least all the unambiguous top tail callers and all the unambiguous bottom tail calees, if any.
+
+> 检测所有可能的代码路径执行可能会变得模糊。没有存储执行历史（可能不会使用[反向执行](Reverse-Execution.html#Reverse-Execution)来完成此目的），最后已知的调用者可能通过多种不同的跳转序列到达已知的被调用者。在这种情况下，[GDB]仍尝试显示至少所有不模糊的顶部尾调用者和所有不模糊的底部尾调用者（如果有的话）。
 
 `set debug entry-values`
 
+
 When set to on, enables printing of analysis messages for both frame argument values at function entry and tail calls. It will show all the possible valid tail calls code paths it has considered. It will also print the intersection of them with the final unambiguous (possibly partial or even empty) code path result.
+
+> 当设置为“开启”时，将启用在函数入口和尾调用处打印分析消息的功能。它将显示所有可能的有效尾调用代码路径。它还将打印与最终清晰（可能是部分或甚至是空的）代码路径结果的交集。
 
 `show debug entry-values`
 
+
 Show the current state of analysis messages printing for both frame argument values at function entry and tail calls.
 
+> 显示函数入口和尾调用时对两个框架参数值的分析消息打印的当前状态。
+
+
 The analysis messages for tail calls can for example show why the virtual tail call frame for function `c` has not been recognized (due to the indirect reference by variable `x`):
+
+> 分析尾调用的消息可以显示为什么函数`c`的虚拟尾调用帧没有被识别（由变量`x`间接引用）：
 
 ::: smallexample
 
@@ -97,13 +121,22 @@ tailcall: reduced: 0x4004d2(a) |
 
 :::
 
+
 Frames #0 and #2 are real, #1 is a virtual tail call frame. The code can have possible execution paths `main→a→b→c→d→f` or `main→a→b→e→f`, [GDB] cannot find which one from the inferior state.
+
+> 帧#0和#2是真实的，#1是虚拟尾调用帧。该代码可能有可能的执行路径`main→a→b→c→d→f`或`main→a→b→e→f`，[GDB]无法从下级状态中找出哪一条。
 
 `initial:` state shows some random possible calling sequence [GDB] has found. It then finds another possible calling sequence - that one is prefixed by `compare:`. The non-ambiguous intersection of these two is printed as the `reduced:` calling sequence. That one could have many further `compare:` and `reduced:` statements as long as there remain any non-ambiguous sequence entries.
 
+
 For the frame of function `b` in both cases there are different possible `$pc` values (`0x4004cc` or `0x4004ce`), therefore this frame is also ambiguous. The only non-ambiguous frame is the one for function `a`, therefore this one is displayed to the user while the ambiguous frames are omitted.
 
+> 对于函数`b`的帧，两种情况下都有不同的可能的`$pc`值（`0x4004cc`或`0x4004ce`），因此这个帧也是不明确的。唯一不模糊的帧是函数`a`的帧，因此将其显示给用户，而模糊的帧则被省略。
+
+
 There can be also reasons why printing of frame argument values at function entry may fail:
+
+> 也可能有原因导致在函数入口处打印框架参数值失败：
 
 ::: smallexample
 

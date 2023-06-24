@@ -1,4 +1,7 @@
 ---
+tip: translate by openai@2023-06-24 11:00:13
+...
+---
 description: system (Debugging with GDB)
 distribution: global
 Generator: makeinfo
@@ -39,9 +42,15 @@ Errors:
 :   The call was interrupted by the user.
 ```
 
+
 [GDB] takes over the full task of calling the necessary host calls to perform the `system` call. The return value of `system` on the host is simplified before it's returned to the target. Any termination signal information from the child process is discarded, and the return value consists entirely of the exit status of the called command.
 
+> GDB负责调用执行`system`调用所需的所有必要的主机调用。主机上的`system`的返回值在返回到目标之前被简化。来自子进程的任何终止信号信息都被丢弃，返回值完全由调用的命令的退出状态组成。
+
+
 Due to security concerns, the `system` call is by default refused by [GDB]. The user has to allow this call explicitly with the `set remote system-call-allowed 1` command.
+
+> 由于安全原因，GDB默认拒绝`system`调用。用户必须使用`set remote system-call-allowed 1`命令明确允许此调用。
 
 `set remote system-call-allowed`
 
